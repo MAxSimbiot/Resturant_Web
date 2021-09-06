@@ -1,0 +1,24 @@
+
+X
+java:S1854";Remove this useless assignment to local variable "clients".(ú»Ï8Ûä¶»»/
+
+java:S1186:"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(üª¼í8Šö¥ª»/
+\
+java:S2057"?Add a "static final long serialVersionUID" field to this class.(Ãé×ë8ÍÜœª»/
+r
+java:S1989"PHandle the following exception that could be thrown by "getWriter": IOException.(¸„óÖÿÿÿÿÿ8Ø„ ª»/
+N
+java:S1128",Remove this unused import 'dao.AbstractDAO'.(ø±Åıÿÿÿÿ8˜íåª»/
+B
+java:S1166"%Either log or rethrow this exception.(¨·‡ù8ŒĞòª»/
+E
+java:S1148 "#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ŒĞòª»/
+B
+java:S1166*"%Either log or rethrow this exception.(¨·‡ù8ôÀ©»»/
+E
+java:S1148+"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ôÀ©»»/
+d
+java:S1192#"GDefine a constant instead of duplicating this literal "client" 4 times.(Õ”Ì¡8¿½É»»/
+I
+java:S1481",Remove this unused "clients" local variable.(æä•‘8Ûä¶»»/
+X	java:S1251"<This block of commented-out lines of code should be removed.(Èëôé8÷Ó»»/

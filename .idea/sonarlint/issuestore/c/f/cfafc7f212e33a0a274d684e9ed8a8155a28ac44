@@ -1,0 +1,52 @@
+
+b	java:S1125"FDefine and throw a dedicated exception instead of using a generic one.(¢¦ÉĞ8É¨Ğ»/
+K
+java:S2208".Explicitly import the specific classes needed.(´İ…Å8æÁé©»/
+C
+java:S1170"!Make this final field static too.(šşŸ¡ùÿÿÿÿ8«çº»/
+C
+java:S1166ˆ"%Either log or rethrow this exception.(ÂÒ·ù8ÖÍø´»/
+}	java:S116"\Rename this field "INSERT_NEW_CLIENT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÛÎ”ùÿÿÿÿ8«çº»/
+h	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(­°¨ßüÿÿÿÿ8êÂû´»/
+F
+java:S1148‰"#Use a logger to log this exception.(Ö·÷şÿÿÿÿ8ÖÍø´»/
+„	java:S116"hRename this field "FIND_CLIENT_BY_LOGIN_PASSWORD" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ÆøÁ8«çº»/
+t	java:S109˜"RAssign this magic number 4 to a well-named constant, and use the constant instead.(…Òòıÿÿÿÿ8Ó¾Îº»/
+>
+java:S1170"!Make this final field static too.(Ô±ñí8«çº»/
+C
+java:S1170"!Make this final field static too.(éÛÎ”ùÿÿÿÿ8«çº»/
+o	java:S109"RAssign this magic number 2 to a well-named constant, and use the constant instead.(¾ÜÉ8¯˜üº»/
+i
+java:S2095C"GUse try-with-resources or close this "Statement" in a "finally" clause.(‡²€·ıÿÿÿÿ8Æ¥«»/
+o	java:S109¡"RAssign this magic number 5 to a well-named constant, and use the constant instead.(ç€İÀ8¯˜üº»/
+e
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(ãú•şÿÿÿÿ8È¼Æ»/
+t	java:S109—"RAssign this magic number 3 to a well-named constant, and use the constant instead.(‰Çó’üÿÿÿÿ8Ó¾Îº»/
+o	java:S109™"RAssign this magic number 5 to a well-named constant, and use the constant instead.(ä—Ù˜8Ó¾Îº»/
+o	java:S109™"RAssign this magic number 2 to a well-named constant, and use the constant instead.(ä—Ù˜8Ìˆ¥»»/
+P
+java:S2325”"-Make "initCreateStatement" a "static" method.(´òå¦úÿÿÿÿ8Ú‚óº»/
+o	java:S109–"RAssign this magic number 2 to a well-named constant, and use the constant instead.(¾ÜÉ8Ó¾Îº»/
+G
+java:S2325ª"$Make "initClient" a "static" method.(Û·ßÈùÿÿÿÿ8«Å¶«»/
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Òğ”‘øÿÿÿÿ
+s	java:S109."RAssign this magic number 2 to a well-named constant, and use the constant instead.( Å§Äıÿÿÿÿ8öÛ»/
+K
+java:S2325œ"-Make "initUpdateStatement" a "static" method.(®Íêõ8ÁŞõº»/
+t	java:S109Ÿ"RAssign this magic number 3 to a well-named constant, and use the constant instead.(‰Çó’üÿÿÿÿ8¯˜üº»/
+w	java:S116"[Rename this field "FIND_ALL_CLIENTS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô±ñí8«çº»/
+>
+java:S1170"!Make this final field static too.(–ÆøÁ8«çº»/
+c
+java:S1941U"FMove the declaration of "rowsUpdated" closer to the code that uses it.(®»¨ª8Ô »»/
+E
+java:S1148f"#Use a logger to log this exception.(Ö·÷şÿÿÿÿ8‰……»»/
+t	java:S109 "RAssign this magic number 4 to a well-named constant, and use the constant instead.(…Òòıÿÿÿÿ8¯˜üº»/
+b	java:S112j"FDefine and throw a dedicated exception instead of using a generic one.(Üò’†8‰……»»/
+g	java:S112K"FDefine and throw a dedicated exception instead of using a generic one.(¤ïØúÿÿÿÿ8«Å¶«»/
+z	java:S116"YRename this field "UPDATE_ACCOUNT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šşŸ¡ùÿÿÿÿ8«çº»/
+B
+java:S1166e"%Either log or rethrow this exception.(ÂÒ·ù8‰……»»/
+q
+java:S2095,"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(‘¸‹áşÿÿÿÿ8¤ì­«»/

@@ -1,0 +1,10 @@
+
+a	java:S112'"FDefine and throw a dedicated exception instead of using a generic one.(¯®8ùšè¹/
+\
+java:S1213"?Move this static variable to comply with Java Code Conventions.(ÕÓç¯8ùšè¹/
+g	java:S1122"FDefine and throw a dedicated exception instead of using a generic one.(øÅš„ùÿÿÿÿ8ùšè¹/
+V
+java:S2974"4Make this class "final" or add a public constructor.(·Ñıÿÿÿÿ8ùšè¹/
+b	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(øÃùŞ8îíÏ»/
+e
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(„Ü±åÿÿÿÿÿ8ùšè¹/

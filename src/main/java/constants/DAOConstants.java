@@ -1,6 +1,6 @@
-package dao;
+package constants;
 
-public class ConstantsDAO {
+public class DAOConstants {
 
     public static final String ID = "id";
     public static final String LOGIN = "login";

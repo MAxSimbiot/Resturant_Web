@@ -1,7 +1,7 @@
 package dao.Impl;
 
 import dao.ClientDAO;
-import dao.ConstantsDAO;
+import constants.DAOConstants;
 import dao.DBManager;
 import entity.Client;
 import entity.Role;
@@ -174,15 +174,15 @@ public class ClientDAOImpl implements ClientDAO {
 
     private Client initClient(ResultSet rs) throws SQLException {
         Client client = new Client();
-        client.setId(rs.getInt(ConstantsDAO.ID));
-        client.setLogin(rs.getString(ConstantsDAO.LOGIN));
-        client.setPassword(rs.getString(ConstantsDAO.PASSWORD));
-        client.setName(rs.getString(ConstantsDAO.NAME));
-        client.setPhone(rs.getString(ConstantsDAO.PHONE));
-        client.setRegDate(rs.getDate(ConstantsDAO.REG_DATE).toLocalDate());
-        client.setTotalSpent(rs.getInt(ConstantsDAO.TOTAL_SPENT));
+        client.setId(rs.getInt(DAOConstants.ID));
+        client.setLogin(rs.getString(DAOConstants.LOGIN));
+        client.setPassword(rs.getString(DAOConstants.PASSWORD));
+        client.setName(rs.getString(DAOConstants.NAME));
+        client.setPhone(rs.getString(DAOConstants.PHONE));
+        client.setRegDate(rs.getDate(DAOConstants.REG_DATE).toLocalDate());
+        client.setTotalSpent(rs.getInt(DAOConstants.TOTAL_SPENT));
 
-        int roleId = rs.getInt(ConstantsDAO.ROLE_ID);
+        int roleId = rs.getInt(DAOConstants.ROLE_ID);
         client.setRoleId(roleId);
         client.setRoleEntity(Role.getByid(roleId));
         return client;
