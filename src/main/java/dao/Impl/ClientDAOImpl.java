@@ -18,16 +18,15 @@ public class ClientDAOImpl implements ClientDAO {
 
     private static final Logger logger = LogManager.getLogger("ClientDAOImpl");
 
-
-    private final String FIND_CLIENT_BY_LOGIN_PASSWORD = "SELECT * FROM client " +
+    private static final String FIND_CLIENT_BY_LOGIN_PASSWORD = "SELECT * FROM client " +
             "WHERE login = ? " +
             "AND password = ?;";
-    private final String FIND_ALL_CLIENTS = "SELECT * FROM client;";
+    private static final String FIND_ALL_CLIENTS = "SELECT * FROM client;";
 
-    private final String INSERT_NEW_CLIENT = "INSERT INTO client(login,password,name,phone,role_id) " +
+    private static final String INSERT_NEW_CLIENT = "INSERT INTO client(login,password,name,phone,role_id) " +
             "VALUES (?,?,?,?,?);";
 
-    private final String UPDATE_ACCOUNT = "UPDATE client SET " +
+    private static final String UPDATE_ACCOUNT = "UPDATE client SET " +
             "login = ?, " +
             "password = ?, " +
             "name = ?, " +
@@ -35,7 +34,7 @@ public class ClientDAOImpl implements ClientDAO {
             "WHERE id = ?;";
 
     @Override
-    public Client getClientByLoginAndPassword(String login, String password) {
+    public Client getClientByLoginAndPassword(String login, String password) throws FailedDAOException {
         Connection connection = null;
         Client client = null;
         try {
@@ -43,7 +42,7 @@ public class ClientDAOImpl implements ClientDAO {
             client = executeGet(connection,login,password,client);
         } catch (SQLException ex) {
             logger.log(Level.ERROR, "Can`t get client by login password!", ex);
-            throw new RuntimeException("Can`t get client by login password!");
+            throw new FailedDAOException("Can`t get client by login password!");
         } finally {
             DBManager.getInstance().closeConnection(connection);
         }
@@ -60,7 +59,7 @@ public class ClientDAOImpl implements ClientDAO {
         } catch (SQLException ex) {
             DBManager.getInstance().closeConnection(connection);
             logger.log(Level.ERROR, "Can`t get all clients", ex);
-            throw new RuntimeException("Can`t get all clients");
+            throw new FailedDAOException("Can`t get all clients");
         } finally {
             DBManager.getInstance().closeConnection(connection);
         }
@@ -81,7 +80,7 @@ public class ClientDAOImpl implements ClientDAO {
         } catch (SQLException ex) {
             DBManager.getInstance().rollbackAndClose(connection);
             logger.log(Level.ERROR, "Can`t update client", ex);
-            throw new RuntimeException("Can`t update client");
+            throw new FailedDAOException("Can`t update client");
         }finally {
             DBManager.getInstance().commitAndClose(connection);
         }
@@ -101,7 +100,7 @@ public class ClientDAOImpl implements ClientDAO {
         } catch (SQLException ex) {
             DBManager.getInstance().rollbackAndClose(connection);
             logger.log(Level.ERROR, "Can`t add a client", ex);
-            throw new RuntimeException("Can`t add a client");
+            throw new FailedDAOException("Can`t add a client");
         } finally {
             DBManager.getInstance().commitAndClose(connection);
         }

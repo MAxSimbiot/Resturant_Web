@@ -1,0 +1,58 @@
+ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+    grid-gap: 16px;
+
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+img {
+    height: 350px;
+    width: 400px;
+    margin: 10px;
+}
+
+.productCard{
+    transform: scale(1);
+    transition: box-shadow 0.5s, transform 0.5s;
+    border-radius: 1vmin;
+    border-color: darkgray;
+    flex-grow: 1; /* [3] */
+    display: flex; /* [4] */
+    flex-direction: column;
+    font-size: 45px;
+    border: 0;
+    color: black;
+    letter-spacing: 5px;
+    margin-left: 30px;
+}
+
+.productCard h3 {
+    font-size: 25px;
+    font-family: 'Bebas Neue';
+    border: 0;
+    color: black;
+    letter-spacing: 3px;
+    margin-left: 45px;
+}
+
+.productCard h5 {
+    font-size: 18px;
+    font-family: 'Bebas Neue';
+    border: 0;
+    color: darkgray;
+    letter-spacing: 2px;
+    margin-left: 40px;
+}
+
+.productCard:hover {
+    transform: scale(1.025);
+    box-shadow: 0px 0px 6px 6px #f0f,
+    0px 0px 6px 6px #0ff;
+    transition: box-shadow 0.5s, transform 0.5s;
+}

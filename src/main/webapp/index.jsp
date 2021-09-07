@@ -1,10 +1,9 @@
+
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 <html>
 <body>
-<h2>Hello Eater!123</h2>
-
-<form action="MainServlet" method="post">
-    <button type="submit">goToError</button>
-    <input type="hidden" name="command" value="noCommand"/>
-</form>
+<c:redirect url="MainServlet?command=mainPage"/>
 </body>
 </html>

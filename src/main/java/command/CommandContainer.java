@@ -9,12 +9,13 @@ public class CommandContainer {
 
     static {
         commands.put("register",new RegisterCommand());
-        commands.put("errorCommand",new ErrorCommand());
+        commands.put("error",new ErrorCommand());
+        commands.put("mainPage",new MainPageCommand());
     }
 
     public static Command get(String commandName){
         if(commandName==null || !commands.containsKey(commandName)){
-            return commands.get("errorCommand");
+            return commands.get("error");
         }
         return commands.get(commandName);
     }

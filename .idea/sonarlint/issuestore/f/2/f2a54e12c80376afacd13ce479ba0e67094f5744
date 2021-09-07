@@ -1,10 +1,15 @@
 
-a	java:S112'"FDefine and throw a dedicated exception instead of using a generic one.(¯®8ùšè¹/
-\
-java:S1213"?Move this static variable to comply with Java Code Conventions.(ÕÓç¯8ùšè¹/
-g	java:S1122"FDefine and throw a dedicated exception instead of using a generic one.(øÅš„ùÿÿÿÿ8ùšè¹/
-V
-java:S2974"4Make this class "final" or add a public constructor.(·Ñıÿÿÿÿ8ùšè¹/
-b	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(øÃùŞ8îíÏ»/
+I
+java:S2444#",Synchronize this lazy initialization of 'ds'(Öù¹†8ßÃÎ»/
 e
 java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(„Ü±åÿÿÿÿÿ8ùšè¹/
+a	java:S1122"FDefine and throw a dedicated exception instead of using a generic one.(¯®8ùšè¹/
+S
+java:S2696#"6Make the enclosing method "static" or remove this set.(Öù¹†8Ïå’Î»/
+b	java:S112&"FDefine and throw a dedicated exception instead of using a generic one.(øÃùŞ8îíÏ»/
+a	java:S112>"FDefine and throw a dedicated exception instead of using a generic one.(ğŞÿ8ùšè¹/
+\
+java:S1213"?Move this static variable to comply with Java Code Conventions.(ÕÓç¯8ùšè¹/
+V
+java:S2974"4Make this class "final" or add a public constructor.(·Ñıÿÿÿÿ8¤–Î»/
+a	java:S112I"FDefine and throw a dedicated exception instead of using a generic one.(ğŞÿ8Í¦˜Î»/

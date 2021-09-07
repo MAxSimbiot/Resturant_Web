@@ -1,0 +1,39 @@
+html {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+footer {
+    opacity: 0.9;
+    padding-top: 60px;
+    margin-bottom: -60px;
+    background-image: radial-gradient(rgba(72, 61, 139, 1),rgba(255, 20, 147, 0.8));
+    min-height: 200px;
+}
+.footerContent{
+    text-align: center;
+
+
+}
+header{
+
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    background: radial-gradient(darkslateblue,deeppink);
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transition: background-color 2s ease-out;
+    -moz-transition: background-color 2s ease-out;
+    -o-transition: background-color 2s ease-out;
+    transition: background-color 2s ease-out;
+}
+
+a{
+    font-size: 38px;
+    font-family: 'Bebas Neue';
+    border: 0;
+    color: black;
+    letter-spacing: 5px;
+}

@@ -3,10 +3,13 @@ package dao.Impl;
 import dao.RoleDAO;
 import entity.Role;
 import exception.FailedDAOException;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.List;
 
 public class RoleDAOImpl implements RoleDAO {
+    private static final Logger logger = LogManager.getLogger("RoleDAOImpl");
     @Override
     public Role getRoleByName(String name) {
         return null;
