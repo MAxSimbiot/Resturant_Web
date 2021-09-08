@@ -11,6 +11,9 @@ public class CommandContainer {
         commands.put("register",new RegisterCommand());
         commands.put("error",new ErrorCommand());
         commands.put("mainPage",new MainPageCommand());
+        commands.put("goToLogin",new goToLoginCommand());
+        commands.put("logIn",new LoginCommand());
+        commands.put("logOut",new logOutCommand());
     }
 
     public static Command get(String commandName){

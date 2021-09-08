@@ -39,15 +39,37 @@
                     <fmt:message key="resturant.name"/></strong>
             </a>
 
+            <div class="btn-group" role="group" aria-label="Basic example" style="">
+                <form action="MainServlet" method="post">
+                    <button type="button" class="btn btn-secondary"><fmt:message key="header.log.out"/></button>
+                    <input type="hidden" name="command" value="logOut"/>
+                </form>
+
+                 <c:choose>
+                     <c:when test="${cleint.name.length()>0}">
+                         <form action="MainServlet" method="post">
+                         <button type="submit" class="btn btn-secondary"><fmt:message key="header.account"/></button>
+                         <input type="hidden" name="command" value="goToLogin"/>
+                         </form>
+                     </c:when>
+                     <c:otherwise>
+                         <form action="MainServlet" method="post">
+                         <button type="submit" class="btn btn-secondary">${client.name}</button>
+                         <input type="hidden" name="command" value="goToCabinet"/>
+                         </form>
+                     </c:otherwise>
+                 </c:choose>
+
+                <form action="MainServlet" method="post">
+                <button type="submit" class="btn btn-secondary" style="background-color: rgb(243, 18, 18); color: rgb(255, 255, 255); line-height: 23px; text-align: left; font-weight: 700;">
+                    <fmt:message key="header.cart"/>
+                </button>
+                    <input type="hidden" name="command" value="receipt"/>
+                </form>
+            </div>
+
         </div>
-        <div class="btn-group" role="group" aria-label="Basic example" style="">
-            <button type="button" class="btn btn-secondary"><fmt:message key="header.log.out"/></button>
-            <button type="button" class="btn btn-secondary"><fmt:message key="header.account"/></button>
-            <button type="button" class="btn btn-secondary"
-                    style="background-color: rgb(243, 18, 18); color: rgb(255, 255, 255); line-height: 23px; text-align: left; font-weight: 700;">
-                <fmt:message key="header.cart"/>
-            </button>
-        </div>
+
     </div>
 </header>
 
@@ -60,7 +82,10 @@
                                         У ребят прикрутили животы, а деньжат на пиццу от гренни не хватало. С того момента и открыли они, вдруг,
                                            свою харчевню на Вест-Сайд.</p>
             <p>
-                <a href="#" class="btn btn-primary my-2"><fmt:message key="main.page.register"/></a>
+            <form action="MainServlet" method="post">
+            <button type="submit" class="btn btn-primary my-2"><fmt:message key="main.page.register"/></button>
+            <input type="hidden" name="command" value="register"/>
+        </form>
             </p>
         </div>
     </section>
