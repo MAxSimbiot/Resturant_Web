@@ -1,11 +1,11 @@
 
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú¶²Ú8²Á÷ç¹/
-l	java:S116"RRename this field "name_ru" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º¯ŠÚ8²Á÷ç¹/
-B
-java:S2333"'"private" is redundant in this context.(Ú¶²Ú8²Á÷ç¹/
-x	java:S116"YRename this field "description_ru" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÇ…úùÿÿÿÿ8²Á÷ç¹/
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú¶²Ú8²Á÷ç¹/
-y	java:S116"ZRename this field "descrtiption_us" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÞ–Éúÿÿÿÿ8²Á÷ç¹/
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú¶²Ú8²Á÷ç¹/
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú¶²Ú8²Á÷ç¹/
-q	java:S116"RRename this field "name_us" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì’Ž“ÿÿÿÿÿ8²Á÷ç¹/
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú¶²Ú8²Á÷ç¹/
+s	java:S116"RRename this field "name_us" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì’Ž“ÿÿÿÿÿ8²Á÷ç¹/
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú¶²Ú8²Á÷ç¹/
+n	java:S116"RRename this field "name_ru" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º¯ŠÚ8²Á÷ç¹/
+z	java:S116"YRename this field "description_ru" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÇ…úùÿÿÿÿ8²Á÷ç¹/
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú¶²Ú8²Á÷ç¹/
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú¶²Ú8²Á÷ç¹/
+z	java:S116"YRename this field "description_us" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷†ÁŠúÿÿÿÿ8éÓ›ú»/
+D
+java:S2333"'"private" is redundant in this context.(Ú¶²Ú8²Á÷ç¹/

@@ -2,9 +2,11 @@ package constants;
 
 public final class DAOConstants {
 
+    public static final String CLIENT = "client";
     public static final String ID = "id";
     public static final String LOGIN = "login";
     public static final String PASSWORD = "password";
+    public static final String REP_PASSWORD = "repPassword";
     public static final String NAME = "name";
     public static final String PHONE = "phone";
     public static final String REG_DATE = "reg_date";

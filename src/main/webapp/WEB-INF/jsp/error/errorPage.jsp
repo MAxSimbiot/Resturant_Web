@@ -7,6 +7,6 @@
     <title>Error</title>
 </head>
 <body>
-          <h2>${errorMessage}</h2>
+          <h2>${errorMsg}</h2>
 </body>
 </html>

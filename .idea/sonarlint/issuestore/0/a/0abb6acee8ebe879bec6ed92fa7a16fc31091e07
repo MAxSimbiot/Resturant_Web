@@ -1,4 +1,8 @@
 
 H
-java:S1168"+Return an empty collection instead of null.(ฅน๏8ุ๘’่น/
+java:S1168"+Return an empty collection instead of null.(ฅน๏8ุ๘’่น/
+e
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(ฯฟฆÿÿÿÿÿ8ฏฦฑýป/
+L
+java:S1068"*Remove this unused "logger" private field.(ฯฟฆÿÿÿÿÿ8ฏฦฑýป/
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(า๐”‘๘ÿÿÿÿ

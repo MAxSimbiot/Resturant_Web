@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import java.util.List;
 
 public class ReceiptDAOImpl implements ReceiptDAO {
-    private static final Logger logger = LogManager.getLogger("ReceiptDAOImpl");
+    private static final Logger logger = LogManager.getLogger(ReceiptDAOImpl.class);
     @Override
     public List getAll() throws FailedDAOException {
         return null;

@@ -1,7 +1,7 @@
 
+5	java:S121*"Missing curly brace.(×æ©Êùÿÿÿÿ8ä¢Áå»/
+u	java:S122*"TAt most one statement is allowed per line, but 2 statements were found on this line.(×æ©Êùÿÿÿÿ8ä¢Áå»/
+5	java:S121+"Missing curly brace.(›î¦¿şÿÿÿÿ8ä¢Áå»/
 W
 java:S1258":Add a constructor to the class, or provide default values.(ˆ†Ñ™8İÁ°å»/
-u	java:S122*"TAt most one statement is allowed per line, but 2 statements were found on this line.(×æ©Êùÿÿÿÿ8ä¢Áå»/
-5	java:S121*"Missing curly brace.(×æ©Êùÿÿÿÿ8ä¢Áå»/
 u	java:S122+"TAt most one statement is allowed per line, but 2 statements were found on this line.(›î¦¿şÿÿÿÿ8ä¢Áå»/
-5	java:S121+"Missing curly brace.(›î¦¿şÿÿÿÿ8ä¢Áå»/

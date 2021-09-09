@@ -1,5 +1,6 @@
 package dao.Impl;
 
+import command.LogOutCommand;
 import dao.ClientDAO;
 import constants.DAOConstants;
 import dao.DBManager;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class ClientDAOImpl implements ClientDAO {
 
-    private static final Logger logger = LogManager.getLogger("ClientDAOImpl");
+    private static final Logger logger = Logger.getLogger(ClientDAOImpl.class);
 
     private static final String FIND_CLIENT_BY_LOGIN_PASSWORD = "SELECT * FROM client " +
             "WHERE login = ? " +

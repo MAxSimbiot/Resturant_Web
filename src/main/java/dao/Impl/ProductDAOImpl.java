@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ProductDAOImpl implements AbstractDAO {
 
-    private static final Logger logger = LogManager.getLogger("ProductDAOImpl");
+    private static final Logger logger = LogManager.getLogger(ProductDAOImpl.class);
 
     private static final String SELECT_ALL_PRODUCTS = "SELECT * FROM product;";
     @Override

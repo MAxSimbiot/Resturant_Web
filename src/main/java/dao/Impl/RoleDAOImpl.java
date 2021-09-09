@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 import java.util.List;
 
 public class RoleDAOImpl implements RoleDAO {
-    private static final Logger logger = LogManager.getLogger("RoleDAOImpl");
+    private static final Logger logger = LogManager.getLogger(RoleDAOImpl.class);
     @Override
     public Role getRoleByName(String name) {
         return null;

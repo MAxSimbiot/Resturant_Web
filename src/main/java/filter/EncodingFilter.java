@@ -18,6 +18,9 @@ public class EncodingFilter implements Filter {
         if (requestEncoding == null) {
             request.setCharacterEncoding("UTF-8");
         }
+        if(request.getSession().getAttribute("locale")==null){
+            request.getSession().setAttribute("locale","us");
+        }
         filterChain.doFilter(servletRequest,servletResponse);
     }
 

@@ -13,7 +13,8 @@ public class CommandContainer {
         commands.put("mainPage",new MainPageCommand());
         commands.put("goToLogin",new goToLoginCommand());
         commands.put("logIn",new LoginCommand());
-        commands.put("logOut",new logOutCommand());
+        commands.put("logOut",new LogOutCommand());
+        commands.put("changeLanguage",new ChangeLanguageCommand());
     }
 
     public static Command get(String commandName){

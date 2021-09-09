@@ -1,18 +1,18 @@
 
-}
-java:S1989"`Handle the following exceptions that could be thrown by "prcess": ServletException, IOException.(Êç®Ú8¿‰œÑ»/
 N
 java:S1128",Remove this unused import 'dao.AbstractDAO'.(ø±Åýÿÿÿÿ8˜íåª»/
->
-java:S1170"!Make this final field static too.(’—õª8Þ³ÎÏ»/
-G
-java:S1128"*Remove this unused import 'entity.Client'.(ªÐ¡ž8™Ë³Ï»/
-\
-java:S2057"?Add a "static final long serialVersionUID" field to this class.(Ãé×ë8ÍÜœª»/
 k	java:S116"ORename this field "PAGE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’—õª8Þ³ÎÏ»/
-[
-java:S1128"9Remove this unused import 'exception.FailedDAOException'.(¬¨Þýüÿÿÿÿ8™Ë³Ï»/
 P
 java:S1128"3Remove this unused import 'dao.Impl.ClientDAOImpl'.( Ç­ž8™Ë³Ï»/
 }
 java:S1989"`Handle the following exceptions that could be thrown by "prcess": ServletException, IOException.(Êç®Ú8½¤œÑ»/
+G
+java:S1128"*Remove this unused import 'entity.Client'.(ªÐ¡ž8™Ë³Ï»/
+}
+java:S1989"`Handle the following exceptions that could be thrown by "prcess": ServletException, IOException.(Êç®Ú8¿‰œÑ»/
+>
+java:S1170"!Make this final field static too.(’—õª8Þ³ÎÏ»/
+\
+java:S2057"?Add a "static final long serialVersionUID" field to this class.(Ãé×ë8ÍÜœª»/
+[
+java:S1128"9Remove this unused import 'exception.FailedDAOException'.(¬¨Þýüÿÿÿÿ8™Ë³Ï»/

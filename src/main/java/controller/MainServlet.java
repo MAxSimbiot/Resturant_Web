@@ -2,10 +2,12 @@ package controller;
 
 import command.Command;
 import command.CommandContainer;
+import command.LogOutCommand;
 import dao.AbstractDAO;
 import dao.Impl.ClientDAOImpl;
 import entity.Client;
 import exception.FailedDAOException;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +19,8 @@ import java.util.Map;
 
 @WebServlet(urlPatterns = "/MainServlet")
 public class MainServlet extends HttpServlet {
+
+    private static final Logger logger = Logger.getLogger(MainServlet.class);
 
     private final String PAGE = "page";
 
