@@ -15,6 +15,8 @@ public class CommandContainer {
         commands.put("logIn",new LoginCommand());
         commands.put("logOut",new LogOutCommand());
         commands.put("changeLanguage",new ChangeLanguageCommand());
+        commands.put("addToCart",new AddToCartCommand());
+        commands.put("showCart",new CartCommand());
     }
 
     public static Command get(String commandName){

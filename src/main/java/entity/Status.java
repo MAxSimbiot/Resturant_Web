@@ -15,11 +15,28 @@ public enum Status {
     private String description_ru;
     private String description_us;
 
+    public  String getName_ru(){
+        return this.name_ru;
+    }
+    public String getName_us(){
+        return this.name_us;
+    }
+    public String getDescription_ru(){
+        return this.description_ru;
+    }
+    public String getDescription_us(){
+        return this.description_us;
+    }
+
     private Status(String name_ru,String name_us,String description_ru,String description_us){
         this.name_ru = name_ru;
         this.name_us = name_us;
         this.description_ru = description_ru;
         this.description_us = description_us;
+    }
+
+    public static Status getByid(int id){
+        return Status.values()[id-1];
     }
 
     @Override

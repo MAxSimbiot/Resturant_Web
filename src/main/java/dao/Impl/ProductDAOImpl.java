@@ -36,7 +36,7 @@ public class ProductDAOImpl implements AbstractDAO {
             logger.log(Level.ERROR, "Can`t get products!", ex);
             throw new FailedDAOException("Can`t get products!");
         }finally {
-            DBManager.getInstance().commitAndClose(connection);
+            DBManager.getInstance().closeConnection(connection);
         }
         return products;
     }
@@ -49,7 +49,7 @@ public class ProductDAOImpl implements AbstractDAO {
         }
     }
 
-    private Product initProduct(ResultSet resultSet) throws SQLException {
+     private Product initProduct(ResultSet resultSet) throws SQLException {
         Product product = new Product();
         product.setId(resultSet.getInt(DAOConstants.ID));
         product.setName_ru(resultSet.getString(DAOConstants.NAME_RU));

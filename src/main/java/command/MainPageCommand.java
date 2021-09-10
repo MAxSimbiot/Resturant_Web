@@ -21,10 +21,12 @@ public class MainPageCommand implements Command {
             e.printStackTrace();
         }
      if(products!=null) {
+         String sortPrice = request.getParameter("sortPrice");
+         if(sortPrice!=null){
+             products = sortPrice(products,sortPrice);
+         }
          String search = request.getParameter("search");
          String sort = request.getParameter("sort");
-         String sortPrice = request.getParameter("sortPrice");
-
          if (Boolean.parseBoolean(search)) {
              String query = request.getParameter("searchQuery");
              String locale = request.getSession().getAttribute("locale").toString();
@@ -34,9 +36,7 @@ public class MainPageCommand implements Command {
          } else if (sort != null) {
              products = searchByCategory(Integer.parseInt(sort), products);
          }
-         if(sortPrice!=null){
-             products = sortPrice(products,sortPrice);
-         }
+
      }
 
 

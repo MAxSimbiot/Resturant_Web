@@ -7,7 +7,9 @@ import java.util.Map;
 
 public class ClientService {
 
-    public Map<String,Object> validateRegistration(String login, String password, String repPassword, String name, String phone ){
+    public Map<String,Object> validateRegistration(String login, String password,
+                                                   String repPassword, String name, String phone ){
+        //REFACTOR------------------------------------
         Map<String,Object> map = new HashMap<>();
         if(login!=null
                 &&password!=null

@@ -14,6 +14,8 @@ public class Product {
     private int category_id;
     private Category category_entity;
 
+    private int count = 1;
+
     public int getId() {return id;}
 
     public void setId(int id) {this.id = id;}
@@ -50,6 +52,13 @@ public class Product {
 
     public void setCategory_entity(Category category_entity) {this.category_entity = category_entity;}
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     @Override
     public boolean equals(Object o) {

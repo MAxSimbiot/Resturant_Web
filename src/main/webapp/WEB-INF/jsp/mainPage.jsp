@@ -62,9 +62,9 @@
                 <form action="MainServlet" method="get">
                     <button type="submit" class="btn btn-secondary"
                             style="background-color: rgb(243, 18, 18); color: rgb(255, 255, 255); line-height: 23px; text-align: left; font-weight: 700;">
-                        <fmt:message key="header.cart"/>
+                        <fmt:message key="header.cart"/> ${receiptLength}
                     </button>
-                    <input type="hidden" name="command" value="receipt"/>
+                    <input type="hidden" name="command" value="showCart"/>
                 </form>
             </div>
 
@@ -97,8 +97,8 @@
 
                 <div class="d-flex flex-row justify-content-center gap-3 mb-4">
                     <div class="form-group p2">
-                        <select class="form-control" name="sortPrice" >
-                            <option ><fmt:message key="main.page.price.sort"/></option>
+                        <select class="form-control" name="sortPrice" onchange="this.form.submit()">
+                            <option><fmt:message key="main.page.price.sort"/></option>
                             <option name="sortPrice" value="expensive"><fmt:message
                                     key="main.page.sort.expensive"/></option>
                             <option name="sortPrice" value="cheap"><fmt:message key="main.page.sort.cheap"/></option>
@@ -138,7 +138,24 @@
                     <input type="hidden" name="command" value="mainPage"/>
                 </div>
             </form>
-
+            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        --------
+                        <c:if test="${added}">
+                            <fmt:message key="main.page.added"/>
+                        </c:if>
+                        <c:if test="${!added}">
+                            Error
+                        </c:if>
+                    </div>
+                </div>
+            </div>
+            <div class="jumbotron text-center">
+            <c:if test="${added}">
+               <h2 style="color: darkseagreen"> <fmt:message key="main.page.added"/></h2>
+            </c:if>
+            </div>
             <div class="row">
                 <c:choose>
                     <c:when test="${(products!=null)&&(products.size()>0)}">
@@ -163,9 +180,16 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <strong>${product.price} <fmt:message key="currency.grn"/></strong>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">
-                                                    <fmt:message key="main.page.add.to.cart"/>
-                                                </button>
+                                                <form action="MainServlet" method="get">
+                                                    <button type="submit" name="productId" value="${product.id}"
+
+                                                            class="btn btn-sm btn-outline-secondary"
+                                                            >
+                                                        <fmt:message key="main.page.add.to.cart"/>
+                                                    </button>
+                                                    <input type="hidden" data-toggle="modal" data-target=".bd-example-modal-sm">
+                                                    <input type="hidden" name="command" value="addToCart"/>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -196,11 +220,11 @@
 <footer class="text-muted">
     <div class="container">
         <p class="float-right">
-            <a href="#">Back to top</a>
+            <a href="#"><fmt:message key="to.top"/></a>
         </p>
-        <p>Онлайн харчевня для мудреца!</p>
-        <p>Еще не пробовали нашу еду? <a href="../../">получить бонус</a> или подписаться на канал <a
-                href="../../getting-started/">Дневник Мудреца</a>.</p>
+        <p><fmt:message key="resturant.slogan"/> </p>
+        <p><fmt:message key="footer.havent.tried"/> <a href="../../"><fmt:message key="footer.bonus"/> </a> <fmt:message key="footer.subscribe"/> <a
+                href="../../getting-started/"><fmt:message key="footer.channel"/> </a>.</p>
     </div>
 </footer>
 

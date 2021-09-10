@@ -1,6 +1,7 @@
 package entity;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 public class Receipt {
@@ -11,6 +12,16 @@ public class Receipt {
     private int clientId;
     private int statusId;
     private Status statusEntity;
+
+    private List<Product> products;
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 
     public int getId() {return id;}
 
@@ -36,7 +47,6 @@ public class Receipt {
 
     public void setStatusEntity(Status statusEntity) {this.statusEntity = statusEntity;}
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,13 +56,14 @@ public class Receipt {
                 clientId == receipt.clientId &&
                 statusId == receipt.statusId &&
                 creationTime.equals(receipt.creationTime) &&
-                Objects.equals(lastUpdate, receipt.lastUpdate) &&
-                statusEntity == receipt.statusEntity;
+                lastUpdate.equals(receipt.lastUpdate) &&
+                statusEntity == receipt.statusEntity &&
+                Objects.equals(products, receipt.products);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, creationTime, lastUpdate, clientId, statusId, statusEntity);
+        return Objects.hash(id, creationTime, lastUpdate, clientId, statusId, statusEntity, products);
     }
 
     @Override
