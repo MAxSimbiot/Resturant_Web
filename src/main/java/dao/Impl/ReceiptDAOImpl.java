@@ -42,7 +42,8 @@ public class ReceiptDAOImpl implements ReceiptDAO {
                     "WHERE client_id = ?;";
 
     private static final String INSERT_PRODUCT_BY_ID = "INSERT INTO receipt_has_product (receipt_id,product_id,count) " +
-            "VALUES (?,?,?);";
+            "VALUES (?,?,?) " +
+            "ON DUPLICATE KEY UPDATE count = count + 1;";
 
     public Receipt getReceiptByAccountId(int accountId) throws FailedDAOException {
         Connection connection = null;

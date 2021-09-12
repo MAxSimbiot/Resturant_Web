@@ -9,7 +9,6 @@ import exception.FailedDAOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +31,7 @@ public class AddToCartCommand implements Command {
                 map.put("added",false);
                 e.printStackTrace();
             }
-        }
+        }// else --> Implement logic for adding to cart while not logged, or ask to log in!
         map.put(PageConstants.PAGE,PageConstants.COMMAND_MAIN_PAGE);
         return map;
     }

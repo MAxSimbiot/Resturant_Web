@@ -1,28 +1,32 @@
 
-j	java:S881Ÿ"HExtract this increment or decrement operator into a dedicated statement.(Ÿ”ºÈûÿÿÿÿ8Æ¥¯Î»/
+j	java:S881¢"HExtract this increment or decrement operator into a dedicated statement.(’»Ûøùÿÿÿÿ8Æ¥¯Î»/
+Z
+java:S1128"8Remove this unused import 'org.apache.log4j.LogManager'.(Øê˜Ìüÿÿÿÿ8 æ‡Í¼/
+s	java:S109{"RAssign this magic number 2 to a well-named constant, and use the constant instead.( Å§Äıÿÿÿÿ8À…Ï»/
+j	java:S881 "HExtract this increment or decrement operator into a dedicated statement.(Ÿ”ºÈûÿÿÿÿ8Æ¥¯Î»/
 q
-java:S2095x"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(‘¸‹áşÿÿÿÿ8À…Ï»/
-c
-java:S1941H"FMove the declaration of "rowsUpdated" closer to the code that uses it.(®»¨ª8Ô »»/
-j	java:S881"HExtract this increment or decrement operator into a dedicated statement.(ÓêëÂûÿÿÿÿ8ğÚ®Î»/
-j	java:S881¨"HExtract this increment or decrement operator into a dedicated statement.(Ÿ”ºÈûÿÿÿÿ8ƒå¯Î»/
-e
-java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(ãú•şÿÿÿÿ8È¼Æ»/
-s	java:S109z"RAssign this magic number 2 to a well-named constant, and use the constant instead.( Å§Äıÿÿÿÿ8À…Ï»/
-j	java:S881§"HExtract this increment or decrement operator into a dedicated statement.(ÓêëÂûÿÿÿÿ8ƒå¯Î»/
+java:S2095y"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(‘¸‹áşÿÿÿÿ8À…Ï»/
 K
-java:S2325¥"-Make "initUpdateStatement" a "static" method.(®Íêõ8Ô¿°Î»/
-G
-java:S2325®"$Make "initClient" a "static" method.(Û·ßÈùÿÿÿÿ8Ú«Šü»/
+java:S2208".Explicitly import the specific classes needed.(´İ…Å8æÁé©»/
+j	java:S881«"HExtract this increment or decrement operator into a dedicated statement.(’»Ûøùÿÿÿÿ8ğü¯Î»/
+j	java:S881Ÿ"HExtract this increment or decrement operator into a dedicated statement.(ÓêëÂûÿÿÿÿ8ğÚ®Î»/
+e	java:S881¡"HExtract this increment or decrement operator into a dedicated statement.(†éšÈ8Æ¥¯Î»/
+t	java:S109£"RAssign this magic number 2 to a well-named constant, and use the constant instead.(ŸŸªûÿÿÿÿ8Ìˆ¥»»/
+j	java:S881©"HExtract this increment or decrement operator into a dedicated statement.(Ÿ”ºÈûÿÿÿÿ8ƒå¯Î»/
 j
-java:S2095„"GUse try-with-resources or close this "Statement" in a "finally" clause.(é°Áµşÿÿÿÿ8É€äÎ»/
-K
-java:S2208".Explicitly import the specific classes needed.(´İ…Å8æÁé©»/
-e	java:S881©"HExtract this increment or decrement operator into a dedicated statement.(†éšÈ8ƒå¯Î»/
-j	java:S881ª"HExtract this increment or decrement operator into a dedicated statement.(’»Ûøùÿÿÿÿ8ğü¯Î»/
-j	java:S881¡"HExtract this increment or decrement operator into a dedicated statement.(’»Ûøùÿÿÿÿ8Æ¥¯Î»/
-t	java:S109¢"RAssign this magic number 2 to a well-named constant, and use the constant instead.(ŸŸªûÿÿÿÿ8Ìˆ¥»»/
+java:S2095…"GUse try-with-resources or close this "Statement" in a "finally" clause.(é°Áµşÿÿÿÿ8É€äÎ»/
+j	java:S881¨"HExtract this increment or decrement operator into a dedicated statement.(ÓêëÂûÿÿÿÿ8ƒå¯Î»/
+e
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(¾î¬—üÿÿÿÿ8È¼Æ»/
+G
+java:S2325¯"$Make "initClient" a "static" method.(Û·ßÈùÿÿÿÿ8Ú«Šü»/
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Òğ”‘øÿÿÿÿ
-e	java:S881 "HExtract this increment or decrement operator into a dedicated statement.(†éšÈ8Æ¥¯Î»/
+e	java:S881ª"HExtract this increment or decrement operator into a dedicated statement.(†éšÈ8ƒå¯Î»/
+N
+java:S1128"2Remove this unused import 'command.LogOutCommand'.(¨î&8ƒ˜ˆÍ¼/
+K
+java:S2325¦"-Make "initUpdateStatement" a "static" method.(®Íêõ8Ô¿°Î»/
 P
-java:S2325œ"-Make "initCreateStatement" a "static" method.(´òå¦úÿÿÿÿ8·èÑÎ»/
+java:S2325"-Make "initCreateStatement" a "static" method.(´òå¦úÿÿÿÿ8·èÑÎ»/
+c
+java:S1941I"FMove the declaration of "rowsUpdated" closer to the code that uses it.(®»¨ª8Ô »»/

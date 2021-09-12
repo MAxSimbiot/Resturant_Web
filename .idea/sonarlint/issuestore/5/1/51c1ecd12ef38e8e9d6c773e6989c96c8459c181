@@ -1,12 +1,12 @@
 
-`
-java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(ÃùõË8Ø»¯ı»/
 I
 java:S1128",Remove this unused import 'entity.Category'.(åöâö8ìŒı»/
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Òğ”‘øÿÿÿÿ
 L
 java:S3740"/Provide the parametrized type for this generic.(ª¡àö8±Äüû»/
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Òğ”‘øÿÿÿÿ
 B
-java:S23254"%Make "initProduct" a "static" method.(’­–É8ìŒı»/
+java:S23254"%Make "initProduct" a "static" method.(’­–É8ØÛÚô¼/
 i
 java:S2095-"GUse try-with-resources or close this "Statement" in a "finally" clause.(é°Áµşÿÿÿÿ8¨Îü»/
+`
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(·Œ‚¿8Ø»¯ı»/

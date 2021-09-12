@@ -131,7 +131,7 @@
                                             </c:otherwise>
                                         </c:choose>
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <strong>${product.price} <fmt:message key="currency.grn"/></strong>
+                                            <strong>${product.price * product.count} <fmt:message key="currency.grn"/></strong>
                                             <h4 class="text-muted"><fmt:message
                                                     key="cart.page.count"/> ${product.count}</h4>
                                             <div class="btn-group">
@@ -140,7 +140,7 @@
                                                             class="btn btn-sm btn-outline-secondary">
                                                         <fmt:message key="cart.page.delete"/>
                                                     </button>
-                                                    <input type="hidden" name="command" value="addToCart"/>
+                                                    <input type="hidden" name="command" value="deleteFromCart"/>
                                                 </form>
                                             </div>
                                         </div>

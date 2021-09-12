@@ -42,24 +42,24 @@
 
                 <c:choose>
                     <c:when test="${logged}">
-                        <form action="MainServlet" method="get">
+                        <form action="MainServlet" method="post">
                             <button type="submit" class="btn btn-secondary"><fmt:message key="header.log.out"/></button>
                             <input type="hidden" name="command" value="logOut"/>
                         </form>
-                        <form action="MainServlet" method="get">
+                        <form action="MainServlet" method="post">
                             <button type="submit" class="btn btn-secondary">${client.name}</button>
                             <input type="hidden" name="command" value="goToCabinet"/>
                         </form>
                     </c:when>
                     <c:otherwise>
-                        <form action="MainServlet" method="get">
+                        <form action="MainServlet" method="post">
                             <button type="submit" class="btn btn-secondary"><fmt:message key="header.account"/></button>
                             <input type="hidden" name="command" value="goToLogin"/>
                         </form>
                     </c:otherwise>
                 </c:choose>
 
-                <form action="MainServlet" method="get">
+                <form action="MainServlet" method="post">
                     <button type="submit" class="btn btn-secondary"
                             style="background-color: rgb(243, 18, 18); color: rgb(255, 255, 255); line-height: 23px; text-align: left; font-weight: 700;">
                         <fmt:message key="header.cart"/> ${receiptLength}
@@ -93,7 +93,7 @@
     <div class="album py-5 bg-light">
         <div class="container">
 
-            <form action="MainServlet" class="" method="get" style="align-content: space-between">
+            <form action="MainServlet" class="" method="post" style="align-content: space-between">
 
                 <div class="d-flex flex-row justify-content-center gap-3 mb-4">
                     <div class="form-group p2">
@@ -180,7 +180,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <strong>${product.price} <fmt:message key="currency.grn"/></strong>
                                             <div class="btn-group">
-                                                <form action="MainServlet" method="get">
+                                                <form action="MainServlet" method="post">
                                                     <button type="submit" name="productId" value="${product.id}"
 
                                                             class="btn btn-sm btn-outline-secondary"
