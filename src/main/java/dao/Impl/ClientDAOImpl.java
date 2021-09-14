@@ -1,6 +1,5 @@
 package dao.Impl;
 
-import command.LogOutCommand;
 import dao.ClientDAO;
 import constants.DAOConstants;
 import dao.DBManager;
@@ -8,7 +7,6 @@ import entity.Client;
 import entity.Role;
 import exception.FailedDAOException;
 import org.apache.log4j.Level;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.sql.*;

@@ -1,4 +1,4 @@
-package command;
+package command.commands;
 
 import constants.DAOConstants;
 import constants.PageConstants;
@@ -38,7 +38,6 @@ public class RegisterCommand implements Command {
 
             try {
                 success = clientDAO.create(c);
-                System.out.println(clientDAO.getClientByLoginAndPassword(login, password));
             } catch (FailedDAOException e) {
                 map.put("errorMsg", "User can`t be added");
             }

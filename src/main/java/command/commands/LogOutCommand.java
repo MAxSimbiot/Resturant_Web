@@ -1,4 +1,4 @@
-package command;
+package command.commands;
 
 import constants.PageConstants;
 import org.apache.log4j.Logger;

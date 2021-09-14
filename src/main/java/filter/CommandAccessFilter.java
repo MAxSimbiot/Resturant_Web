@@ -25,15 +25,6 @@ public class CommandAccessFilter implements Filter {
         accessMap.put(Role.MANAGER,asList(filterConfig.getInitParameter("manager")));
         noControl = asList(filterConfig.getInitParameter("noControl"));
         common = asList(filterConfig.getInitParameter("common"));
-
-        for(String s:noControl){
-            System.out.println(s);
-        }
-        List<String> test = accessMap.get(Role.ADMIN);
-        System.out.println("Admin commands=====");
-        for(String s:test){
-            System.out.println(s);
-        }
     }
 
 

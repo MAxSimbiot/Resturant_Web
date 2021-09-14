@@ -1,4 +1,4 @@
-package command;
+package command.commands;
 
 import constants.PageConstants;
 
@@ -7,13 +7,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ChangeLanguageCommand implements Command{
+public class DeleteReceiptCommand implements Command {
     @Override
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
         Map<String,Object> map = new HashMap<>();
-        final String locale = request.getParameter("locale");
-        request.getSession().setAttribute("locale",locale);
-        map.put(PageConstants.PAGE,PageConstants.COMMAND_MAIN_PAGE);
+        map.put(PageConstants.PAGE,PageConstants.COMMAND_CART);
         return map;
     }
 }

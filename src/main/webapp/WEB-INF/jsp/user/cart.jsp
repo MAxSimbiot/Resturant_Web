@@ -78,33 +78,43 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">${receipt.id}</th>
-                <td>${receipt.creationTime}</td>
-                <td>${receipt.lastUpdate}</td>
-                <c:choose>
-                    <c:when test="${locale.equals(\"ru\")}">
-                        <td>${receipt.statusEntity.name_ru} (${receipt.statusEntity.description_ru})</td>
-                    </c:when>
-                    <c:otherwise>
-                        <td> ${receipt.statusEntity.name_us} (${receipt.statusEntity.description_us})</td>
-                    </c:otherwise>
-                </c:choose>
-                <td><% int total = 0;
-                    Receipt receipt = (Receipt) request.getAttribute("receipt");
-                    List<Product> productList = receipt.getProducts();
-                    if (productList != null) {
-                        for (Product p : productList) {
-                            total += p.getPrice() * p.getCount();
-                        }
-                    }
-                    out.print(total);%>
-                    <fmt:message key="currency.grn"/></td>
-                <td>
-                    <button type="button" class="btn btn-primary" style=""><fmt:message
-                            key="cart.page.delete"/></button>
-                </td>
-            </tr>
+            <c:choose>
+                <c:when test="${!receipt.equals(null)}">
+                    <tr>
+                        <th scope="row">${receipt.id}</th>
+                        <td>${receipt.creationTime}</td>
+                        <td>${receipt.lastUpdate}</td>
+                        <c:choose>
+                            <c:when test="${locale.equals(\"ru\")}">
+                                <td>${receipt.statusEntity.name_ru} (${receipt.statusEntity.description_ru})</td>
+                            </c:when>
+                            <c:otherwise>
+                                <td> ${receipt.statusEntity.name_us} (${receipt.statusEntity.description_us})</td>
+                            </c:otherwise>
+                        </c:choose>
+                        <td><% int total = 0;
+                            Receipt receipt = (Receipt) request.getAttribute("receipt");
+                            List<Product> productList = receipt.getProducts();
+                            if (productList != null) {
+                                for (Product p : productList) {
+                                    total += p.getPrice() * p.getCount();
+                                }
+                            }
+                            out.print(total);%>
+                            <fmt:message key="currency.grn"/></td>
+                        <td> <form action="MainServlet" method="get">
+                            <button type="submit" name="receiptId" value="${receipt.id}" class="btn btn-primary" style=""><fmt:message
+                                    key="cart.page.delete"/></button>
+                            <input type="hidden" name="command" value="deleteReceipt"/>
+                        </form>
+                        </td>
+                    </tr>
+                </c:when>
+                <c:otherwise>
+                    <fmt:message key="cart.no.receipt"/>
+                </c:otherwise>
+            </c:choose>
+
             </tbody>
         </table>
         <div class="container">

@@ -1,4 +1,4 @@
-package command;
+package command.commands;
 
 import constants.DAOConstants;
 import constants.PageConstants;
@@ -22,35 +22,45 @@ public class LoginCommand implements Command {
         Map<String, Object> map = new HashMap<>();
 
         ClientDAOImpl clientDAO = new ClientDAOImpl();
+
         Client client = null;
         if (login != null && password != null) {
-            try {
-                client = clientDAO.getClientByLoginAndPassword(login, password);
-            } catch (FailedDAOException e) {
-                e.printStackTrace();
-            }
-        }else{
+            client = getClient(clientDAO,login,password);
+        } else {
             map.put(PageConstants.PAGE, PageConstants.LOGIN_PAGE);
-            request.setAttribute("errorMsg","Enter both login and password!");
+            request.setAttribute("errorMsg", "Enter both login and password!");
             return map;
         }
+
         if (client != null) {
-             map = initSession(request, client);
-        }else{
+            map = initSession(request, client);
+        } else {
             map.put(PageConstants.PAGE, PageConstants.LOGIN_PAGE);
-            request.setAttribute("errorMsg","Client not found!");
+            request.setAttribute("errorMsg", "Client not found!");
         }
         return map;
     }
 
-    private Map<String,Object> initSession(HttpServletRequest request, Client client) {
+    private Client getClient(ClientDAOImpl clientDAO,String login,String password) {
+        Client client = new Client();
+        try {
+            client = clientDAO.getClientByLoginAndPassword(login, password);
+        } catch (FailedDAOException e) {
+            e.printStackTrace();
+        }
+        return client;
+    }
+
+    private Map<String, Object> initSession(HttpServletRequest request, Client client) {
         Map<String, Object> map = new HashMap<>();
         map.put(PageConstants.PAGE, PageConstants.COMMAND_MAIN_PAGE);
+
         HttpSession session = request.getSession(true);
-        session.setMaxInactiveInterval(-1);
-        session.setAttribute("logged",true);
-        session.setAttribute(DAOConstants.CLIENT,client);
-        session.setAttribute("role",client.getRoleEntity().toString());
+
+        session.setMaxInactiveInterval(60 * 60);
+        session.setAttribute("logged", true);
+        session.setAttribute(DAOConstants.CLIENT, client);
+        session.setAttribute("role", client.getRoleEntity().toString());
         return map;
     }
 }

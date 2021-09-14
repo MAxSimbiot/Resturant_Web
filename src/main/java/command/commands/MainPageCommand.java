@@ -1,4 +1,4 @@
-package command;
+package command.commands;
 
 import constants.PageConstants;
 import dao.Impl.ProductDAOImpl;

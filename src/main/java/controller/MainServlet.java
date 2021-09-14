@@ -1,12 +1,7 @@
 package controller;
 
-import command.Command;
+import command.commands.Command;
 import command.CommandContainer;
-import command.LogOutCommand;
-import dao.AbstractDAO;
-import dao.Impl.ClientDAOImpl;
-import entity.Client;
-import exception.FailedDAOException;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;

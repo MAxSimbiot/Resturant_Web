@@ -62,7 +62,7 @@
                 <form action="MainServlet" method="post">
                     <button type="submit" class="btn btn-secondary"
                             style="background-color: rgb(243, 18, 18); color: rgb(255, 255, 255); line-height: 23px; text-align: left; font-weight: 700;">
-                        <fmt:message key="header.cart"/> ${receiptLength}
+                        <fmt:message key="header.cart"/> ${receipt.size}
                     </button>
                     <input type="hidden" name="command" value="showCart"/>
                 </form>
