@@ -2,6 +2,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<fmt:setLocale value="${locale}"/>
+<fmt:setBundle basename="resources"/>
 <html>
 <head>
     <title>LoginPage</title>
@@ -38,7 +40,7 @@
 
     <div class="row">
 
-        <h2>Please, log in!</h2>
+        <h2><fmt:message key="login.page.please.login"/></h2>
         <div class="col-md-6 col-md-offset-3">
 
             <div class="panel panel-login">
@@ -47,10 +49,10 @@
                     <div class="row">
 
                         <div class="col-xs-6">
-                            <a href="#" class="active" id="login-form-link">Login</a>
+                            <a href="#" class="active" id="login-form-link"><fmt:message key="login.page.login"/></a>
                         </div>
                         <div class="col-xs-6">
-                            <a href="#" id="register-form-link">Register</a>
+                            <a href="#" id="register-form-link"><fmt:message key="login.page.register"/></a>
                         </div>
                     </div>
                     <hr>
@@ -60,10 +62,10 @@
                         <div class="col-lg-12">
                             <form id="login-form" action="MainServlet" method="post" role="form" style="display: block;">
                                 <div class="form-group">
-                                    <input type="text" name="login" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    <input type="text" name="login" id="username" required="required" tabindex="1" class="form-control" placeholder="Username" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" id="password" required="required" tabindex="2" class="form-control" placeholder="Password">
                                 </div>
                                 <div class="form-group text-center" style="color:red">
                                     ${errorMsg}
@@ -71,7 +73,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                            <button type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login"><fmt:message key="login.page.login"/></button>
                                             <input type="hidden" name="command" value="logIn"/>
                                         </div>
                                     </div>
@@ -79,24 +81,24 @@
                             </form>
                             <form id="register-form" action="MainServlet" method="post" role="form" style="display: none;">
                                 <div class="form-group">
-                                    <input type="text" name="login" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    <input type="text" name="login" id="username" required="required" tabindex="1" class="form-control" placeholder="Username" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="name" id="email" tabindex="1" class="form-control" placeholder="Name" value="">
+                                    <input type="text" name="name" id="email" required="required" tabindex="1" class="form-control" placeholder="Name" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="phone" id="username" tabindex="2" class="form-control" placeholder="Phone">
+                                    <input type="text" name="phone" id="username" required="required" tabindex="2" class="form-control" placeholder="Phone">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" id="password" required="required" tabindex="2" class="form-control" placeholder="Password">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="repPassword" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                    <input type="password" name="repPassword" id="confirm-password" required="required" tabindex="2" class="form-control" placeholder="Confirm Password">
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                            <button type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register"><fmt:message key="login.page.register"/></button>
                                             <input type="hidden" name="command" value="register"/>
                                             <div style="color:red">${errorMsg}</div>
                                         </div>

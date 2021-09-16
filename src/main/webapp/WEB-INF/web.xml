@@ -39,7 +39,7 @@
     </init-param>
     <init-param>
       <param-name>common</param-name>
-      <param-value>mainPage logOut deleteFromCart deleteReceipt</param-value>
+      <param-value>mainPage logOut deleteFromCart deleteReceipt goToCabinet</param-value>
     </init-param>
     <init-param>
       <param-name>noControl</param-name>

@@ -34,13 +34,14 @@ public class DeleteFromCartCommand implements Command {
             try {
                success = receiptDAO.deleteProductById(receiptid,productId);
             } catch (FailedDAOException e) {
+                map.put(PageConstants.PAGE,PageConstants.ERROR_PAGE);
+                map.put("errorMsg",e.getMessage());
                 e.printStackTrace();
+                return map;
             }
             map.put("productDeleted",success);
-            System.out.println(success);
         }
 
-        System.out.println(productId);
         map.put(PageConstants.PAGE,PageConstants.COMMAND_CART);
         return map;
     }

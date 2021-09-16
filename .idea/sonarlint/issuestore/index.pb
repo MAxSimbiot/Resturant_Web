@@ -105,3 +105,5 @@ d
 4src/main/java/command/commands/goToLoginCommand.java,8\8\8891f80b1afe47bcc1d9f3bb22b81ed5a0fb6b3d
 i
 9src/main/java/command/commands/DeleteFromCartCommand.java,b\0\b0120715809ad04c71a87d37b455fa67d3f9c758
+h
+8src/main/java/command/commands/DeleteReceiptCommand.java,3\9\3996dfae1e1d7763d941dd24c9ca9e484d997716

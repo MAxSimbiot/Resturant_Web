@@ -57,7 +57,6 @@ public class CommandAccessFilter implements Filter {
         }
         String role = session.getAttribute("role").toString().trim();
         Role userRole = Role.valueOf(role);
-        System.out.println(userRole);
         if(userRole == null){
             return false;
         }

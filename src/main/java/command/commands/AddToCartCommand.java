@@ -28,13 +28,26 @@ public class AddToCartCommand implements Command {
             ReceiptDAOImpl receiptDAO = new ReceiptDAOImpl();
             try {
                 Receipt receipt = receiptDAO.getReceiptByAccountId(clientId);
+                if(receipt==null){
+                    receipt = new Receipt();
+                    receipt.setClientId(clientId);
+                    receipt.setStatusId(1);
+                    receiptDAO.create(receipt);
+                    receipt = receiptDAO.getReceiptByAccountId(clientId);
+                }
                boolean done =  receiptDAO.insertProductIntoReceipt(
                        receipt.getId(),
                        Integer.valueOf(request.getParameter("productId")),1);
+               if(done){
                    map.put("added","true");
+               }else{
+                   map.put("added","false");
+               }
             } catch (FailedDAOException e) {
-                map.put("added",false);
+                map.put(PageConstants.PAGE,PageConstants.ERROR_PAGE);
+                map.put("errorMsg",e.getMessage());
                 e.printStackTrace();
+                return map;
             }
             map.put(PageConstants.PAGE,PageConstants.COMMAND_MAIN_PAGE);
         }

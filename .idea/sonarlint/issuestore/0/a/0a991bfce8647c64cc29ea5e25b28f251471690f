@@ -1,0 +1,13 @@
+
+o	java:S109<"SAssign this magic number 60 to a well-named constant, and use the constant instead.(áïĞì8ØĞÖÜ½/
+E
+java:S11481"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÃÆõ„¾/
+@
+java:S2325,"#Make "getClient" a "static" method.(ĞöÖÍ8Ÿ•÷„¾/
+o	java:S109<"SAssign this magic number 60 to a well-named constant, and use the constant instead.(áïĞì8ØĞÖÜ½/
+G
+java:S23256"%Make "initSession" a "static" method.(í‡šıÿÿÿÿ8‘Áæ„¾/
+B
+java:S11660"%Either log or rethrow this exception.(¨·‡ù8ÃÆõ„¾/
+^
+java:S2441>"<Make "Client" serializable or don't store it in the session.(ø´ûŒøÿÿÿÿ8‘Áæ„¾/

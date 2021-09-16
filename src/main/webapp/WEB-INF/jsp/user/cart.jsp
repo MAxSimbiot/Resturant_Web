@@ -74,6 +74,7 @@
                 <th><fmt:message key="cart.page.receipt.status"/></th>
                 <th><fmt:message key="cart.page.total"/></th>
                 <th><fmt:message key="cart.page.action"/></th>
+                <th></th>
 
             </tr>
             </thead>
@@ -102,11 +103,26 @@
                             }
                             out.print(total);%>
                             <fmt:message key="currency.grn"/></td>
-                        <td> <form action="MainServlet" method="get">
-                            <button type="submit" name="receiptId" value="${receipt.id}" class="btn btn-primary" style=""><fmt:message
-                                    key="cart.page.delete"/></button>
-                            <input type="hidden" name="command" value="deleteReceipt"/>
-                        </form>
+                        <td>
+                            <c:if test="${receipt.statusId<=2}">
+                                <form action="MainServlet" method="get">
+                                    <button type="submit" name="receiptId" value="${receipt.id}" class="btn btn-primary"
+                                            style=""><fmt:message
+                                            key="cart.page.delete"/></button>
+                                    <input type="hidden" name="command" value="deleteReceipt"/>
+                                </form>
+                            </c:if>
+                        </td>
+                        <td>
+                            <c:if test="${receipt.statusId==1}">
+                                <form action="MainServlet" method="get">
+                                    <button type="submit" name="receiptId" value="${receipt.id}" class="btn btn-primary"
+                                            style=""><fmt:message
+                                            key="cart.page.order"/></button>
+                                    <input type="hidden" name="command" value="makeOrder"/>
+                                </form>
+                            </c:if>
+
                         </td>
                     </tr>
                 </c:when>
@@ -121,7 +137,7 @@
 
             <div class="row">
                 <c:choose>
-                    <c:when test="${(receipt.products!=null)&&(receipt.products.size()>0)}">
+                    <c:when test="${(receipt!=null)&&(receipt.products!=null)&&(receipt.products.size()>0)}">
                         <c:forEach var="product" items="${receipt.products}">
                             <div class="col-md-4 ">
                                 <div class="card mb-4 box-shadow ">
@@ -141,7 +157,8 @@
                                             </c:otherwise>
                                         </c:choose>
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <strong>${product.price * product.count} <fmt:message key="currency.grn"/></strong>
+                                            <strong>${product.price * product.count} <fmt:message
+                                                    key="currency.grn"/></strong>
                                             <h4 class="text-muted"><fmt:message
                                                     key="cart.page.count"/> ${product.count}</h4>
                                             <div class="btn-group">

@@ -1,0 +1,60 @@
+
+I
+java:S1168Ç"+Return an empty collection instead of null.(¥¹ï8Œàƒı»/
+h	java:S103»"KSplit this 129 characters long line (which is greater than 120 authorized).(¥†Â¥8ÛÂ½/
+l	java:S103"KSplit this 126 characters long line (which is greater than 120 authorized).(Ÿ£¸æıÿÿÿÿ8ÿûöö¼/
+b
+java:S1162´"?Remove the usage of the checked exception 'FailedDAOException'.(ÂäÎŸÿÿÿÿÿ8ÿ ½/
+r
+java:S2095¼"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ˆ­ïÿÿÿÿÿ8éÊ›½/
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Òğ”‘øÿÿÿÿ
+l
+java:S2095s"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ñµ€ˆ8¾€­ô¼/
+o	java:S109¿"RAssign this magic number 3 to a well-named constant, and use the constant instead.(ø¾¹8å˜¡½/
+[
+java:S1162I"?Remove the usage of the checked exception 'FailedDAOException'.(Şÿ©q8Úæ…ô¼/
+c
+java:S1941©"EMove the declaration of "connection" closer to the code that uses it.(ïÆ¥8ÌØ“½/
+q
+java:S2095|"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÖË±Šıÿÿÿÿ8•„İû¼/
+`
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(¼«÷Ô8±ÿ±ı»/
+s	java:S109e"RAssign this magic number 2 to a well-named constant, and use the constant instead.(Ò³­åûÿÿÿÿ8å˜¡½/
+G
+java:S1128"*Remove this unused import 'entity.Client'.(ªĞ¡8œÔ½/
+B
+java:S2325†"%Make "initReceipt" a "static" method.(å”ÂJ8£¬åû¼/
+a
+java:S1226v"DIntroduce a new variable instead of reusing the parameter "receipt".(˜¨’ğ8´·ô¼/
+l	java:S103"KSplit this 159 characters long line (which is greater than 120 authorized).(çóÎùÿÿÿÿ8îï÷ö¼/
+C
+java:S2325™"%Make "initProduct" a "static" method.(’­–É8„äİô¼/
+R
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8“Äƒ÷¼/
+]	java:S125"<This block of commented-out lines of code should be removed.(šÂ“úÿÿÿÿ8ÿûöö¼/
+L
+java:S2325»".Make "executeInsertProduct" a "static" method.(¥†Â¥8»ó–½/
+l
+java:S2095æ"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(™îîi8®Õõª¾/
+r
+java:S2095„"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÿñ€ˆÿÿÿÿÿ8®Õõª¾/
+i
+java:S2095l"GUse try-with-resources or close this "Statement" in a "finally" clause.(‰ğ—Çıÿÿÿÿ8®Õõª¾/
+q
+java:S2095c"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ”Éıÿÿÿÿ8®Õõª¾/
+t
+java:S1192Ü"WDefine a constant instead of duplicating this literal "Can`t delete a receipt" 4 times.(Öw8®Õõª¾/
+t	java:S109¾"RAssign this magic number 2 to a well-named constant, and use the constant instead.(Ò³­åûÿÿÿÿ8®Õõª¾/
+t	java:S109†"RAssign this magic number 2 to a well-named constant, and use the constant instead.(¯ôÛ¹øÿÿÿÿ8®Õõª¾/
+O
+java:S2325b"2Make "executeDeleteProductById" a "static" method.(Ñûúü8®Õõª¾/
+U
+java:S2325k"8Make "executeDeleteZeroCountProducts" a "static" method.(°Ã»Ş8®Õõª¾/
+E
+java:S2325ä"'Make "executeDelete" a "static" method.(»À»«8®Õõª¾/
+J
+java:S2325‚"'Make "executeCreate" a "static" method.(İÌæàıÿÿÿÿ8®Õõª¾/
+K
+java:S2208".Explicitly import the specific classes needed.(´İ…Å8®Õõª¾/
+a
+java:S1162["?Remove the usage of the checked exception 'FailedDAOException'.(‹£±¥ûÿÿÿÿ8®Õõª¾/

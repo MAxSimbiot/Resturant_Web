@@ -28,10 +28,11 @@ public class ReceiptDAOImpl implements ReceiptDAO {
 //            ";";
 
     private static final String GET_PRODUCTS_BY_RECEIPT_ID =
-            "SELECT product.id, name_ru,name_us,description_ru,description_us,price,image_url,category_id, count FROM product ,receipt_has_product, receipt " +
+            "SELECT product.id, name_ru,name_us,description_ru,description_us,price,image_url,category_id, SUM(count) as count FROM product ,receipt_has_product, receipt " +
                     "WHERE receipt_id = ? " +
                     "AND receipt.id = receipt_id " +
-                    "AND product.id = receipt_has_product.product_id;";
+                    "AND product.id = receipt_has_product.product_id " +
+                    "GROUP BY product.id;";
 
     private static final String GET_RECEIPT_BY_ACC_ID =
             "SELECT id, status_id ,creation_time, last_update, client_id " +
@@ -41,12 +42,13 @@ public class ReceiptDAOImpl implements ReceiptDAO {
     private static final String INSERT_PRODUCT_BY_ID =
             "INSERT INTO receipt_has_product (receipt_id,product_id,count) " +
                     "VALUES (?,?,?) " +
-                    "ON DUPLICATE KEY UPDATE count = count + 1;";
+                    ";";
 
     private static final String DECREMENT_PRODUCT_COUNT_BY_RECEIPT_AND_ID =
             "UPDATE receipt_has_product " +
                     "SET count = count - 1 " +
-                    "WHERE receipt_id = ?  AND product_id = ?;";
+                    "WHERE receipt_id = ?  AND product_id = ? " +
+                    "LIMIT 1;";
 
     private static final String DELETE_ZERO_COUNT_PRODUCTS =
             "DELETE FROM receipt_has_product " +
@@ -57,7 +59,7 @@ public class ReceiptDAOImpl implements ReceiptDAO {
                     "where id = ?;";
 
     private static final String INSERT_NEW_RECEIPT =
-            "INSERT INTO receipt(id,client_id,status_id) " +
+            "INSERT INTO receipt(client_id,status_id) " +
                     "VALUES (?,?);";
 
     public Receipt getReceiptByAccountId(int accountId) throws FailedDAOException {
@@ -66,7 +68,9 @@ public class ReceiptDAOImpl implements ReceiptDAO {
         try {
             connection = DBManager.getInstance().getConnection();
             receipt = executeGetByAccId(connection, receipt, accountId);
-            receipt.setProducts(getAndFillProducts(connection, receipt));
+            if(receipt!=null){
+                receipt.setProducts(getAndFillProducts(connection, receipt));
+            }
         } catch (SQLException ex) {
             logger.log(Level.ERROR, "Unable to get receipt by acc id", ex);
             DBManager.getInstance().closeConnection(connection);
@@ -92,7 +96,7 @@ public class ReceiptDAOImpl implements ReceiptDAO {
         } finally {
             DBManager.getInstance().commitAndClose(connection);
         }
-        return rowsUpdated == 1;
+        return rowsUpdated > 0;
     }
 
     private int executeDeleteProductById(Connection connection, int receiptId, int productId) throws SQLException {
@@ -189,7 +193,7 @@ public class ReceiptDAOImpl implements ReceiptDAO {
         ps.setInt(1, receiptId);
         ps.setInt(2, productId);
         ps.setInt(3, quantity);
-        boolean res = ps.executeUpdate() == 1;
+        boolean res = ps.executeUpdate() > 0;
         ps.close();
         return res;
     }
@@ -222,7 +226,7 @@ public class ReceiptDAOImpl implements ReceiptDAO {
         } finally {
             DBManager.getInstance().commitAndClose(connection);
         }
-        return rowsUpdated == 1;
+        return rowsUpdated > 0;
     }
 
     private int executeDelete(Connection connection, Receipt receipt) throws SQLException {
@@ -246,13 +250,17 @@ public class ReceiptDAOImpl implements ReceiptDAO {
             connection = DBManager.getInstance().getConnection();
             rowsUpdated = executeCreate(connection, receipt);
         } catch (SQLException ex) {
-            DBManager.getInstance().rollbackAndClose(connection);
+            if(connection!=null){
+                DBManager.getInstance().rollbackAndClose(connection);
+            }
             logger.log(Level.ERROR, "Can`t delete a receipt", ex);
             throw new FailedDAOException("Can`t delete a receipt");
         } finally {
-            DBManager.getInstance().commitAndClose(connection);
+            if(connection!=null){
+                DBManager.getInstance().commitAndClose(connection);
+            }
         }
-        return rowsUpdated == 1;
+        return rowsUpdated > 0;
     }
 
     private int executeCreate(Connection connection, Receipt receipt) throws SQLException {

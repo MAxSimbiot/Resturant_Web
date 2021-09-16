@@ -14,6 +14,7 @@ public class CommandContainer {
         commands.put("error",new ErrorCommand());
         commands.put("mainPage",new MainPageCommand());
         commands.put("goToLogin",new goToLoginCommand());
+        commands.put("goToCabinet",new goToCabinetCommand());
         commands.put("logIn",new LoginCommand());
         commands.put("logOut",new LogOutCommand());
         commands.put("changeLanguage",new ChangeLanguageCommand());
