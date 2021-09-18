@@ -1,8 +1,8 @@
 
 K
 java:S2208".Explicitly import the specific classes needed.(µÍÕ±8èÆ®…¾/
-\
-java:S1118":Add a private constructor to hide the implicit public one.(Óîáéùÿÿÿÿ8ãèÿÏ»/
 v
 java:S2293
 "YReplace the type specification in this constructor call with the diamond operator ("<>").(’µ©8ãèÿÏ»/
+\
+java:S1118":Add a private constructor to hide the implicit public one.(Óîáéùÿÿÿÿ8ãèÿÏ»/

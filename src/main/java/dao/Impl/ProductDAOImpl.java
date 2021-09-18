@@ -52,10 +52,8 @@ public class ProductDAOImpl implements AbstractDAO {
      private Product initProduct(ResultSet resultSet) throws SQLException {
         Product product = new Product();
         product.setId(resultSet.getInt(DAOConstants.ID));
-        product.setName_ru(resultSet.getString(DAOConstants.NAME_RU));
-        product.setName_us(resultSet.getString(DAOConstants.NAME_US));
-        product.setDescription_ru(resultSet.getString(DAOConstants.DESCRIPTION_RU));
-        product.setDescription_us(resultSet.getString(DAOConstants.DESCRIPTION_US));
+        product.setName(resultSet.getString(DAOConstants.NAME));
+        product.setDescription(resultSet.getString(DAOConstants.DESCRIPTION));
         product.setPrice(resultSet.getInt(DAOConstants.PRICE));
         product.setImage_url(resultSet.getString(DAOConstants.IMAGE_URL));
         int categoryId = resultSet.getInt(DAOConstants.CATEGORY_ID);
@@ -65,21 +63,18 @@ public class ProductDAOImpl implements AbstractDAO {
 
     @Override
     public boolean update(Object entity) throws FailedDAOException {
-        return false;
+        throw new UnsupportedOperationException("Deletion of account not supported yet");
     }
 
     @Override
     public boolean delete(Object o) throws FailedDAOException {
-        return false;
+        throw new UnsupportedOperationException("Deletion of account not supported yet");
     }
 
     @Override
     public boolean create(Object entity) throws FailedDAOException {
-        return false;
+        throw new UnsupportedOperationException("Deletion of account not supported yet");
     }
 
-    @Override
-    public Object getByid(Object o) throws FailedDAOException {
-        return null;
-    }
+
 }

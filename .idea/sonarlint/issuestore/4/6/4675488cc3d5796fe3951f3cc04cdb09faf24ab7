@@ -1,6 +1,8 @@
 
+P
+java:S1128"3Remove this unused import 'constants.DAOConstants'.(‡ƒó„8Ôï”×¾/
+0	java:S121"Missing curly brace.(®«×8¼·ÿÌ¼/
 e
-java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(Ñ«Öâüÿÿÿÿ8Ëª…Í¼/
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(Ñ«Öâüÿÿÿÿ8Ëª…Í¼/
 L
-java:S1068"*Remove this unused "logger" private field.(Ñ«Öâüÿÿÿÿ8Ëª…Í¼/
-0	java:S121"Missing curly brace.(®«×8¼·ÿÌ¼/
+java:S1068"*Remove this unused "logger" private field.(Ñ«Öâüÿÿÿÿ8Ëª…Í¼/

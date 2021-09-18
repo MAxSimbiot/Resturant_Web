@@ -5,31 +5,21 @@ import java.util.Objects;
 public class Category {
 
     private int id;
-    private String name_ru;
-    private String name_us;
-    private String description_ru;
-    private String description_us;
+    private String name;
+    private String description;
     private int parent_id;
 
     public int getId() {return id;}
 
     public void setId(int id) {this.id = id;}
 
-    public String getName_ru() {return name_ru;}
+    public String getName() {return name;}
 
-    public void setName_ru(String name_ru) {this.name_ru = name_ru;}
+    public void setName(String name) {this.name = name;}
 
-    public String getName_us() {return name_us;}
+    public String getDescription() {return description;}
 
-    public void setName_us(String name_us) {this.name_us = name_us;}
-
-    public String getDescription_ru() {return description_ru;}
-
-    public void setDescription_ru(String description_ru) {this.description_ru = description_ru;}
-
-    public String getDescription_us() {return description_us;}
-
-    public void setDescription_us(String description_us) {this.description_us = description_us;}
+    public void setDescription(String description) {this.description = description;}
 
     public int getParent_id() {return parent_id;}
 
@@ -42,25 +32,21 @@ public class Category {
         Category category = (Category) o;
         return id == category.id &&
                 parent_id == category.parent_id &&
-                name_ru.equals(category.name_ru) &&
-                name_us.equals(category.name_us) &&
-                description_ru.equals(category.description_ru) &&
-                description_us.equals(category.description_us);
+                name.equals(category.name) &&
+                description.equals(category.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name_ru, name_us, description_ru, description_us, parent_id);
+        return Objects.hash(id, name, description, parent_id);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Category{");
         sb.append("id=").append(id);
-        sb.append(", name_ru='").append(name_ru);
-        sb.append(", name_us='").append(name_us);
-        sb.append(", description_ru='").append(description_ru);
-        sb.append(", description_us='").append(description_us);
+        sb.append(", name='").append(name);
+        sb.append(", description='").append(description);
         sb.append(", parent_id=").append(parent_id).append("}");
         return sb.toString();
     }

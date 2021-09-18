@@ -31,6 +31,7 @@ public class ClientDAOImpl implements ClientDAO {
             "name = ?, " +
             "phone = ? " +
             "WHERE id = ?;";
+    private static final String FIND_CLIENT_BY_ID = "SELECT * FROM client WHERE id = ?;";
 
     @Override
     public Client getClientByLoginAndPassword(String login, String password) throws FailedDAOException {
@@ -106,10 +107,32 @@ public class ClientDAOImpl implements ClientDAO {
         return true;
     }
 
-    @Override
-    public Object getByid(Object o) throws FailedDAOException {
-        throw new UnsupportedOperationException("Getting account by id not supported yet");
+
+    public Client getByid(int id) throws FailedDAOException {
+        Connection connection = null;
+        Client client = null;
+        try {
+            connection = DBManager.getInstance().getConnection();
+            client = executeGetById(connection,id,client);
+        } catch (SQLException ex) {
+            logger.log(Level.ERROR, "Can`t get client by id!", ex);
+            throw new FailedDAOException("Can`t get client by id!");
+        } finally {
+            DBManager.getInstance().closeConnection(connection);
+        }
+        return client;
     }
+    private Client executeGetById(Connection connection,int id,Client client) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(FIND_CLIENT_BY_ID);
+        ps.setInt(1, id);
+        ResultSet resultSet = ps.executeQuery();
+        if (resultSet.next()) {
+            client = initClient(resultSet);
+        }
+        ps.close();
+        return client;
+    }
+
     @Override
     public boolean delete(Object o) throws FailedDAOException {
         throw new UnsupportedOperationException("Deletion of account not supported yet");

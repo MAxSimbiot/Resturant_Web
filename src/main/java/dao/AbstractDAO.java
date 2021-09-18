@@ -20,5 +20,4 @@ public interface AbstractDAO<K, E> {
 
     boolean create(E entity) throws FailedDAOException;
 
-    E getByid(K k) throws FailedDAOException;
 }

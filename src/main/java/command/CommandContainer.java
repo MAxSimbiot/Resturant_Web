@@ -13,8 +13,8 @@ public class CommandContainer {
         commands.put("register",new RegisterCommand());
         commands.put("error",new ErrorCommand());
         commands.put("mainPage",new MainPageCommand());
-        commands.put("goToLogin",new goToLoginCommand());
-        commands.put("goToCabinet",new goToCabinetCommand());
+        commands.put("goToLogin",new GoToLoginCommand());
+        commands.put("goToCabinet",new GoToCabinetCommand());
         commands.put("logIn",new LoginCommand());
         commands.put("logOut",new LogOutCommand());
         commands.put("changeLanguage",new ChangeLanguageCommand());
@@ -22,6 +22,11 @@ public class CommandContainer {
         commands.put("showCart",new CartCommand());
         commands.put("deleteFromCart",new DeleteFromCartCommand());
         commands.put("deleteReceipt",new DeleteReceiptCommand());
+        commands.put("makeOrder",new MakeOrderCommand());
+        commands.put("adminPage",new AdminPageCommand());
+        commands.put("managerPage",new ManagerPageCommand());
+        commands.put("changeReceiptStatus",new ChangeReceiptStatusCommand());
+
 
     }
 

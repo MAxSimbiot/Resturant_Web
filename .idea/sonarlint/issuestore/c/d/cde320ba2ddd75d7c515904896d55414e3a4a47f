@@ -1,9 +1,5 @@
 
 B
-java:S1166#"%Either log or rethrow this exception.(¨·‡ù8÷¸‰õ¼/
+java:S1166."%Either log or rethrow this exception.(¨·‡ù8÷¸‰õ¼/
 E
-java:S1148%"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8÷¸‰õ¼/
-U
-java:S1854"8Remove this useless assignment to local variable "done".(‰²õ¦8İ²½„¾/
-F
-java:S1481")Remove this unused "done" local variable.(‰²õ¦8İ²½„¾/
+java:S11481"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ı…Ú¾/

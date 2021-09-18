@@ -167,16 +167,8 @@
                                          style="height: 225px; width: 100%; display: block;"
                                          src="${product.image_url}">
                                     <div class="card-body">
-                                        <c:choose>
-                                            <c:when test="${locale.equals(\"ru\")}">
-                                                <p><Strong>${product.name_ru}</Strong></p>
-                                                <p class="text-muted">${product.description_ru}</p>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <p><Strong>${product.name_us}</Strong></p>
-                                                <p class="text-muted">${product.description_us}</p>
-                                            </c:otherwise>
-                                        </c:choose>
+                                                <p><Strong>${product.name}</Strong></p>
+                                                <p class="text-muted">${product.description}</p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <strong>${product.price} <fmt:message key="currency.grn"/></strong>
                                             <div class="btn-group">

@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-public class goToCabinetCommand implements Command{
+public class GoToLoginCommand implements Command{
     @Override
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
-        Map map = new HashMap();
-        map.put(PageConstants.PAGE,PageConstants.CLIENT_PAGE);
+        Map<String,Object> map = new HashMap<>();
+        map.put("page", PageConstants.LOGIN_PAGE);
         return map;
     }
 }

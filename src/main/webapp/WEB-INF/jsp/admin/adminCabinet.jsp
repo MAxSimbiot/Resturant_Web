@@ -16,7 +16,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Cart</title>
+    <title>Admin Panel</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../css/editor.css" rel="stylesheet">
@@ -31,22 +31,18 @@
 <header>
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
-            <a href="MainServlet?command=mainPage" class="navbar-brand d-flex align-items-center">
+            <a href="#" class="navbar-brand d-flex align-items-center">
 
                 <strong><fmt:message key="resturant.name"/> </strong>
             </a>
+
+                   <string><fmt:message key="admin.page.header"/> </string>
 
             <div class="btn-group" role="group" aria-label="Basic example" style="">
                 <form action="MainServlet" method="post">
                     <form action="MainServlet" method="get">
                         <button type="submit" class="btn btn-secondary"><fmt:message key="header.log.out"/></button>
                         <input type="hidden" name="command" value="logOut"/>
-                    </form>
-                    <form action="MainServlet" method="get">
-                        <button type="submit" class="btn btn-secondary"
-                                style="background-color: rgb(243, 18, 18); color: rgb(255, 255, 255); line-height: 23px; text-align: left; font-weight: 700;">
-                            <fmt:message key="header.cart"/></button>
-                        <input type="hidden" name="command" value="showCart"/>
                     </form>
                 </form>
             </div>
@@ -82,16 +78,14 @@
                                 <div class="col-md-12">
                                     <form>
                                         <div class="form-group row my-2">
-                                            <label for="username" class="col-4 col-form-label"><fmt:message
-                                                    key="client.page.login"/></label>
+                                            <label for="username" class="col-4 col-form-label"><fmt:message key="client.page.login"/></label>
                                             <div class="col-8">
                                                 <input id="username" name="username" placeholder="${client.login}"
                                                        class="form-control here" required="required" type="text">
                                             </div>
                                         </div>
                                         <div class="form-group row my-2">
-                                            <label for="text" class="col-4 col-form-label"><fmt:message
-                                                    key="client.page.name"/></label>
+                                            <label for="text" class="col-4 col-form-label"><fmt:message key="client.page.name"/></label>
                                             <div class="col-8">
                                                 <input id="text" name="text" placeholder="${client.name}"
                                                        class="form-control here" required="required" type="text">
@@ -99,18 +93,15 @@
                                         </div>
 
                                         <div class="form-group row my-2">
-                                            <label for="email" class="col-4 col-form-label"><fmt:message
-                                                    key="client.page.password"/></label>
+                                            <label for="email" class="col-4 col-form-label"><fmt:message key="client.page.password"/></label>
                                             <div class="col-8">
-                                                <input id="email" name="email" placeholder="${client.password}"
-                                                       class="form-control here"
+                                                <input id="email" name="email" placeholder="${client.password}" class="form-control here"
                                                        required="required" type="text">
                                             </div>
                                         </div>
 
                                         <div class="form-group row my-2">
-                                            <label for="newpass" class="col-4 col-form-label"><fmt:message
-                                                    key="client.page.phone"/></label>
+                                            <label for="newpass" class="col-4 col-form-label"><fmt:message key="client.page.phone"/></label>
                                             <div class="col-8">
                                                 <input id="newpass" name="newpass" placeholder="${client.phone}"
                                                        class="form-control here" type="text">
@@ -131,65 +122,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="container">
-
-            <div class="row">
-
-            </div>
-        </div>
-        <h2 class="ml-5">Order history</h2>
-
-        <table class="table" style="">
-            <thead>
-            <tr>
-                <th><fmt:message key="cart.page.receipt.id"/></th>
-                <th><fmt:message key="cart.page.receipt.creation.time"/></th>
-                <th><fmt:message key="cart.page.receipt.update.time"/></th>
-                <th><fmt:message key="cart.page.receipt.status"/></th>
-                <th>Products</th>
-                <th><fmt:message key="cart.page.total"/></th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:choose>
-                <c:when test="${!receiptHistory.equals(null)&&receiptHistory.size()>0}">
-                    <c:forEach var="entry" items="${receiptHistory}">
-                        <c:if test="${entry.statusEntity.id > 5}">
-                            <tr>
-                                <c:set var="record" value="${entry}"/>
-                                <th scope="row">${entry.id}</th>
-                                <td>${entry.creationTime}</td>
-                                <td>${entry.lastUpdate}</td>
-                                <td>${entry.statusEntity.name} (${entry.statusEntity.description})</td>
-                                <td>
-                                    <c:forEach var="producto" items="${entry.products}">
-                                        ${producto.name} (${producto.count})
-                                    </c:forEach>
-                                </td>
-                                <td>
-                                    <% int total = 0;
-                                        Receipt rec = (Receipt) pageContext.getAttribute("record");
-                                        List<Product> productList = rec.getProducts();
-                                        if (productList != null) {
-                                            for (Product p : productList) {
-                                                total += p.getPrice() * p.getCount();
-                                            }
-                                        }
-                                        request.setAttribute("total", total);%>
-                                        ${total}
-                                    <fmt:message key="currency.grn"/></td>
-                            </tr>
-                        </c:if>
-                    </c:forEach>
-                </c:when>
-                <c:otherwise>
-                    History is empty
-                </c:otherwise>
-            </c:choose>
-            </tbody>
-        </table>
-
     </div>
 
 </main>

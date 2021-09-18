@@ -73,7 +73,9 @@
                 <th><fmt:message key="cart.page.receipt.update.time"/></th>
                 <th><fmt:message key="cart.page.receipt.status"/></th>
                 <th><fmt:message key="cart.page.total"/></th>
-                <th><fmt:message key="cart.page.action"/></th>
+                <c:if test="${receipt.statusId == 1}">
+                    <th><fmt:message key="cart.page.action"/></th>
+                </c:if>
                 <th></th>
 
             </tr>
@@ -85,14 +87,7 @@
                         <th scope="row">${receipt.id}</th>
                         <td>${receipt.creationTime}</td>
                         <td>${receipt.lastUpdate}</td>
-                        <c:choose>
-                            <c:when test="${locale.equals(\"ru\")}">
-                                <td>${receipt.statusEntity.name_ru} (${receipt.statusEntity.description_ru})</td>
-                            </c:when>
-                            <c:otherwise>
-                                <td> ${receipt.statusEntity.name_us} (${receipt.statusEntity.description_us})</td>
-                            </c:otherwise>
-                        </c:choose>
+                        <td>${receipt.statusEntity.name} (${receipt.statusEntity.description})</td>
                         <td><% int total = 0;
                             Receipt receipt = (Receipt) request.getAttribute("receipt");
                             List<Product> productList = receipt.getProducts();
@@ -105,24 +100,24 @@
                             <fmt:message key="currency.grn"/></td>
                         <td>
                             <c:if test="${receipt.statusId<=2}">
-                                <form action="MainServlet" method="get">
+                                <form action="MainServlet" method="post">
                                     <button type="submit" name="receiptId" value="${receipt.id}" class="btn btn-primary"
                                             style=""><fmt:message
                                             key="cart.page.delete"/></button>
                                     <input type="hidden" name="command" value="deleteReceipt"/>
                                 </form>
+
                             </c:if>
                         </td>
                         <td>
                             <c:if test="${receipt.statusId==1}">
-                                <form action="MainServlet" method="get">
+                                <form action="MainServlet" method="post">
                                     <button type="submit" name="receiptId" value="${receipt.id}" class="btn btn-primary"
-                                            style=""><fmt:message
-                                            key="cart.page.order"/></button>
+                                            style=""><fmt:message key="cart.page.order"/></button>
                                     <input type="hidden" name="command" value="makeOrder"/>
                                 </form>
-                            </c:if>
 
+                            </c:if>
                         </td>
                     </tr>
                 </c:when>
@@ -130,7 +125,6 @@
                     <fmt:message key="cart.no.receipt"/>
                 </c:otherwise>
             </c:choose>
-
             </tbody>
         </table>
         <div class="container">
@@ -146,29 +140,24 @@
                                          style="height: 225px; width: 100%; display: block;"
                                          src="${product.image_url}">
                                     <div class="card-body">
-                                        <c:choose>
-                                            <c:when test="${locale.equals(\"ru\")}">
-                                                <p><Strong>${product.name_ru}</Strong></p>
-                                                <p class="text-muted">${product.description_ru}</p>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <p><Strong>${product.name_us}</Strong></p>
-                                                <p class="text-muted">${product.description_us}</p>
-                                            </c:otherwise>
-                                        </c:choose>
+                                        <p><Strong>${product.name}</Strong></p>
+                                        <p class="text-muted">${product.description}</p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <strong>${product.price * product.count} <fmt:message
                                                     key="currency.grn"/></strong>
                                             <h4 class="text-muted"><fmt:message
                                                     key="cart.page.count"/> ${product.count}</h4>
                                             <div class="btn-group">
-                                                <form action="MainServlet" method="get">
-                                                    <button type="submit" name="productId" value="${product.id}"
-                                                            class="btn btn-sm btn-outline-secondary">
-                                                        <fmt:message key="cart.page.delete"/>
-                                                    </button>
-                                                    <input type="hidden" name="command" value="deleteFromCart"/>
-                                                </form>
+                                                <c:if test="${receipt.statusId == 1}">
+                                                    <form action="MainServlet" method="post">
+                                                        <button type="submit" name="productId" value="${product.id}"
+                                                                class="btn btn-sm btn-outline-secondary">
+                                                            <fmt:message key="cart.page.delete"/>
+                                                        </button>
+                                                        <input type="hidden" name="receiptId" value="${receipt.id}"/>
+                                                        <input type="hidden" name="command" value="deleteFromCart"/>
+                                                    </form>
+                                                </c:if>
                                             </div>
                                         </div>
                                     </div>

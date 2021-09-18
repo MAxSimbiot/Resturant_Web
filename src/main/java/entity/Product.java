@@ -5,10 +5,8 @@ import java.util.Objects;
 public class Product {
 
     private int id;
-    private String name_ru;
-    private String name_us;
-    private String description_ru;
-    private String description_us;
+    private String name;
+    private String description;
     private int price;
     private String image_url;
     private int category_id;
@@ -20,21 +18,13 @@ public class Product {
 
     public void setId(int id) {this.id = id;}
 
-    public String getName_ru() {return name_ru;}
+    public String getName() {return name;}
 
-    public void setName_ru(String name_ru) {this.name_ru = name_ru;}
+    public void setName(String name) {this.name = name;}
 
-    public String getName_us() {return name_us;}
+    public void setDescription(String description) {this.description = description;}
 
-    public void setName_us(String name_us) {this.name_us = name_us;}
-
-    public String getDescription_ru() {return description_ru;}
-
-    public void setDescription_ru(String description_ru) {this.description_ru = description_ru;}
-
-    public String getDescription_us() {return description_us;}
-
-    public void setDescription_us(String description_us) {this.description_us = description_us;}
+    public String getDescription() {return description;}
 
     public int getPrice() {return price;}
 
@@ -68,26 +58,22 @@ public class Product {
         return id == product.id &&
                 price == product.price &&
                 category_id == product.category_id &&
-                name_ru.equals(product.name_ru) &&
-                name_us.equals(product.name_us) &&
-                description_ru.equals(product.description_ru) &&
-                description_us.equals(product.description_us) &&
+                name.equals(product.name) &&
+                description.equals(product.description) &&
                 image_url.equals(product.image_url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name_ru, name_us, description_ru, description_us, price, image_url, category_id);
+        return Objects.hash(id, name, description, price, image_url, category_id);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Product{");
         sb.append("id=").append(id);
-        sb.append(", name_ru='").append(name_ru);
-        sb.append(", name_us='").append(name_us);
-        sb.append(", description_ru='").append(description_ru);
-        sb.append(", description_us='").append(description_us);
+        sb.append(", name='").append(name);
+        sb.append(", description='").append(description);
         sb.append(", price=").append(price);
         sb.append(", image_url='").append(image_url);
         sb.append(", category_id=").append(category_id);

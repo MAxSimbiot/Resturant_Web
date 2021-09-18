@@ -4,6 +4,7 @@ import constants.DAOConstants;
 import constants.PageConstants;
 import dao.Impl.ClientDAOImpl;
 import entity.Client;
+import entity.Role;
 import exception.FailedDAOException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -53,14 +54,26 @@ public class LoginCommand implements Command {
 
     private Map<String, Object> initSession(HttpServletRequest request, Client client) {
         Map<String, Object> map = new HashMap<>();
-        map.put(PageConstants.PAGE, PageConstants.COMMAND_MAIN_PAGE);
+        Role role = client.getRoleEntity();
+
+        if(role.equals(Role.CLIENT)){
+            map.put(PageConstants.PAGE, PageConstants.COMMAND_MAIN_PAGE);
+        }else if(role.equals(Role.MANAGER)){
+            map.put(PageConstants.PAGE,PageConstants.COMMAND_MANAGER_PAGE);
+        }else if(role.equals(Role.ADMIN)){
+            map.put(PageConstants.PAGE,PageConstants.COMMAND_ADMIN_PAGE);
+        }else {
+            map.put(PageConstants.PAGE,PageConstants.LOGIN_PAGE);
+            return map;
+        }
+
 
         HttpSession session = request.getSession(true);
 
         session.setMaxInactiveInterval(60 * 60);
         session.setAttribute("logged", true);
         session.setAttribute(DAOConstants.CLIENT, client);
-        session.setAttribute("role", client.getRoleEntity().toString());
+        session.setAttribute("role", role);
         return map;
     }
 }

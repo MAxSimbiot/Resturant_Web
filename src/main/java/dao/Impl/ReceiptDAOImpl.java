@@ -3,7 +3,6 @@ package dao.Impl;
 import constants.DAOConstants;
 import dao.DBManager;
 import dao.ReceiptDAO;
-import entity.Client;
 import entity.Product;
 import entity.Receipt;
 import entity.Status;
@@ -13,31 +12,25 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReceiptDAOImpl implements ReceiptDAO {
     private static final Logger logger = LogManager.getLogger(ReceiptDAOImpl.class);
 
-//    private static final  String GET_RECEIPT_BY_ACC_ID = "SELECT * FROM product , category, receipt_has_product, receipt " +
-//            "WHERE client_id = ? " +
-//            "AND receipt.id = receipt_id " +
-//            "AND product.id = receipt_has_product.product_id " +
-//            "AND category_id = category.id " +
-//            ";";
-
     private static final String GET_PRODUCTS_BY_RECEIPT_ID =
-            "SELECT product.id, name_ru,name_us,description_ru,description_us,price,image_url,category_id, SUM(count) as count FROM product ,receipt_has_product, receipt " +
+            "SELECT product.id, name,description,price,image_url,category_id, SUM(count) as count " +
+                    "FROM product ,receipt_has_product, receipt " +
                     "WHERE receipt_id = ? " +
                     "AND receipt.id = receipt_id " +
                     "AND product.id = receipt_has_product.product_id " +
                     "GROUP BY product.id;";
 
     private static final String GET_RECEIPT_BY_ACC_ID =
-            "SELECT id, status_id ,creation_time, last_update, client_id " +
-                    "FROM receipt " +
-                    "WHERE client_id = ?;";
+            "SELECT receipt.id, status_id ,creation_time, last_update, client_id," +
+                    " status.id as sid, status.name as sn, status.description as sd " +
+                    "FROM receipt, status " +
+                    "WHERE client_id = ? and status_id = status.id and status_id < 7;";
 
     private static final String INSERT_PRODUCT_BY_ID =
             "INSERT INTO receipt_has_product (receipt_id,product_id,count) " +
@@ -62,13 +55,28 @@ public class ReceiptDAOImpl implements ReceiptDAO {
             "INSERT INTO receipt(client_id,status_id) " +
                     "VALUES (?,?);";
 
+    private static final String UPDATE_STATUS_BY_ID =
+            "UPDATE receipt SET status_id = ? WHERE id = ?;";
+
+    private static final String GET_ALL_RECEIPTS =
+            "SELECT receipt.id, status_id ,creation_time, last_update, client_id, " +
+            "status.id as sid, status.name as sn, status.description as sd " +
+            "FROM receipt, status " +
+            "WHERE status_id = status.id;";
+
+    private static final String GET_ALL_RECEIPTS_BY_ID =
+            "SELECT receipt.id, status_id ,creation_time, last_update, client_id, " +
+            "status.id as sid, status.name as sn, status.description as sd " +
+            "FROM receipt, status " +
+            "WHERE status_id = status.id AND client_id = ?;";
+
     public Receipt getReceiptByAccountId(int accountId) throws FailedDAOException {
         Connection connection = null;
         Receipt receipt = null;
         try {
             connection = DBManager.getInstance().getConnection();
             receipt = executeGetByAccId(connection, receipt, accountId);
-            if(receipt!=null){
+            if (receipt != null) {
                 receipt.setProducts(getAndFillProducts(connection, receipt));
             }
         } catch (SQLException ex) {
@@ -78,8 +86,35 @@ public class ReceiptDAOImpl implements ReceiptDAO {
         } finally {
             DBManager.getInstance().closeConnection(connection);
         }
+        System.out.println(receipt);
         return receipt;
     }
+
+    public boolean updateStatusById(int statusId,int receiptId) throws FailedDAOException {
+        Connection connection = null;
+        boolean result = false;
+        try {
+            connection = DBManager.getInstance().getConnection();
+            result = executeUpdateStatusById(connection, statusId ,receiptId);
+        } catch (SQLException ex) {
+            logger.log(Level.ERROR, "Unable to update receipt status by id", ex);
+            DBManager.getInstance().rollbackAndClose(connection);
+            throw new FailedDAOException("Unable to update receipt status by id");
+        } finally {
+            DBManager.getInstance().commitAndClose(connection);
+        }
+        return result;
+    }
+
+    private boolean executeUpdateStatusById(Connection connection,int statusId, int receiptId) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(UPDATE_STATUS_BY_ID);
+        ps.setInt(1,statusId);
+        ps.setInt(2,receiptId);
+        int rowsUpdated = ps.executeUpdate();
+        ps.close();
+        return rowsUpdated == 1;
+    }
+
 
     public boolean deleteProductById(int receiptId, int productId) throws FailedDAOException {
         Connection connection = null;
@@ -119,7 +154,9 @@ public class ReceiptDAOImpl implements ReceiptDAO {
         PreparedStatement ps = connection.prepareStatement(GET_RECEIPT_BY_ACC_ID);
         ps.setInt(1, accountId);
         ResultSet resultSet = ps.executeQuery();
-        receipt = initReceipt(resultSet);
+        if (resultSet.next()) {
+            receipt = initReceipt(resultSet); ///1111111111111111111111111111
+        }
         ps.close();
         return receipt;
     }
@@ -136,31 +173,29 @@ public class ReceiptDAOImpl implements ReceiptDAO {
     }
 
     private Receipt initReceipt(ResultSet rs) throws SQLException {
-        if (rs.next()) {
             Receipt receipt = new Receipt();
             receipt.setId(rs.getInt("id"));
             receipt.setClientId(rs.getInt("client_id"));
-
             int statusId = rs.getInt("status_id");
-            Status status = Status.getByid(statusId);
+            ////status-----------------
+            int sId = rs.getInt("sid");
+            String statusName = rs.getString("sn");
+            String statusDescription = rs.getString("sd");
+
+            Status status = new Status(sId, statusName, statusDescription);
             receipt.setStatusId(statusId);
             receipt.setStatusEntity(status);
 
             receipt.setCreationTime(rs.getDate("creation_time").toLocalDate());
             receipt.setLastUpdate(rs.getDate("last_update").toLocalDate());
-
             return receipt;
-        }
-        return null;
     }
 
     private Product initProduct(ResultSet resultSet) throws SQLException {
         Product product = new Product();
         product.setId(resultSet.getInt(DAOConstants.ID));
-        product.setName_ru(resultSet.getString(DAOConstants.NAME_RU));
-        product.setName_us(resultSet.getString(DAOConstants.NAME_US));
-        product.setDescription_ru(resultSet.getString(DAOConstants.DESCRIPTION_RU));
-        product.setDescription_us(resultSet.getString(DAOConstants.DESCRIPTION_US));
+        product.setName(resultSet.getString(DAOConstants.NAME));
+        product.setDescription(resultSet.getString(DAOConstants.DESCRIPTION));
         product.setPrice(resultSet.getInt(DAOConstants.PRICE));
         product.setImage_url(resultSet.getString(DAOConstants.IMAGE_URL));
         int categoryId = resultSet.getInt(DAOConstants.CATEGORY_ID);
@@ -200,12 +235,69 @@ public class ReceiptDAOImpl implements ReceiptDAO {
 
     @Override
     public List getAll() throws FailedDAOException {
-        return null;
+        Connection connection = null;
+        List<Receipt> receipts = null;
+        try {
+            connection = DBManager.getInstance().getConnection();
+            receipts = executeGetAllReceipts(connection);
+        } catch (SQLException ex) {
+            logger.log(Level.ERROR, "Can`t get all receipts!", ex);
+            DBManager.getInstance().closeConnection(connection);
+            throw new FailedDAOException("Can`t get all receipts!");
+        } finally {
+            DBManager.getInstance().closeConnection(connection);
+        }
+        return receipts;
+    }
+
+    public List<Receipt> getAllClientReceiptsById(int clientId) throws FailedDAOException {
+        Connection connection = null;
+        List<Receipt> receipts = null;
+        try {
+            connection = DBManager.getInstance().getConnection();
+            receipts = executeGetAllReceiptsById(connection,clientId);
+        } catch (SQLException ex) {
+            logger.log(Level.ERROR, "Can`t get all receipts by id!", ex);
+            DBManager.getInstance().closeConnection(connection);
+            throw new FailedDAOException("Can`t get all receipts by id!");
+        } finally {
+            DBManager.getInstance().closeConnection(connection);
+        }
+        return receipts;
+    }
+
+    private List<Receipt> executeGetAllReceiptsById(Connection connection,int clientId) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(GET_ALL_RECEIPTS_BY_ID);
+        ps.setInt(1,clientId);
+        ResultSet resultSet = ps.executeQuery();
+        List<Receipt> receipts = new ArrayList();
+        while (resultSet.next()){
+            Receipt receipt = initReceipt(resultSet);
+            if (receipt != null) {
+                receipt.setProducts(getAndFillProducts(connection, receipt));
+                receipts.add(receipt);
+            }
+        }
+        return receipts;
+    }
+
+    private List<Receipt> executeGetAllReceipts(Connection connection) throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(GET_ALL_RECEIPTS);
+        List<Receipt> receipts = new ArrayList();
+        while (resultSet.next()){
+            Receipt receipt = initReceipt(resultSet);
+            if (receipt != null) {
+                receipt.setProducts(getAndFillProducts(connection, receipt));
+                receipts.add(receipt);
+            }
+        }
+        return receipts;
     }
 
     @Override
     public boolean update(Object entity) throws FailedDAOException {
-        return false;
+        throw new UnsupportedOperationException("Deletion of account not supported yet");
     }
 
     @Override
@@ -250,13 +342,13 @@ public class ReceiptDAOImpl implements ReceiptDAO {
             connection = DBManager.getInstance().getConnection();
             rowsUpdated = executeCreate(connection, receipt);
         } catch (SQLException ex) {
-            if(connection!=null){
+            if (connection != null) {
                 DBManager.getInstance().rollbackAndClose(connection);
             }
             logger.log(Level.ERROR, "Can`t delete a receipt", ex);
             throw new FailedDAOException("Can`t delete a receipt");
         } finally {
-            if(connection!=null){
+            if (connection != null) {
                 DBManager.getInstance().commitAndClose(connection);
             }
         }
@@ -274,8 +366,4 @@ public class ReceiptDAOImpl implements ReceiptDAO {
     }
 
 
-    @Override
-    public Object getByid(Object o) throws FailedDAOException {
-        return null;
-    }
 }

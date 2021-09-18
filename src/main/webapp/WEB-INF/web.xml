@@ -27,19 +27,19 @@
     <filter-class>filter.CommandAccessFilter</filter-class>
     <init-param>
       <param-name>admin</param-name>
-      <param-value>mainPage showCart</param-value>
+      <param-value>mainPage showCart adminPage</param-value>
     </init-param>
     <init-param>
       <param-name>client</param-name>
-      <param-value>mainPage showCart</param-value>
+      <param-value>mainPage showCart goToCabinet</param-value>
     </init-param>
     <init-param>
       <param-name>manager</param-name>
-      <param-value>mainPage showCart</param-value>
+      <param-value>mainPage showCart managerPage changeReceiptStatus</param-value>
     </init-param>
     <init-param>
       <param-name>common</param-name>
-      <param-value>mainPage logOut deleteFromCart deleteReceipt goToCabinet</param-value>
+      <param-value>mainPage logOut deleteFromCart deleteReceipt makeOrder</param-value>
     </init-param>
     <init-param>
       <param-name>noControl</param-name>

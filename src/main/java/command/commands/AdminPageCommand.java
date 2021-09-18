@@ -7,11 +7,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-public class goToLoginCommand implements Command{
+public class AdminPageCommand implements Command {
     @Override
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
         Map<String,Object> map = new HashMap<>();
-        map.put("page", PageConstants.LOGIN_PAGE);
+
+        map.put(PageConstants.PAGE,PageConstants.ADMIN_PAGE);
         return map;
     }
 }

@@ -16,7 +16,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Cart</title>
+    <title>Manager Workspace</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../css/editor.css" rel="stylesheet">
@@ -31,22 +31,17 @@
 <header>
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
-            <a href="MainServlet?command=mainPage" class="navbar-brand d-flex align-items-center">
+            <a href="#" class="navbar-brand d-flex align-items-center">
 
                 <strong><fmt:message key="resturant.name"/> </strong>
             </a>
+            <strong><fmt:message key="manager.page.header"/></strong>
 
             <div class="btn-group" role="group" aria-label="Basic example" style="">
                 <form action="MainServlet" method="post">
                     <form action="MainServlet" method="get">
                         <button type="submit" class="btn btn-secondary"><fmt:message key="header.log.out"/></button>
                         <input type="hidden" name="command" value="logOut"/>
-                    </form>
-                    <form action="MainServlet" method="get">
-                        <button type="submit" class="btn btn-secondary"
-                                style="background-color: rgb(243, 18, 18); color: rgb(255, 255, 255); line-height: 23px; text-align: left; font-weight: 700;">
-                            <fmt:message key="header.cart"/></button>
-                        <input type="hidden" name="command" value="showCart"/>
                     </form>
                 </form>
             </div>
@@ -132,13 +127,8 @@
             </div>
         </div>
 
-        <div class="container">
 
-            <div class="row">
-
-            </div>
-        </div>
-        <h2 class="ml-5">Order history</h2>
+        <h2 class="ml-5"><fmt:message key="manager.page.orders"/></h2>
 
         <table class="table" style="">
             <thead>
@@ -149,28 +139,34 @@
                 <th><fmt:message key="cart.page.receipt.status"/></th>
                 <th>Products</th>
                 <th><fmt:message key="cart.page.total"/></th>
+                <th>Client name</th>
+                <th> phone</th>
+                <th>Change status</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
+
             <c:choose>
-                <c:when test="${!receiptHistory.equals(null)&&receiptHistory.size()>0}">
-                    <c:forEach var="entry" items="${receiptHistory}">
-                        <c:if test="${entry.statusEntity.id > 5}">
+                <c:when test="${!receiptList.equals(null)}">
+                    <c:forEach var="receipt" items="${receiptList}">
+                        <c:if test="${receipt.statusEntity.id > 1 && receipt.statusEntity.id < 7}">
+
                             <tr>
-                                <c:set var="record" value="${entry}"/>
-                                <th scope="row">${entry.id}</th>
-                                <td>${entry.creationTime}</td>
-                                <td>${entry.lastUpdate}</td>
-                                <td>${entry.statusEntity.name} (${entry.statusEntity.description})</td>
+                                <c:set var="rec" value="${receipt}"/>
+                                <th scope="row">${receipt.id}</th>
+                                <td>${receipt.creationTime}</td>
+                                <td>${receipt.lastUpdate}</td>
+                                <td>${receipt.statusEntity.name} (${receipt.statusEntity.description})</td>
                                 <td>
-                                    <c:forEach var="producto" items="${entry.products}">
-                                        ${producto.name} (${producto.count})
+                                    <c:forEach var="product" items="${receipt.products}">
+                                        ${product.name} (${product.count})
                                     </c:forEach>
                                 </td>
                                 <td>
                                     <% int total = 0;
-                                        Receipt rec = (Receipt) pageContext.getAttribute("record");
-                                        List<Product> productList = rec.getProducts();
+                                        Receipt receipt = (Receipt) pageContext.getAttribute("rec");
+                                        List<Product> productList = receipt.getProducts();
                                         if (productList != null) {
                                             for (Product p : productList) {
                                                 total += p.getPrice() * p.getCount();
@@ -179,17 +175,45 @@
                                         request.setAttribute("total", total);%>
                                         ${total}
                                     <fmt:message key="currency.grn"/></td>
+
+                                <th>${clients.get(receipt.clientId).name}</th>
+                                <th>${clients.get(receipt.clientId).phone}</th>
+                                <form action="MainServlet" method="get">
+                                    <td>
+                                        <select class="form-control" name="statusId">
+                                            <option value="${receipt.statusEntity.id}">${receipt.statusEntity.name}</option>
+                                            <option value="3">Accepted</option>
+                                            <option value="4">Cooking</option>
+                                            <option value="5">On Way</option>
+                                            <option value="6">Paid</option>
+                                            <option value="7">Done</option>
+                                            <option value="8">Cancelled</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button type="submit" name="receiptId" value="${receipt.id}"
+                                                class="btn btn-primary"
+                                                style="">Change status
+                                        </button>
+                                        <input type="hidden" name="command" value="changeReceiptStatus"/>
+                                    </td>
+                                </form>
                             </tr>
                         </c:if>
                     </c:forEach>
                 </c:when>
                 <c:otherwise>
-                    History is empty
+                    <fmt:message key="cart.no.receipt"/>
                 </c:otherwise>
             </c:choose>
             </tbody>
         </table>
+        <div class="container">
 
+            <div class="row">
+
+            </div>
+        </div>
     </div>
 
 </main>

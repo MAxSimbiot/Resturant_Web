@@ -5,10 +5,12 @@ import dao.Impl.ReceiptDAOImpl;
 import entity.Client;
 import entity.Receipt;
 import exception.FailedDAOException;
+import service.ReceiptService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CartCommand implements Command{
@@ -26,15 +28,8 @@ public class CartCommand implements Command{
             ReceiptDAOImpl receiptDAO = new ReceiptDAOImpl();
             try {
                 Receipt receipt = receiptDAO.getReceiptByAccountId(clientId);
-                if(receipt==null){
-                    receipt = new Receipt();
-                    receipt.setClientId(clientId);
-                    receipt.setStatusId(1);
-                    receiptDAO.create(receipt);
-                    receipt = receiptDAO.getReceiptByAccountId(clientId);
-                }
+                receipt = ReceiptService.checkReceipt(receipt,clientId,receiptDAO);
                 map.put("receipt",receipt);
-                request.getSession().setAttribute("receiptId",receipt.getId());
             } catch (FailedDAOException e) {
                 map.put(PageConstants.PAGE,PageConstants.ERROR_PAGE);
                 map.put("errorMsg",e.getMessage());
@@ -47,5 +42,4 @@ public class CartCommand implements Command{
         }
         return map;
     }
-
 }

@@ -107,3 +107,17 @@ i
 9src/main/java/command/commands/DeleteFromCartCommand.java,b\0\b0120715809ad04c71a87d37b455fa67d3f9c758
 h
 8src/main/java/command/commands/DeleteReceiptCommand.java,3\9\3996dfae1e1d7763d941dd24c9ca9e484d997716
+f
+6src/main/java/command/commands/goToCabinetCommand.java,c\e\cef2cb33c7c24ca6d2de290076d0cbaf3b71f22c
+d
+4src/main/java/command/commands/makeOrderCommand.java,8\7\87ca900fc964edb13ad12a2dbbf4be15e3c4b52c
+d
+4src/main/java/command/commands/adminPageCommand.java,a\7\a70b8b9ce961c8e7cc7caa7425aafa36cb650954
+b
+2src/main/webapp/WEB-INF/jsp/admin/adminCabinet.jsp,b\6\b6920c9208aafca74bb6c805026993949ae41d9a
+`
+0src/main/webapp/WEB-INF/jsp/user/userCabinet.jsp,1\a\1a1662e9500027080c2f9aacfba600836caf39e8
+f
+6src/main/java/command/commands/managerPageCommand.java,9\0\9083098a4a2ede6545857a96fca038f509141aaf
+f
+6src/main/webapp/WEB-INF/jsp/manager/managerCabinet.jsp,6\b\6b2c6c9a606d7cf5d9d9258b4ecd390b96a04eaf

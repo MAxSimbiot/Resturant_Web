@@ -5,6 +5,7 @@ import dao.Impl.ReceiptDAOImpl;
 import entity.Client;
 import entity.Receipt;
 import exception.FailedDAOException;
+import service.ReceiptService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,13 +29,11 @@ public class AddToCartCommand implements Command {
             ReceiptDAOImpl receiptDAO = new ReceiptDAOImpl();
             try {
                 Receipt receipt = receiptDAO.getReceiptByAccountId(clientId);
-                if(receipt==null){
-                    receipt = new Receipt();
-                    receipt.setClientId(clientId);
-                    receipt.setStatusId(1);
-                    receiptDAO.create(receipt);
-                    receipt = receiptDAO.getReceiptByAccountId(clientId);
+                if(receipt.getStatusId() > 1){
+                    map.put(PageConstants.PAGE,PageConstants.CART);
+                    return map;
                 }
+                receipt = ReceiptService.checkReceipt(receipt,clientId,receiptDAO);
                boolean done =  receiptDAO.insertProductIntoReceipt(
                        receipt.getId(),
                        Integer.valueOf(request.getParameter("productId")),1);
@@ -49,8 +48,10 @@ public class AddToCartCommand implements Command {
                 e.printStackTrace();
                 return map;
             }
-            map.put(PageConstants.PAGE,PageConstants.COMMAND_MAIN_PAGE);
+            map.put(PageConstants.PAGE,PageConstants.INDEX);
         }
         return map;
     }
+
+
 }

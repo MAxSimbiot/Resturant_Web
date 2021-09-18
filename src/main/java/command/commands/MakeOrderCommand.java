@@ -1,10 +1,7 @@
 package command.commands;
 
 import constants.PageConstants;
-import dao.Impl.ProductDAOImpl;
 import dao.Impl.ReceiptDAOImpl;
-import dao.ProductDAO;
-import entity.Receipt;
 import exception.FailedDAOException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,34 +9,27 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DeleteFromCartCommand implements Command {
+public class MakeOrderCommand implements Command{
     @Override
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
         Map<String,Object> map = new HashMap<>();
-        String pId = request.getParameter("productId");
-        int productId = 0;
-        if(pId!=null){
-            productId = Integer.parseInt(pId);
-        }
-
-        int receiptid = 0;
-        String rId = request.getParameter("receiptId");
-        if(rId!= null){
-            receiptid = Integer.parseInt(rId);
-        }
-
-        if(receiptid!=0){
-            boolean success = false;
+        String id = request.getParameter("receiptId");
+        int receiptId;
+        boolean success = false;
+        if(id!=null){
+            receiptId = Integer.valueOf(id);
             ReceiptDAOImpl receiptDAO = new ReceiptDAOImpl();
             try {
-               success = receiptDAO.deleteProductById(receiptid,productId);
+                success = receiptDAO.updateStatusById(2,receiptId);
             } catch (FailedDAOException e) {
                 map.put(PageConstants.PAGE,PageConstants.ERROR_PAGE);
                 map.put("errorMsg",e.getMessage());
                 e.printStackTrace();
                 return map;
             }
-            map.put("productDeleted",success);
+            if(success){
+                map.put("statusUpdated",true);
+            }
         }
 
         map.put(PageConstants.PAGE,PageConstants.CART);
