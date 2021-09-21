@@ -129,8 +129,6 @@ _
 /src/main/java/repository/ProductRepositody.java,d\3\d3fe41b4ca4c629a86ef0eb93e42459084f5b038
 X
 (src/main/java/service/DataValidator.java,4\d\4d849615e99262e7b1833a8c3a0ef46f3d285411
-R
-"src/test/java/goToCommandTest.java,9\2\92bb84f0e4742f85156cd1a025e3279332fb5aa5
 T
 $src/test/java/DataValidatorTest.java,b\c\bce3144bb32a14b9741cc7e8db9897c986d9c3bb
 T

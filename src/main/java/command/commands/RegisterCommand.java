@@ -11,7 +11,6 @@ import service.ClientService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,16 +25,14 @@ public class RegisterCommand implements Command {
         final String repPassword = request.getParameter(DAOConstants.REP_PASSWORD);
         final String name = request.getParameter(DAOConstants.NAME);
         final String phone = request.getParameter(DAOConstants.PHONE);
-
-        System.out.println(name);
         ClientService cs = new ClientService();
         boolean success = false;
-        Map<String, Object> map = cs.validateRegistration(login, password, repPassword, name, phone);
+        Map<String, Object> map = cs.validateClientInfo(login, password, repPassword, name, phone);
 
         if (map.containsKey("validated")) {
             ClientDAOImpl clientDAO = new ClientDAOImpl();
             map = new HashMap<>();
-            Client c = initClient(login, password, name, phone);
+            Client c = ClientService.initClient(login, password, name, phone);
             try {
                 success = clientDAO.create(c);
             } catch (FailedDAOException e) {
@@ -53,12 +50,5 @@ public class RegisterCommand implements Command {
         return map;
     }
 
-    private Client initClient(String login, String password, String name, String phone) {
-        Client c = new Client();
-        c.setLogin(login);
-        c.setPassword(password);
-        c.setName(name);
-        c.setPhone(phone);
-        return c;
-    }
+
 }

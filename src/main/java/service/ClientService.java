@@ -14,8 +14,8 @@ import java.util.Map;
 public class ClientService {
     private static final Logger logger = Logger.getLogger(ClientService.class);
 
-    public Map<String, Object> validateRegistration(String login, String password,
-                                                    String repPassword, String name, String phone) {
+    public Map<String, Object> validateClientInfo(String login, String password,
+                                                  String repPassword, String name, String phone) {
         Map<String, Object> map = new HashMap<>();
         boolean validated = true;
 
@@ -59,5 +59,24 @@ public class ClientService {
             logger.log(Level.ERROR, e.getMessage());
         }
         return client;
+    }
+
+    public static Client initClient(String login, String password, String name, String phone) {
+        Client c = new Client();
+        c.setLogin(login);
+        c.setPassword(password);
+        c.setName(name);
+        c.setPhone(phone);
+        return c;
+    }
+
+    public static Client initClient(int id, String login, String password, String name, String phone) {
+        Client c = new Client();
+        c.setId(id);
+        c.setLogin(login);
+        c.setPassword(password);
+        c.setName(name);
+        c.setPhone(phone);
+        return c;
     }
 }

@@ -1,7 +1,7 @@
 package controller;
 
 import command.commands.Command;
-import command.CommandContainer;
+import command.CommandFactory;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -31,7 +31,7 @@ public class MainServlet extends HttpServlet {
 
     private void prcess(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         String commandName = request.getParameter("command");
-        Command command = CommandContainer.get(commandName);
+        Command command = CommandFactory.get(commandName);
         Map<String,Object>  map = command.execute(request,response);
         for(Map.Entry<String,Object> entry: map.entrySet()){
             request.setAttribute(entry.getKey(),entry.getValue());

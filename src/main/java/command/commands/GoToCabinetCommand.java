@@ -21,9 +21,6 @@ public class GoToCabinetCommand implements Command {
         ReceiptDAOImpl receiptDAO = new ReceiptDAOImpl();
         try {
             List<Receipt> clientReceipts = receiptDAO.getAllClientReceiptsById(clientId);
-            for(Receipt r: clientReceipts){
-                System.out.println(r.getId());
-            }
             map.put("receiptHistory", clientReceipts);
         } catch (FailedDAOException e) {
             map.put(PageConstants.PAGE, PageConstants.ERROR_PAGE);

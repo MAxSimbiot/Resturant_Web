@@ -32,10 +32,8 @@
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
             <a href="MainServlet?command=mainPage" class="navbar-brand d-flex align-items-center">
-
                 <strong><fmt:message key="resturant.name"/> </strong>
             </a>
-
             <div class="btn-group" role="group" aria-label="Basic example" style="">
                 <form action="MainServlet" method="post">
                     <form action="MainServlet" method="get">
@@ -80,40 +78,66 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form>
+                                    <form action="MainServlet" method="get">
                                         <div class="form-group row my-2">
-                                            <label for="username" class="col-4 col-form-label"><fmt:message
+                                            <label for="login" class="col-4 col-form-label"><fmt:message
                                                     key="client.page.login"/></label>
                                             <div class="col-8">
-                                                <input id="username" name="username" placeholder="${client.login}"
+                                                <c:if test="${badLogin}">
+                                                    <h6 style="color: red"><fmt:message key="login.page.bad.login"/></h6>
+                                                </c:if>
+                                                <input id="login" name="login"  value="${client.login}"
                                                        class="form-control here" required="required" type="text">
                                             </div>
                                         </div>
                                         <div class="form-group row my-2">
-                                            <label for="text" class="col-4 col-form-label"><fmt:message
+                                            <label for="name" class="col-4 col-form-label"><fmt:message
                                                     key="client.page.name"/></label>
                                             <div class="col-8">
-                                                <input id="text" name="text" placeholder="${client.name}"
+                                                <c:if test="${badName}">
+                                                    <h6 style="color: red"><fmt:message key="login.page.bad.name"/></h6>
+                                                </c:if>
+                                                <input id="name" name="name" value="${client.name}"
                                                        class="form-control here" required="required" type="text">
                                             </div>
                                         </div>
 
                                         <div class="form-group row my-2">
-                                            <label for="email" class="col-4 col-form-label"><fmt:message
+                                            <label for="pass" class="col-4 col-form-label"><fmt:message
                                                     key="client.page.password"/></label>
                                             <div class="col-8">
-                                                <input id="email" name="email" placeholder="${client.password}"
+                                                <c:if test="${badPass}">
+                                                    <h6 style="color: red"><fmt:message key="login.page.bad.pass"/></h6>
+                                                </c:if>
+                                                <input id="pass" name="password"
+                                                       value="${client.password}"
                                                        class="form-control here"
-                                                       required="required" type="text">
+                                                       required="required" type="password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row my-2">
+                                            <label for="reppass" class="col-4 col-form-label"><fmt:message
+                                                    key="client.page.password.repeat"/></label>
+                                            <div class="col-8">
+                                                <c:if test="${diffPass}">
+                                                    <h6 style="color: red"><fmt:message key="login.page.bad.pass.match"/></h6>
+                                                </c:if>
+                                                <input id="reppass" name="repeatPassword"  placeholder="<fmt:message
+                                                    key="client.page.password.repeat"/>"
+                                                       class="form-control here"
+                                                       required="required" type="password">
                                             </div>
                                         </div>
 
                                         <div class="form-group row my-2">
-                                            <label for="newpass" class="col-4 col-form-label"><fmt:message
+                                            <label for="phone" class="col-4 col-form-label"><fmt:message
                                                     key="client.page.phone"/></label>
                                             <div class="col-8">
-                                                <input id="newpass" name="newpass" placeholder="${client.phone}"
-                                                       class="form-control here" type="text">
+                                                <c:if test="${badPhone}">
+                                                    <h6 style="color: red"><fmt:message key="login.page.bad.phone"/></h6>
+                                                </c:if>
+                                                <input id="phone" name="phone"
+                                                       class="form-control here" type="text" value="${client.phone}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -121,8 +145,20 @@
                                                 <button name="submit" type="submit" class="btn btn-primary">
                                                     <fmt:message key="client.page.update.account"/>
                                                 </button>
+                                                <div style="color:#029f5b">
+                                                    <c:if test="${updateSuccessMsg}">
+                                                        <fmt:message key="client.page.update.success"/>
+                                                    </c:if>
+                                                </div>
+                                                <div style="color:red">
+                                                    <c:if test="${updateErrorMsg}">
+                                                        <fmt:message key="client.page.update.fail"/>
+                                                    </c:if>
+                                                </div>
                                             </div>
                                         </div>
+                                        <input type="hidden" name="id" value="${client.id}"/>
+                                        <input type="hidden" name="command" value="updateClient"/>
                                     </form>
                                 </div>
                             </div>

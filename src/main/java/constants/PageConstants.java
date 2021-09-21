@@ -16,4 +16,5 @@ public final class PageConstants {
     public static final String COMMAND_CART = "/MainServlet?command=showCart";
     public static final String COMMAND_MANAGER_PAGE = "/MainServlet?command=managerPage";
     public static final String COMMAND_ADMIN_PAGE = "/MainServlet?command=adminPage";
+    public static final String COMMAND_CLIENT_PAGE = "/MainServlet?command=goToCabinet";
 }

@@ -1,9 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 import service.ClientService;
-import service.DataValidator;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class ClientServiceTest {
@@ -19,7 +17,7 @@ public class ClientServiceTest {
 
         Map<String,Object> map;
         ClientService cs = new ClientService();
-        map = cs.validateRegistration(login,password,rePassword,name,phone);
+        map = cs.validateClientInfo(login,password,rePassword,name,phone);
         Assert.assertTrue(map.containsKey("validated"));
     }
 
@@ -33,7 +31,7 @@ public class ClientServiceTest {
 
         Map<String,Object> map;
         ClientService cs = new ClientService();
-        map = cs.validateRegistration(login,password,rePassword,name,phone);
+        map = cs.validateClientInfo(login,password,rePassword,name,phone);
         Assert.assertTrue(map.get("badPass").equals(true));
     }
 
@@ -47,7 +45,7 @@ public class ClientServiceTest {
 
         Map<String,Object> map;
         ClientService cs = new ClientService();
-        map = cs.validateRegistration(login,password,rePassword,name,phone);
+        map = cs.validateClientInfo(login,password,rePassword,name,phone);
         Assert.assertTrue(map.get("diffPass").equals(true));
     }
 
@@ -61,7 +59,7 @@ public class ClientServiceTest {
 
         Map<String,Object> map;
         ClientService cs = new ClientService();
-        map = cs.validateRegistration(login,password,rePassword,name,phone);
+        map = cs.validateClientInfo(login,password,rePassword,name,phone);
         Assert.assertTrue(map.get("validated").equals(true));
     }
 }

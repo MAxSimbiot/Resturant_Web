@@ -5,7 +5,7 @@ import command.commands.*;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class CommandContainer {
+public class CommandFactory {
 
     private static Map<String, Command> commands = new TreeMap<String,Command>();
 
@@ -26,7 +26,7 @@ public class CommandContainer {
         commands.put("adminPage",new AdminPageCommand());
         commands.put("managerPage",new ManagerPageCommand());
         commands.put("changeReceiptStatus",new ChangeReceiptStatusCommand());
-
+        commands.put("updateClient",new UpdateClientCommand());
 
     }
 
