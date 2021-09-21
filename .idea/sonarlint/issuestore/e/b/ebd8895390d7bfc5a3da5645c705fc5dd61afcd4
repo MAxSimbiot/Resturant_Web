@@ -1,5 +1,5 @@
 
-E
-java:S1148*"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8˜†©Î¾/
 B
-java:S1166'"%Either log or rethrow this exception.(¨·‡ù8¬¹•õ¼/
+java:S1166#"%Either log or rethrow this exception.(¨·‡ù8¬¹•õ¼/
+`
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(ûšÇ8œ½¾™À/

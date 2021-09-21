@@ -1,4 +1,6 @@
 package dao;
 
-public interface ReceiptDAO extends AbstractDAO{
+import entity.Receipt;
+
+public interface ReceiptDAO<K> extends AbstractDAO<K, Receipt> {
 }

@@ -1,11 +1,7 @@
 
+e
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(üİÊøÿÿÿÿ8¢ìº™À/
 B
-java:S1166$"%Either log or rethrow this exception.(¨·‡ù8¦ÓÖ¾/
-E
-java:S1148'"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Å—†Ú¾/
-Q
-java:S1128"4Remove this unused import 'dao.Impl.ProductDAOImpl'.(ÚûÚÿ8¦ÓÖ¾/
-M
-java:S1128"+Remove this unused import 'dao.ProductDAO'.(•¼Ú‚ıÿÿÿÿ8¦ÓÖ¾/
-H
-java:S1128"+Remove this unused import 'entity.Receipt'.(¬ÑÖœ8¦ÓÖ¾/
+java:S1166%"%Either log or rethrow this exception.(¨·‡ù8¦ÓÖ¾/
+Y
+java:S1128"7Remove this unused import 'persistence.dao.ProductDAO'.(©ìÕ•ùÿÿÿÿ8÷èÏšÀ/

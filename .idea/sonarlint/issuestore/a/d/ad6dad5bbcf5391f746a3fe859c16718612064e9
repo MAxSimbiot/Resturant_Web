@@ -1,11 +1,11 @@
 
+9
+java:S2384"Return a copy of "products".(ãÉ™8à½èó¼/
+u	java:S1225"TAt most one statement is allowed per line, but 2 statements were found on this line.(›î¦¿şÿÿÿÿ8Øàëó¼/
 8
 java:S2384"Store a copy of "products".(Ñò×Ì8à½èó¼/
 u	java:S1224"TAt most one statement is allowed per line, but 2 statements were found on this line.(×æ©Êùÿÿÿÿ8Øàëó¼/
-9
-java:S2384"Return a copy of "products".(ãÉ™8à½èó¼/
+5	java:S1215"Missing curly brace.(›î¦¿şÿÿÿÿ8Øàëó¼/
 W
 java:S1258":Add a constructor to the class, or provide default values.(ˆ†Ñ™8İÁ°å»/
-5	java:S1215"Missing curly brace.(›î¦¿şÿÿÿÿ8Øàëó¼/
-u	java:S1225"TAt most one statement is allowed per line, but 2 statements were found on this line.(›î¦¿şÿÿÿÿ8Øàëó¼/
 5	java:S1214"Missing curly brace.(×æ©Êùÿÿÿÿ8Øàëó¼/

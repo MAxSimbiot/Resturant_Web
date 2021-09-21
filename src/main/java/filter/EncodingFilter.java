@@ -14,10 +14,7 @@ public class EncodingFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-        String requestEncoding = request.getCharacterEncoding();
-        if (requestEncoding == null) {
-            request.setCharacterEncoding("UTF-8");
-        }
+        request.setCharacterEncoding("UTF-8");
         if(request.getSession().getAttribute("locale")==null){
             request.getSession().setAttribute("locale","us");
         }

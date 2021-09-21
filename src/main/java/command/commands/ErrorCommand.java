@@ -12,7 +12,7 @@ public class ErrorCommand implements Command {
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
         Map<String,Object> map = new HashMap<>();
         String errorMessage = "Whoops! This function is still under construction..";
-        request.setAttribute("errorMessage",errorMessage);
+        map.put("errorMessage",errorMessage);
         map.put("page", PageConstants.ERROR_PAGE);
         return map;
     }

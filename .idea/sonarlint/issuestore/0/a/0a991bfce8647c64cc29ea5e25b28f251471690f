@@ -1,19 +1,19 @@
 
-^
-java:S2441K"<Make "Client" serializable or don't store it in the session.(ø´ûŒøÿÿÿÿ8‘Áæ„¾/
-o	java:S109I"SAssign this magic number 60 to a well-named constant, and use the constant instead.(áïĞì8ØĞÖÜ½/
+o	java:S109Q"SAssign this magic number 60 to a well-named constant, and use the constant instead.(áïĞì8…Í‡—À/
 B
-java:S11661"%Either log or rethrow this exception.(¨·‡ù8ÃÆõ„¾/
+java:S11665"%Either log or rethrow this exception.(¨·‡ù8…Í‡—À/
 ^
-java:S4551?"BUse "==" to perform this enum comparison instead of using "equals"(¸ˆ˜D8©û‚ø¾/
+java:S4551E"BUse "==" to perform this enum comparison instead of using "equals"(¸ˆ˜D8…Í‡—À/
 G
-java:S23257"%Make "initSession" a "static" method.(í‡šıÿÿÿÿ8‘Áæ„¾/
-E
-java:S11482"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÃÆõ„¾/
+java:S2325;"%Make "initSession" a "static" method.(í‡šıÿÿÿÿ8…Í‡—À/
 d
-java:S4551="BUse "==" to perform this enum comparison instead of using "equals"(ŞÎ‹ëûÿÿÿÿ8Ó›ø¾/
+java:S4551?"BUse "==" to perform this enum comparison instead of using "equals"(ºÇÖùÿÿÿÿ8…Í‡—À/
+o	java:S109Q"SAssign this magic number 60 to a well-named constant, and use the constant instead.(áïĞì8…Í‡—À/
 @
-java:S2325-"#Make "getClient" a "static" method.(ĞöÖÍ8Ÿ•÷„¾/
-o	java:S109I"SAssign this magic number 60 to a well-named constant, and use the constant instead.(áïĞì8ØĞÖÜ½/
+java:S23251"#Make "getClient" a "static" method.(ĞöÖÍ8…Í‡—À/
 d
-java:S4551;"BUse "==" to perform this enum comparison instead of using "equals"(ºÇÖùÿÿÿÿ8‡şÔø¾/
+java:S4551B"BUse "==" to perform this enum comparison instead of using "equals"(ŞÎ‹ëûÿÿÿÿ8…Í‡—À/
+`
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(°ÏˆÜ8…Í‡—À/
+^
+java:S2441S"<Make "Client" serializable or don't store it in the session.(ø´ûŒøÿÿÿÿ8…Í‡—À/

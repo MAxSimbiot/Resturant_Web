@@ -8,12 +8,11 @@ import entity.Role;
 import exception.FailedDAOException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientDAOImpl implements ClientDAO {
+public class ClientDAOImpl implements ClientDAO<Integer> {
 
     private static final Logger logger = Logger.getLogger(ClientDAOImpl.class);
 
@@ -67,13 +66,12 @@ public class ClientDAOImpl implements ClientDAO {
     }
 
     @Override
-    public boolean update(Object entity) throws FailedDAOException {
-        Client client = (Client) entity;
-        int rowsUpdated = 0;
+    public boolean update(Client client) throws FailedDAOException {
         if (client == null) {
             return false;
         }
         Connection connection = null;
+        int rowsUpdated = 0;
         try {
              connection = DBManager.getInstance().getConnection();
              rowsUpdated = executeUpdate(connection,client);
@@ -88,8 +86,7 @@ public class ClientDAOImpl implements ClientDAO {
     }
 
     @Override
-    public boolean create(Object entity) throws FailedDAOException {
-        Client client = (Client) entity;
+    public boolean create(Client client) throws FailedDAOException {
         if (client == null) {
             return false;
         }
@@ -97,18 +94,19 @@ public class ClientDAOImpl implements ClientDAO {
         try {
             connection = DBManager.getInstance().getConnection();
             executeCreate(connection,client);
+            connection.commit();
         } catch (SQLException ex) {
             DBManager.getInstance().rollbackAndClose(connection);
             logger.log(Level.ERROR, "Can`t add a client", ex);
             throw new FailedDAOException("Can`t add a client");
         } finally {
-            DBManager.getInstance().commitAndClose(connection);
+            DBManager.getInstance().closeConnection(connection);
         }
         return true;
     }
 
-
-    public Client getByid(int id) throws FailedDAOException {
+    @Override
+    public Client getById(Integer id) throws FailedDAOException {
         Connection connection = null;
         Client client = null;
         try {
@@ -122,6 +120,7 @@ public class ClientDAOImpl implements ClientDAO {
         }
         return client;
     }
+
     private Client executeGetById(Connection connection,int id,Client client) throws SQLException {
         PreparedStatement ps = connection.prepareStatement(FIND_CLIENT_BY_ID);
         ps.setInt(1, id);
@@ -134,7 +133,7 @@ public class ClientDAOImpl implements ClientDAO {
     }
 
     @Override
-    public boolean delete(Object o) throws FailedDAOException {
+    public boolean delete(Integer id) throws FailedDAOException {
         throw new UnsupportedOperationException("Deletion of account not supported yet");
     }
 

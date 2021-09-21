@@ -1,9 +1,8 @@
 package dao.Impl;
 
 import constants.DAOConstants;
-import dao.AbstractDAO;
 import dao.DBManager;
-import entity.Category;
+import dao.ProductDAO;
 import entity.Product;
 import exception.FailedDAOException;
 import org.apache.log4j.Level;
@@ -17,7 +16,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDAOImpl implements AbstractDAO {
+public class ProductDAOImpl implements ProductDAO<Integer> {
 
     private static final Logger logger = LogManager.getLogger(ProductDAOImpl.class);
 
@@ -29,8 +28,6 @@ public class ProductDAOImpl implements AbstractDAO {
         try{
             connection = DBManager.getInstance().getConnection();
             executeGetAll(connection,products);
-
-
         }catch (SQLException ex){
             DBManager.getInstance().closeConnection(connection);
             logger.log(Level.ERROR, "Can`t get products!", ex);
@@ -62,18 +59,23 @@ public class ProductDAOImpl implements AbstractDAO {
     }
 
     @Override
-    public boolean update(Object entity) throws FailedDAOException {
-        throw new UnsupportedOperationException("Deletion of account not supported yet");
+    public boolean update(Product product) throws FailedDAOException {
+        throw new UnsupportedOperationException("Deletion of account is not supported yet");
     }
 
     @Override
-    public boolean delete(Object o) throws FailedDAOException {
-        throw new UnsupportedOperationException("Deletion of account not supported yet");
+    public boolean delete(Integer integer) throws FailedDAOException {
+        throw new UnsupportedOperationException("Deletion of a product is not supported yet");
     }
 
     @Override
-    public boolean create(Object entity) throws FailedDAOException {
-        throw new UnsupportedOperationException("Deletion of account not supported yet");
+    public boolean create(Product entity) throws FailedDAOException {
+        throw new UnsupportedOperationException("Creation of a product is not supported yet");
+    }
+
+    @Override
+    public Product getById(Integer integer) throws FailedDAOException {
+        throw new UnsupportedOperationException("Getting product by id is not supported yet");
     }
 
 

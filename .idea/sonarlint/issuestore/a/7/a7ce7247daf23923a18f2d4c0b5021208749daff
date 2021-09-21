@@ -1,35 +1,8 @@
 
-9
-java:S23251"#Make "sortPrice" a "static" method.(¸üƒ‚
-f
-java:S11323"KMove the "cheap" string literal on the left side of this string comparison.(´•Öüşÿÿÿÿ
-;
-java:S1166"%Either log or rethrow this exception.(¨·‡ù
-U	java:S1267";"if ... else if" constructs should end with "else" clauses.(ªÀôúÿÿÿÿ
-c
-java:S1132Q"HMove the "us" string literal on the left side of this string comparison.(ì£ûÿÿÿÿ
-J
-java:S1066R"/Merge this if statement with the enclosing one.(À½¦øÿÿÿÿ
-D
-java:S2208
-".Explicitly import the specific classes needed.(Î€ŒÙ
-Q
-java:S1449R"6Define the locale to be used in this String operation.(À½¦øÿÿÿÿ
->
-java:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-O	java:S126$";"if ... else if" constructs should end with "else" clauses.(®©€'
-c
-java:S1132M"HMove the "ru" string literal on the left side of this string comparison.(ÉºéÅùÿÿÿÿ
-L
-java:S1449N"6Define the locale to be used in this String operation.(Å¶‡¹
-U	java:S126Q";"if ... else if" constructs should end with "else" clauses.(ì£ûÿÿÿÿ
-E
-java:S2325@"*Make "searchByCategory" a "static" method.(×ıèıÿÿÿÿ
-H
-java:S2325J"-Make "searchInProductName" a "static" method.(å¿¨…üÿÿÿÿ
-L
-java:S1449N"6Define the locale to be used in this String operation.(Å¶‡¹
-j
-java:S11327"OMove the "expensive" string literal on the left side of this string comparison.(ªÀôúÿÿÿÿ
-Q
-java:S1449R"6Define the locale to be used in this String operation.(À½¦øÿÿÿÿ
+B
+java:S1166"%Either log or rethrow this exception.(¨·‡ù8¯á¤™À/
+K
+java:S2208".Explicitly import the specific classes needed.(Î€ŒÙ8¯á¤™À/
+e
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(…Øèşÿÿÿÿ8¯á¤™À/
+V	java:S126*";"if ... else if" constructs should end with "else" clauses.(®©€'8¯á¤™À/

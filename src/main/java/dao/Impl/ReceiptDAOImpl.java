@@ -15,7 +15,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReceiptDAOImpl implements ReceiptDAO {
+public class ReceiptDAOImpl implements ReceiptDAO<Integer> {
     private static final Logger logger = LogManager.getLogger(ReceiptDAOImpl.class);
 
     private static final String GET_PRODUCTS_BY_RECEIPT_ID =
@@ -296,21 +296,17 @@ public class ReceiptDAOImpl implements ReceiptDAO {
     }
 
     @Override
-    public boolean update(Object entity) throws FailedDAOException {
+    public boolean update(Receipt receipt) throws FailedDAOException {
         throw new UnsupportedOperationException("Deletion of account not supported yet");
     }
 
     @Override
-    public boolean delete(Object o) throws FailedDAOException {
-        if (o == null) {
-            return false;
-        }
+    public boolean delete(Integer id) throws FailedDAOException {
         int rowsUpdated = 0;
-        Receipt receipt = (Receipt) o;
         Connection connection = null;
         try {
             connection = DBManager.getInstance().getConnection();
-            rowsUpdated = executeDelete(connection, receipt);
+            rowsUpdated = executeDelete(connection, id);
         } catch (SQLException ex) {
             DBManager.getInstance().rollbackAndClose(connection);
             logger.log(Level.ERROR, "Can`t delete a receipt", ex);
@@ -321,22 +317,21 @@ public class ReceiptDAOImpl implements ReceiptDAO {
         return rowsUpdated > 0;
     }
 
-    private int executeDelete(Connection connection, Receipt receipt) throws SQLException {
+    private int executeDelete(Connection connection, int id) throws SQLException {
         int rowsUpdated = 0;
         PreparedStatement ps = connection.prepareStatement(DELETE_RECEIPT_BY_ID);
-        ps.setInt(1, receipt.getId());
+        ps.setInt(1, id);
         rowsUpdated = ps.executeUpdate();
         ps.close();
         return rowsUpdated;
     }
 
     @Override
-    public boolean create(Object entity) throws FailedDAOException {
-        if (entity == null) {
+    public boolean create(Receipt receipt) throws FailedDAOException {
+        if (receipt == null) {
             return false;
         }
         int rowsUpdated;
-        Receipt receipt = (Receipt) entity;
         Connection connection = null;
         try {
             connection = DBManager.getInstance().getConnection();
@@ -353,6 +348,11 @@ public class ReceiptDAOImpl implements ReceiptDAO {
             }
         }
         return rowsUpdated > 0;
+    }
+
+    @Override
+    public Receipt getById(Integer id) throws FailedDAOException {
+        throw new UnsupportedOperationException("Get receipt by id not supported yet");
     }
 
     private int executeCreate(Connection connection, Receipt receipt) throws SQLException {

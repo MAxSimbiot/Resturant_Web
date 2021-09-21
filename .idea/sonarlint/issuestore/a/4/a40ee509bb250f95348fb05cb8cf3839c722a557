@@ -1,5 +1,6 @@
 
-w
-java:S1067"ZReduce the number of conditional operators (5) used in the expression (maximum allowed 3).(ªŠå—8Ç…ƒ¸¼/
 P
 java:S1128"3Remove this unused import 'constants.DAOConstants'.(‡ƒó„8è™ˆ¸¼/
+Œ
+java:S1541
+"jThe Cyclomatic Complexity of this method "validateRegistration" is 13 which is greater than 10 authorized.(“ê¾ôùÿÿÿÿ8•µÕ¤À/
