@@ -8,6 +8,7 @@ import entity.Role;
 import exception.FailedDAOException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import repository.ClientRepository;
 import service.ClientService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,8 +27,9 @@ public class LoginCommand implements Command {
 
         Map<String, Object> map = new HashMap<>();
         Client client;
+        ClientRepository clientRepository = new ClientRepository();
         if (login != null && password != null) {
-            client = ClientService.getClientByLoginPassword(login,password);
+            client = clientRepository.getClientByLoginPassword(login,password);
         } else {
             logger.log(Level.INFO,"Incomplete login");
             map.put(PageConstants.PAGE, PageConstants.LOGIN_PAGE);
@@ -50,6 +52,18 @@ public class LoginCommand implements Command {
         Map<String, Object> map = new HashMap<>();
         Role role = client.getRoleEntity();
 
+        boolean validated = checkRole(map,role,client);
+        if(validated){
+            HttpSession session = request.getSession(true);
+            session.setMaxInactiveInterval(60 * 60);
+            session.setAttribute("logged", true);
+            session.setAttribute(DAOConstants.CLIENT, client);
+            session.setAttribute("role", role);
+        }
+        return map;
+    }
+
+    private static boolean checkRole(Map<String,Object> map,Role role,Client client){
         if(role.equals(Role.CLIENT)){
             map.put(PageConstants.PAGE, PageConstants.COMMAND_MAIN_PAGE);
             logger.log(Level.INFO,"Logged client " + client.getName());
@@ -62,16 +76,9 @@ public class LoginCommand implements Command {
         }else {
             map.put(PageConstants.PAGE,PageConstants.LOGIN_PAGE);
             logger.log(Level.INFO,"Didn`t login " + client.getName());
-            return map;
+            return false;
         }
-
-
-        HttpSession session = request.getSession(true);
-
-        session.setMaxInactiveInterval(60 * 60);
-        session.setAttribute("logged", true);
-        session.setAttribute(DAOConstants.CLIENT, client);
-        session.setAttribute("role", role);
-        return map;
+        return true;
     }
+
 }

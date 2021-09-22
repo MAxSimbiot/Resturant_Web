@@ -1,24 +1,14 @@
 
-P
-java:S1128"3Remove this unused import 'dao.Impl.ClientDAOImpl'.( Ç­8™Ë³Ï»/
-[
-java:S1128	"9Remove this unused import 'exception.FailedDAOException'.(¬¨Şıüÿÿÿÿ8™Ë³Ï»/
 >
-java:S1170"!Make this final field static too.(’—õª8Ş³ÎÏ»/
+java:S1170"!Make this final field static too.(’—õª8Ş³ÎÏ»/
+k	java:S116"ORename this field "PAGE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’—õª8Ş³ÎÏ»/
+L
+java:S1068"*Remove this unused "logger" private field.(¨ªª©ùÿÿÿÿ8½ ‹Í¼/
 }
 java:S1989"`Handle the following exceptions that could be thrown by "prcess": ServletException, IOException.(Êç®Ú8¿‰œÑ»/
 }
-java:S1989""`Handle the following exceptions that could be thrown by "prcess": ServletException, IOException.(Êç®Ú8½¤œÑ»/
-L
-java:S1068"*Remove this unused "logger" private field.(¨ªª©ùÿÿÿÿ8½ ‹Í¼/
+java:S1989"`Handle the following exceptions that could be thrown by "prcess": ServletException, IOException.(Êç®Ú8½¤œÑ»/
 e
-java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(¨ªª©ùÿÿÿÿ8½ ‹Í¼/
-N
-java:S1128",Remove this unused import 'dao.AbstractDAO'.(ø±Åıÿÿÿÿ8˜íåª»/
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(¨ªª©ùÿÿÿÿ8½ ‹Í¼/
 \
-java:S2057"?Add a "static final long serialVersionUID" field to this class.(Ãé×ë8ÍÜœª»/
-N
-java:S1128"2Remove this unused import 'command.LogOutCommand'.(¨î&8ìÔ‹Í¼/
-G
-java:S1128"*Remove this unused import 'entity.Client'.(ªĞ¡8™Ë³Ï»/
-k	java:S116"ORename this field "PAGE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’—õª8Ş³ÎÏ»/
+java:S2057"?Add a "static final long serialVersionUID" field to this class.(Ãé×ë8ÍÜœª»/

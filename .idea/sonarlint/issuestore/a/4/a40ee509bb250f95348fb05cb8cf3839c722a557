@@ -1,6 +1,11 @@
 
+B
+java:S1166:"%Either log or rethrow this exception.(¨·‡ù8µÏ»ÎÀ/
+\
+java:S1128":Remove this unused import 'command.commands.LoginCommand'.(÷éËëúÿÿÿÿ8µÏ»ÎÀ/
+`
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(¹ÏŸì8µÏ»ÎÀ/
+Š
+java:S1541"hThe Cyclomatic Complexity of this method "validateClientInfo" is 13 which is greater than 10 authorized.(Œ¼ì‹úÿÿÿÿ8îÞÍÏÀ/
 P
-java:S1128"3Remove this unused import 'constants.DAOConstants'.(‡ƒó„8è™ˆ¸¼/
-Œ
-java:S1541
-"jThe Cyclomatic Complexity of this method "validateRegistration" is 13 which is greater than 10 authorized.(“ê¾ôùÿÿÿÿ8•µÕ¤À/
+java:S1128"3Remove this unused import 'constants.DAOConstants'.(‡ƒó„8è™ˆ¸¼/

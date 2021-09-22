@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import repository.ClientRepository;
 import service.ClientService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,14 +29,14 @@ public class CommandTest {
     HttpServletResponse response;
     HttpServletRequest request;
     LoginCommand loginCommand;
-    ClientService clientService;
+    ClientRepository clientRepository;
 
     @Before
     public void setUp() throws Exception {
         request = mock(HttpServletRequest.class);
         response = mock(HttpServletResponse.class);
-        clientService = mock(ClientService.class);
-        when(clientService.getClientByLoginPassword(anyString(),anyString())).thenReturn(null);
+        clientRepository = mock(ClientRepository.class);
+        when(clientRepository.getClientByLoginPassword(anyString(),anyString())).thenReturn(null);
 
         loginCommand = new LoginCommand();
 
@@ -57,6 +58,6 @@ public class CommandTest {
         response = null;
         request = null;
         loginCommand = null;
-
+        clientRepository = null;
     }
 }

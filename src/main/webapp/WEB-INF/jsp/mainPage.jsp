@@ -18,6 +18,18 @@
     <link href="album.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <script type="javascript">$(document).ready(function () {
+        $('.categoryBtn').click(function () {
+            $('.categoryBtn.active').removeClass("active");
+            $(this).addClass("active");
+        })
+    });</script>
+    <style type="text/css">
+        .active {
+            background-color: #59B2E0;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -93,52 +105,61 @@
     <div class="album py-5 bg-light">
         <div class="container">
 
-            <form action="MainServlet" class="" method="post" style="align-content: space-between">
+            <form action="MainServlet" class="" method="get" style="align-content: space-between">
 
                 <div class="d-flex flex-row justify-content-center gap-3 mb-4">
                     <div class="form-group p2">
-                        <select class="form-control" name="sortPrice" onchange="this.form.submit()">
-                            <option><fmt:message key="main.page.price.sort"/></option>
+                        <%--                        onchange="this.form.submit()"--%>
+                        <select class="form-control" name="sortPrice">
+                            <option name="sortPrice" value=""><fmt:message key="main.page.price.sort"/></option>
                             <option name="sortPrice" value="expensive"><fmt:message
                                     key="main.page.sort.expensive"/></option>
                             <option name="sortPrice" value="cheap"><fmt:message key="main.page.sort.cheap"/></option>
                         </select></div>
+
                     <div class="p2">
-                        <button type="submit" name="sort" value="1" class="btn btn-outline-primary"><fmt:message
-                                key="main.page.category.food"/></button>
+                        <button type="submit" name="category" value="1" class="btn btn-outline-primary categoryBtn">
+                            <fmt:message
+                                    key="main.page.category.food"/></button>
                     </div>
                     <div class="p2">
-                        <button type="submit" name="sort" value="4" class="btn btn-outline-primary"><fmt:message
-                                key="main.page.category.meat"/></button>
+                        <button type="submit" name="category" value="4" class="btn btn-outline-primary categoryBtn">
+                            <fmt:message
+                                    key="main.page.category.meat"/></button>
                     </div>
                     <div class="p2">
-                        <button type="submit" name="sort" value="3" class="btn btn-outline-primary"><fmt:message
-                                key="main.page.category.soups"/></button>
+                        <button type="submit" name="category" value="3" class="btn btn-outline-primary categoryBtn">
+                            <fmt:message
+                                    key="main.page.category.soups"/></button>
                     </div>
                     <div class="p2">
-                        <button type="submit" name="sort" value="2" class="btn btn-outline-primary"><fmt:message
-                                key="main.page.category.drinks"/></button>
+                        <button type="submit" name="category" value="2" class="btn btn-outline-primary categoryBtn">
+                            <fmt:message
+                                    key="main.page.category.drinks"/></button>
                     </div>
                     <div class="p2">
-                        <button type="submit" name="sort" value="5" class="btn btn-outline-primary"><fmt:message
-                                key="main.page.category.alcohol"/></button>
+                        <button type="submit" name="category" value="5" class="btn btn-outline-primary categoryBtn">
+                            <fmt:message
+                                    key="main.page.category.alcohol"/></button>
                     </div>
                     <div class="p2">
-                        <button type="submit" name="sort" value="6" class="btn btn-outline-primary"><fmt:message
-                                key="main.page.category.juice"/></button>
+                        <button type="submit" name="category" value="6" class="btn btn-outline-primary categoryBtn">
+                            <fmt:message
+                                    key="main.page.category.juice"/></button>
                     </div>
                     <div class="p2">
                         <input class="form-control" name="searchQuery" type="text"
                                placeholder="<fmt:message key="main.page.enter.product.name"/>" aria-label="Search">
                     </div>
                     <div class="p2">
-                        <button class="btn btn-outline-primary" name="search" value="true" type="submit"><fmt:message
+                        <button class="btn btn-outline-primary" name="search" type="submit"><fmt:message
                                 key="main.page.search"/></button>
                     </div>
                     <input type="hidden" name="command" value="mainPage"/>
                 </div>
             </form>
-            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+                 aria-hidden="true">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         --------
@@ -152,9 +173,9 @@
                 </div>
             </div>
             <div class="jumbotron text-center">
-            <c:if test="${added}">
-               <h2 style="color: darkseagreen"> <fmt:message key="main.page.added"/></h2>
-            </c:if>
+                <c:if test="${added}">
+                    <h2 style="color: darkseagreen"><fmt:message key="main.page.added"/></h2>
+                </c:if>
             </div>
             <div class="row">
                 <c:choose>
@@ -167,8 +188,8 @@
                                          style="height: 225px; width: 100%; display: block;"
                                          src="${product.image_url}">
                                     <div class="card-body">
-                                                <p><Strong>${product.name}</Strong></p>
-                                                <p class="text-muted">${product.description}</p>
+                                        <p><Strong>${product.name}</Strong></p>
+                                        <p class="text-muted">${product.description}</p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <strong>${product.price} <fmt:message key="currency.grn"/></strong>
                                             <div class="btn-group">
@@ -176,10 +197,11 @@
                                                     <button type="submit" name="productId" value="${product.id}"
 
                                                             class="btn btn-sm btn-outline-secondary"
-                                                            >
+                                                    >
                                                         <fmt:message key="main.page.add.to.cart"/>
                                                     </button>
-                                                    <input type="hidden" data-toggle="modal" data-target=".bd-example-modal-sm">
+                                                    <input type="hidden" data-toggle="modal"
+                                                           data-target=".bd-example-modal-sm">
                                                     <input type="hidden" name="command" value="addToCart"/>
                                                 </form>
                                             </div>
@@ -214,8 +236,9 @@
         <p class="float-right">
             <a href="#"><fmt:message key="to.top"/></a>
         </p>
-        <p><fmt:message key="resturant.slogan"/> </p>
-        <p><fmt:message key="footer.havent.tried"/> <a href="../../"><fmt:message key="footer.bonus"/> </a> <fmt:message key="footer.subscribe"/> <a
+        <p><fmt:message key="resturant.slogan"/></p>
+        <p><fmt:message key="footer.havent.tried"/> <a href="../../"><fmt:message key="footer.bonus"/> </a> <fmt:message
+                key="footer.subscribe"/> <a
                 href="../../getting-started/"><fmt:message key="footer.channel"/> </a>.</p>
     </div>
 </footer>

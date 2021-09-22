@@ -14,7 +14,7 @@ import java.util.Map;
 public class ClientService {
     private static final Logger logger = Logger.getLogger(ClientService.class);
 
-    public Map<String, Object> validateClientInfo(String login, String password,
+    public static Map<String, Object> validateClientInfo(String login, String password,
                                                   String repPassword, String name, String phone) {
         Map<String, Object> map = new HashMap<>();
         boolean validated = true;
@@ -48,17 +48,6 @@ public class ClientService {
             map.put("registerErrorMsg", true);
         }
         return map;
-    }
-
-    public static Client getClientByLoginPassword(String login, String password) {
-        Client client = null;
-        ClientDAOImpl clientDAO = new ClientDAOImpl();
-        try {
-            client = clientDAO.getClientByLoginAndPassword(login, password);
-        } catch (FailedDAOException e) {
-            logger.log(Level.ERROR, e.getMessage());
-        }
-        return client;
     }
 
     public static Client initClient(String login, String password, String name, String phone) {

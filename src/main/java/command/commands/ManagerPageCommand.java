@@ -8,6 +8,7 @@ import entity.Receipt;
 import exception.FailedDAOException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import repository.ReceiptRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,9 +22,9 @@ public class ManagerPageCommand implements Command{
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
 
         Map<String,Object> map = new HashMap<>();
-        ReceiptDAOImpl receiptDAO = new ReceiptDAOImpl();
+        ReceiptRepository repository = new ReceiptRepository();
         try {
-            List<Receipt> receiptList = receiptDAO.getAll();
+            List<Receipt> receiptList = repository.getAllReceipts();
             Map<Integer,Client> clients = addClientsByReceipts(receiptList);
             map.put("clients",clients);
             map.put("receiptList",receiptList);

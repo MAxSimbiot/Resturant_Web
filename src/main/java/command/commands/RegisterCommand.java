@@ -7,6 +7,7 @@ import entity.Client;
 import exception.FailedDAOException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import repository.ClientRepository;
 import service.ClientService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,21 +29,17 @@ public class RegisterCommand implements Command {
         ClientService cs = new ClientService();
         boolean success = false;
         Map<String, Object> map = cs.validateClientInfo(login, password, repPassword, name, phone);
-
+        Client c = null;
         if (map.containsKey("validated")) {
-            ClientDAOImpl clientDAO = new ClientDAOImpl();
+            ClientRepository repository = new ClientRepository();
             map = new HashMap<>();
-            Client c = ClientService.initClient(login, password, name, phone);
-            try {
-                success = clientDAO.create(c);
-            } catch (FailedDAOException e) {
-                map.put("errorMsg", true);
-                logger.log(Level.ERROR,e);
-            }
+            c = ClientService.initClient(login, password, name, phone);
+            success = repository.saveClient(c);
         }
-        if(success){
-            map.put("registerSuccessMsg",true);
-        }else{
+        if (success) {
+            map.put("registerSuccessMsg", true);
+            logger.log(Level.INFO,"Client registered " + c);
+        } else {
             map.put("registerErrorMsg", true);
         }
         map.put(PageConstants.PAGE, PageConstants.LOGIN_PAGE);

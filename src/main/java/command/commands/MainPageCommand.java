@@ -7,6 +7,7 @@ import exception.FailedDAOException;
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import repository.ProductRepositody;
 import service.ProductService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,30 +20,28 @@ public class MainPageCommand implements Command {
 
     @Override
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
-        ProductDAOImpl productDAO = new ProductDAOImpl();
-        ProductService ps = new ProductService();
+
+        ProductRepositody repository = new ProductRepositody();
         List<Product> products = null;
-        try {
-            products = productDAO.getAll();
-        } catch (FailedDAOException e) {
-           logger.log(Level.ERROR,e.getMessage());
+
+        final String sortPrice = request.getParameter("sortPrice");
+        final String category = request.getParameter("category");
+        final String query = request.getParameter("searchQuery");
+
+        products = repository.getALlProducts();
+
+
+        if (products!= null && category != null) {
+            products = ProductService.getProductsByCategoryId(products,Integer.parseInt(category));
         }
-        if (products != null) {
-            String sortPrice = request.getParameter("sortPrice");
-            if (sortPrice != null) {
-                products = ps.sortPrice(products, sortPrice);
-            }
-            String search = request.getParameter("search");
-            String sort = request.getParameter("sort");
-            if (Boolean.parseBoolean(search)) {
-                String query = request.getParameter("searchQuery");
-                if (query != null && !query.isEmpty()) {
-                    products = ps.searchInProductName(query, products);
-                }
-            } else if (sort != null) {
-                products = ps.searchByCategory(Integer.parseInt(sort), products);
-            }
+
+        if (products!=null && query != null && !query.isEmpty()) {
+            products = ProductService.getProductsByNameQuery(products,query);
         }
+        if (products != null && sortPrice != null) {
+            products = ProductService.sortPrice(products, sortPrice);
+        }
+
         Map<String, Object> map = new HashMap<>();
         map.put("products", products);
         map.put("page", PageConstants.MAIN_PAGE);

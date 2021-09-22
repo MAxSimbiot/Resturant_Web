@@ -17,8 +17,6 @@ Y
 )src/main/java/controller/MainServlet.java,5\e\5e868e97b58e5f743304bf0b013eefce7c8b52d9
 O
 src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
-[
-+src/main/java/command/CommandContainer.java,d\5\d55123e2b86612d78da22c1c50c7d1c3c0bc90b1
 Z
 *src/main/java/constants/PageConstants.java,7\9\797d8c143a08e4571c4e04b458ad408a90319448
 R
@@ -133,3 +131,13 @@ T
 $src/test/java/DataValidatorTest.java,b\c\bce3144bb32a14b9741cc7e8db9897c986d9c3bb
 T
 $src/test/java/ClientServiceTest.java,d\2\d21f2c7dbad1a8c02d9274293a9cf1c4a2b85567
+S
+#src/test/java/ErrorCommandTest.java,8\0\80e938648d16c02e96a07ed764a88d1e3c0b42ee
+N
+src/test/java/CommandTest.java,d\c\dcefefd42e36f489f1c71c28f605a679a2a56434
+Y
+)src/main/java/command/CommandFactory.java,f\d\fd861f8e28e907408b5d6d10873d93fb6b9b7eff
+U
+%src/test/java/CommandFactoryTest.java,3\b\3bef2b7c785b09fb0aabd4fa75ca899bf116db25
+g
+7src/main/java/command/commands/UpdateClientCommand.java,a\d\ad7a47a779e255328c250100faa18e4ecc10dd17
