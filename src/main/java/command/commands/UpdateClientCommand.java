@@ -49,8 +49,14 @@ public class UpdateClientCommand implements Command {
         }else{
             map.put("updateErrorMsg", true);
         }
-
-        map.put(PageConstants.PAGE,PageConstants.COMMAND_CLIENT_PAGE);
+        Object o = request.getSession().getAttribute("previousRequest");
+        String previous = null;
+        if(o!=null){
+            previous = o.toString();
+            map.put(PageConstants.PAGE,previous);
+        }else{
+            map.put(PageConstants.PAGE,PageConstants.COMMAND_CLIENT_PAGE);
+        }
         return map;
     }
 }

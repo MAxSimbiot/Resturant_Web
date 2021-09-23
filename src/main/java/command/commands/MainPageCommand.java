@@ -30,7 +30,7 @@ public class MainPageCommand implements Command {
 
         products = repository.getALlProducts();
 
-
+        Map<String, Object> map = new HashMap<>();
         if (products!= null && category != null) {
             products = ProductService.getProductsByCategoryId(products,Integer.parseInt(category));
         }
@@ -40,9 +40,10 @@ public class MainPageCommand implements Command {
         }
         if (products != null && sortPrice != null) {
             products = ProductService.sortPrice(products, sortPrice);
+            map.put("sortPrice",sortPrice);
         }
 
-        Map<String, Object> map = new HashMap<>();
+
         map.put("products", products);
         map.put("page", PageConstants.MAIN_PAGE);
         return map;

@@ -31,6 +31,7 @@ public class ManagerPageCommand implements Command{
         } catch (FailedDAOException e) {
             logger.log(Level.ERROR,e.getMessage());
         }
+        request.getSession().setAttribute("previousRequest",PageConstants.COMMAND_MANAGER_PAGE);
         map.put(PageConstants.PAGE,PageConstants.MANAGER_PAGE);
         return map;
     }

@@ -5,9 +5,9 @@ import java.util.regex.Pattern;
 public class DataValidator {
 
 
-    private static final String REGEX_CHECK_LOGIN = "^[a-z0-9_-]{3,15}$";
+    private static final String REGEX_CHECK_LOGIN = "^[a-z0-9_-]{4,15}$";
     private static final String REGEX_CHECK_NAME = "^([a-zA-Zа-яА-Я]{2,15})$";
-    private static final String REGEX_CHECK_PASSWORD = "^([\\w]{6,20}[a-zA-Z0-9])$";
+    private static final String REGEX_CHECK_PASSWORD = "^([a-zA-Z0-9]{6,20}[a-zA-Z0-9])$";
     private static final String REGEX_CHECK_PHONE = "^([+380][0-9]{12})$";
 
     private static final Pattern CHECK_LOGIN = Pattern.compile(REGEX_CHECK_LOGIN);

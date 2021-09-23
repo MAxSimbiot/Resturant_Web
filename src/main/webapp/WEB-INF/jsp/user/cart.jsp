@@ -110,7 +110,7 @@
                             </c:if>
                         </td>
                         <td>
-                            <c:if test="${receipt.statusId==1}">
+                            <c:if test="${(receipt.statusId==1)&&(receipt.products.size()>0)}">
                                 <form action="MainServlet" method="post">
                                     <button type="submit" name="receiptId" value="${receipt.id}" class="btn btn-primary"
                                             style=""><fmt:message key="cart.page.order"/></button>

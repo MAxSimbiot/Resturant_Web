@@ -31,7 +31,7 @@ public class ProductService {
 
     public static List<Product> getProductsByNameQuery(List<Product> products, String query) {
         return products.stream()
-                .filter(product -> product.getName().contains(query))
+                .filter(product -> product.getName().toLowerCase().contains(query.toLowerCase().trim()))
                 .collect(Collectors.toList());
     }
 

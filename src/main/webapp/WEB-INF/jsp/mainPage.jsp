@@ -110,8 +110,8 @@
                 <div class="d-flex flex-row justify-content-center gap-3 mb-4">
                     <div class="form-group p2">
                         <%--                        onchange="this.form.submit()"--%>
-                        <select class="form-control" name="sortPrice">
-                            <option name="sortPrice" value=""><fmt:message key="main.page.price.sort"/></option>
+                        <select class="form-control" name="sortPrice" onchange="this.form.submit()">
+                            <option name="sortPrice" value="${sortPrice}"><fmt:message key="main.page.price.sort"/></option>
                             <option name="sortPrice" value="expensive"><fmt:message
                                     key="main.page.sort.expensive"/></option>
                             <option name="sortPrice" value="cheap"><fmt:message key="main.page.sort.cheap"/></option>
@@ -220,13 +220,13 @@
         </div>
     </div>
     <nav aria-label="Page navigation example" style="float: right;">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
+        <form action="MainServlet" method="get">
+            <ul class="pagination">
+                <li class="page-item"><button type="submit" name="page" value="1" class="btn btn-outline-primary"/>1</li>
+                <li class="page-item"><button type="submit" name="page" value="2" class="btn btn-outline-primary"/>2</li>
+                <li class="page-item"><button type="submit" name="page" value="3" class="btn btn-outline-primary"/>3</li>
+            </ul>
+        </form>
     </nav>
     </div>
 

@@ -75,50 +75,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form>
-                                        <div class="form-group row my-2">
-                                            <label for="username" class="col-4 col-form-label"><fmt:message
-                                                    key="client.page.login"/></label>
-                                            <div class="col-8">
-                                                <input id="username" name="username" placeholder="${client.login}"
-                                                       class="form-control here" required="required" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row my-2">
-                                            <label for="text" class="col-4 col-form-label"><fmt:message
-                                                    key="client.page.name"/></label>
-                                            <div class="col-8">
-                                                <input id="text" name="text" placeholder="${client.name}"
-                                                       class="form-control here" required="required" type="text">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row my-2">
-                                            <label for="email" class="col-4 col-form-label"><fmt:message
-                                                    key="client.page.password"/></label>
-                                            <div class="col-8">
-                                                <input id="email" name="email" placeholder="${client.password}"
-                                                       class="form-control here"
-                                                       required="required" type="text">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row my-2">
-                                            <label for="newpass" class="col-4 col-form-label"><fmt:message
-                                                    key="client.page.phone"/></label>
-                                            <div class="col-8">
-                                                <input id="newpass" name="newpass" placeholder="${client.phone}"
-                                                       class="form-control here" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="offset-4 col-8 my-2">
-                                                <button name="submit" type="submit" class="btn btn-primary">
-                                                    <fmt:message key="client.page.update.account"/>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    <jsp:include page="/WEB-INF/jsp/common/updateUserPage.jsp" flush="true"/>
                                 </div>
                             </div>
                         </div>
