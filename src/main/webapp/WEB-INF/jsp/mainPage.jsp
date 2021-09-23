@@ -109,12 +109,18 @@
 
                 <div class="d-flex flex-row justify-content-center gap-3 mb-4">
                     <div class="form-group p2">
-                        <%--                        onchange="this.form.submit()"--%>
                         <select class="form-control" name="sortPrice" onchange="this.form.submit()">
-                            <option name="sortPrice" value="${sortPrice}"><fmt:message key="main.page.price.sort"/></option>
+                            <option name="sortPrice" value="${sortPrice}">
+                                <fmt:message key="main.page.price.sort"/>
+                                <c:if test="${sortPrice.equals(\"expensive\")}"><fmt:message
+                                        key="main.page.sort.expensive"/></c:if>
+                                <c:if test="${sortPrice.equals(\"cheap\")}"><fmt:message
+                                        key="main.page.sort.cheap"/></c:if>
+                            </option>
                             <option name="sortPrice" value="expensive"><fmt:message
                                     key="main.page.sort.expensive"/></option>
                             <option name="sortPrice" value="cheap"><fmt:message key="main.page.sort.cheap"/></option>
+                            <option name="sortPrice" value="none"><fmt:message key="main.page.sort.none"/></option>
                         </select></div>
 
                     <div class="p2">
@@ -149,7 +155,8 @@
                     </div>
                     <div class="p2">
                         <input class="form-control" name="searchQuery" type="text"
-                               placeholder="<fmt:message key="main.page.enter.product.name"/>" aria-label="Search">
+                               placeholder="<fmt:message key="main.page.enter.product.name"/>" value="${searchQuery}"
+                               aria-label="Search">
                     </div>
                     <div class="p2">
                         <button class="btn btn-outline-primary" name="search" type="submit"><fmt:message
@@ -222,9 +229,18 @@
     <nav aria-label="Page navigation example" style="float: right;">
         <form action="MainServlet" method="get">
             <ul class="pagination">
-                <li class="page-item"><button type="submit" name="page" value="1" class="btn btn-outline-primary"/>1</li>
-                <li class="page-item"><button type="submit" name="page" value="2" class="btn btn-outline-primary"/>2</li>
-                <li class="page-item"><button type="submit" name="page" value="3" class="btn btn-outline-primary"/>3</li>
+                <li class="page-item">
+                    <button type="submit" name="page" value="1" class="btn btn-outline-primary"/>
+                    1
+                </li>
+                <li class="page-item">
+                    <button type="submit" name="page" value="2" class="btn btn-outline-primary"/>
+                    2
+                </li>
+                <li class="page-item">
+                    <button type="submit" name="page" value="3" class="btn btn-outline-primary"/>
+                    3
+                </li>
             </ul>
         </form>
     </nav>

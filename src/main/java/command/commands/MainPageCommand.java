@@ -33,10 +33,12 @@ public class MainPageCommand implements Command {
         Map<String, Object> map = new HashMap<>();
         if (products!= null && category != null) {
             products = ProductService.getProductsByCategoryId(products,Integer.parseInt(category));
+            map.put("category",category);
         }
 
         if (products!=null && query != null && !query.isEmpty()) {
             products = ProductService.getProductsByNameQuery(products,query);
+            map.put("searchQuery",query);
         }
         if (products != null && sortPrice != null) {
             products = ProductService.sortPrice(products, sortPrice);
