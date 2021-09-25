@@ -1,3 +1,11 @@
 
+[
+java:S1128"9Remove this unused import 'exception.FailedDAOException'.(¬¨Şıüÿÿÿÿ8ÅÔ‡òÀ/
+P
+java:S1128"3Remove this unused import 'dao.Impl.ClientDAOImpl'.( Ç­8¶ñ…òÀ/
+J
+java:S2440"-Remove this instantiation of "ClientService".(ëæ®8ÃÕ„òÀ/
+R
+java:S2209"5Change this instance-reference to a static reference.(Ê¯”¡8ÃÕ„òÀ/
 Y
-java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(ıôÓÕ
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(ıôÓÕ

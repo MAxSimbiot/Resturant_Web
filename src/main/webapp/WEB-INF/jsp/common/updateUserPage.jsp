@@ -12,7 +12,7 @@
             <c:if test="${badLogin}">
                 <h6 style="color: red"><fmt:message key="login.page.bad.login"/></h6>
             </c:if>
-            <input id="login" name="login"  value="${client.login}"
+            <input id="login" name="login" value="${client.login}"
                    class="form-control here" required="required" type="text">
         </div>
     </div>
@@ -36,7 +36,7 @@
                 <h6 style="color: red"><fmt:message key="login.page.bad.pass"/></h6>
             </c:if>
             <input id="pass" name="password"
-                   value="${client.password}"
+                   placeholder="<fmt:message key="client.page.password"/>"
                    class="form-control here"
                    required="required" type="password">
         </div>
@@ -48,8 +48,7 @@
             <c:if test="${diffPass}">
                 <h6 style="color: red"><fmt:message key="login.page.bad.pass.match"/></h6>
             </c:if>
-            <input id="reppass" name="repeatPassword"  placeholder="<fmt:message
-                                                    key="client.page.password.repeat"/>"
+            <input id="reppass" name="repeatPassword" placeholder="<fmt:message key="client.page.password.repeat"/>"
                    class="form-control here"
                    required="required" type="password">
         </div>

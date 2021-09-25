@@ -1,7 +1,13 @@
 
+V
+java:S1128"9Remove this unused import 'repository.ReceiptRepository'.(¹‹ù™8®úÏòÀ/
+P
+java:S1128"3Remove this unused import 'org.apache.log4j.Level'.(Ùã¹¡8¬ˆÑòÀ/
+L
+java:S1068"*Remove this unused "logger" private field.(üİÊøÿÿÿÿ8¬ˆÑòÀ/
 e
-java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(üİÊøÿÿÿÿ8¢ìº™À/
-B
-java:S1166%"%Either log or rethrow this exception.(¨·‡ù8¦ÓÖ¾/
-Y
-java:S1128"7Remove this unused import 'persistence.dao.ProductDAO'.(©ìÕ•ùÿÿÿÿ8÷èÏšÀ/
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(üİÊøÿÿÿÿ8¢ìº™À/
+[
+java:S1128"9Remove this unused import 'exception.FailedDAOException'.(¬¨Şıüÿÿÿÿ8¬ˆÑòÀ/
+V
+java:S1128"4Remove this unused import 'dao.Impl.ReceiptDAOImpl'.(”´§€ûÿÿÿÿ8¥ÔĞòÀ/

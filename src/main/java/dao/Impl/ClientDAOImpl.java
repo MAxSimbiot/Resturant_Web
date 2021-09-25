@@ -8,6 +8,8 @@ import entity.Role;
 import exception.FailedDAOException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import service.PasswordEncryprionService;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +21,8 @@ public class ClientDAOImpl implements ClientDAO<Integer> {
     private static final String FIND_CLIENT_BY_LOGIN_PASSWORD = "SELECT * FROM client " +
             "WHERE login = ? " +
             "AND password = ?;";
+    private static final String FIND_CLIENT_BY_LOGIN = "SELECT * FROM client " +
+            "WHERE login = ?;";
     private static final String FIND_ALL_CLIENTS = "SELECT * FROM client;";
 
     private static final String INSERT_NEW_CLIENT = "INSERT INTO client(login,password,name,phone,role_id) " +
@@ -75,7 +79,7 @@ public class ClientDAOImpl implements ClientDAO<Integer> {
         try {
              connection = DBManager.getInstance().getConnection();
              rowsUpdated = executeUpdate(connection,client);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             DBManager.getInstance().rollbackAndClose(connection);
             logger.log(Level.ERROR, "Can`t update client", ex);
             throw new FailedDAOException("Can`t update client");
@@ -95,7 +99,7 @@ public class ClientDAOImpl implements ClientDAO<Integer> {
             connection = DBManager.getInstance().getConnection();
             executeCreate(connection,client);
             connection.commit();
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             DBManager.getInstance().rollbackAndClose(connection);
             logger.log(Level.ERROR, "Can`t add a client", ex);
             throw new FailedDAOException("Can`t add a client");
@@ -138,12 +142,18 @@ public class ClientDAOImpl implements ClientDAO<Integer> {
     }
 
     private Client executeGet(Connection connection,String login,String password,Client client) throws SQLException {
-        PreparedStatement ps = connection.prepareStatement(FIND_CLIENT_BY_LOGIN_PASSWORD);
+        PreparedStatement ps = connection.prepareStatement(FIND_CLIENT_BY_LOGIN);
         ps.setString(1, login);
-        ps.setString(2, password);
+        System.out.println(password);
         ResultSet resultSet = ps.executeQuery();
-        if (resultSet.next()) {
-            client = initClient(resultSet);
+        try {
+            if (resultSet.next()&&
+               (PasswordEncryprionService.check(password,resultSet.getString(DAOConstants.PASSWORD)))) {
+                client = initClient(resultSet);
+            }
+        }catch (Exception e){
+            logger.log(Level.ERROR,e.getMessage());
+            client = null;
         }
         ps.close();
         return client;
@@ -158,7 +168,7 @@ public class ClientDAOImpl implements ClientDAO<Integer> {
         statement.close();
     }
 
-    private int executeUpdate(Connection connection,Client client) throws SQLException {
+    private int executeUpdate(Connection connection,Client client) throws Exception {
         int rowsUpdated;
         PreparedStatement updateStatement = connection.prepareStatement(UPDATE_ACCOUNT);
         initUpdateStatement(client, updateStatement);
@@ -167,26 +177,26 @@ public class ClientDAOImpl implements ClientDAO<Integer> {
         return rowsUpdated;
     }
 
-    private void executeCreate(Connection connection, Client client) throws SQLException {
+    private void executeCreate(Connection connection, Client client) throws Exception {
         PreparedStatement ps = connection.prepareStatement(INSERT_NEW_CLIENT);
         initCreateStatement(client, ps);
         ps.executeUpdate();
         ps.close();
     }
 
-    private void initCreateStatement(Client c, PreparedStatement ps) throws SQLException {
+    private void initCreateStatement(Client c, PreparedStatement ps) throws Exception {
         int k = 1;
         ps.setString(k++, c.getLogin());
-        ps.setString(k++, c.getPassword());
+        ps.setString(k++, PasswordEncryprionService.getSaltedHash(c.getPassword()));
         ps.setString(k++, c.getName());
         ps.setString(k++, c.getPhone());
         ps.setInt(k, 2);
     }
 
-    private void initUpdateStatement(Client c, PreparedStatement ps) throws SQLException {
+    private void initUpdateStatement(Client c, PreparedStatement ps) throws Exception {
         int k = 1;
         ps.setString(k++, c.getLogin());
-        ps.setString(k++, c.getPassword());
+        ps.setString(k++, PasswordEncryprionService.getSaltedHash(c.getPassword()));
         ps.setString(k++, c.getName());
         ps.setString(k++, c.getPhone());
         ps.setInt(k, c.getId());

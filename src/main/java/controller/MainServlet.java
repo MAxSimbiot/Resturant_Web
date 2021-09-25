@@ -21,15 +21,15 @@ public class MainServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-           prcess(req,resp);
+           process(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        prcess(req,resp);
+        process(req,resp);
     }
 
-    private void prcess(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+    private void process(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         String commandName = request.getParameter("command");
         Command command = CommandFactory.get(commandName);
         Map<String,Object>  map = command.execute(request,response);

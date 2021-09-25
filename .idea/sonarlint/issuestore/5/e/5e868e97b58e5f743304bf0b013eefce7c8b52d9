@@ -1,14 +1,14 @@
 
->
-java:S1170"!Make this final field static too.(’—õª8Þ³ÎÏ»/
-k	java:S116"ORename this field "PAGE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’—õª8Þ³ÎÏ»/
-L
-java:S1068"*Remove this unused "logger" private field.(¨ªª©ùÿÿÿÿ8½ ‹Í¼/
 }
 java:S1989"`Handle the following exceptions that could be thrown by "prcess": ServletException, IOException.(Êç®Ú8¿‰œÑ»/
+k	java:S116"ORename this field "PAGE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’—õª8Þ³ÎÏ»/
 }
 java:S1989"`Handle the following exceptions that could be thrown by "prcess": ServletException, IOException.(Êç®Ú8½¤œÑ»/
-e
-java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(¨ªª©ùÿÿÿÿ8½ ‹Í¼/
 \
 java:S2057"?Add a "static final long serialVersionUID" field to this class.(Ãé×ë8ÍÜœª»/
+L
+java:S1068"*Remove this unused "logger" private field.(¨ªª©ùÿÿÿÿ8½ ‹Í¼/
+>
+java:S1170"!Make this final field static too.(’—õª8Þ³ÎÏ»/
+e
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(¨ªª©ùÿÿÿÿ8½ ‹Í¼/

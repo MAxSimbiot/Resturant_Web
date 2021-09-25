@@ -1,5 +1,11 @@
 
+L
+java:S1068"*Remove this unused "logger" private field.(äð°ßúÿÿÿÿ8…‰ÊòÀ/
+[
+java:S1128"9Remove this unused import 'exception.FailedDAOException'.(¬¨Þýüÿÿÿÿ8…‰ÊòÀ/
+V
+java:S1128"4Remove this unused import 'dao.Impl.ReceiptDAOImpl'.(”´§€ûÿÿÿÿ8ÿÀÉòÀ/
+P
+java:S1128"3Remove this unused import 'org.apache.log4j.Level'.(Ùã¹¡8…‰ÊòÀ/
 e
-java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(äð°ßúÿÿÿÿ8¤ê¸™À/
-B
-java:S1166""%Either log or rethrow this exception.(¨·‡ù8û ¥Í¾/
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(äð°ßúÿÿÿÿ8¤ê¸™À/

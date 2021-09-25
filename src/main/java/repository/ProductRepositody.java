@@ -12,8 +12,10 @@ import java.util.List;
 public class ProductRepositody {
     private static final Logger logger = LogManager.getLogger(ProductRepositody.class);
 
+    private ProductDAOImpl productDAO;
+
     public List<Product> getALlProducts() {
-        ProductDAOImpl productDAO = new ProductDAOImpl();
+        productDAO = new ProductDAOImpl();
         List<Product> products = null;
         try {
             products = productDAO.getAll();

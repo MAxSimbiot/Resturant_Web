@@ -6,20 +6,25 @@ import exception.FailedDAOException;
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import service.PasswordEncryprionService;
 
 import java.util.List;
 
 public class ClientRepository {
     private static final Logger logger = LogManager.getLogger(ClientRepository.class);
 
+    private ClientDAOImpl clientDAO;
+
     public Client getClientByLoginPassword(String login, String password) {
         Client client = null;
-        ClientDAOImpl clientDAO = new ClientDAOImpl();
+        clientDAO = new ClientDAOImpl();
         if (login != null && password != null) {
             try {
                 client = clientDAO.getClientByLoginAndPassword(login, password);
             } catch (FailedDAOException e) {
                 logger.log(Level.ERROR, e.getMessage());
+            } catch (Exception ex) {
+                logger.log(Level.ERROR,ex.getMessage());
             }
         }
         return client;
@@ -27,7 +32,7 @@ public class ClientRepository {
 
     public Client getClientById(int id) {
         Client client = null;
-        ClientDAOImpl clientDAO = new ClientDAOImpl();
+        clientDAO = new ClientDAOImpl();
         try {
             client = clientDAO.getById(id);
         } catch (FailedDAOException e) {
@@ -38,7 +43,7 @@ public class ClientRepository {
 
     public List<Client> getAllClients() {
         List<Client> clients = null;
-        ClientDAOImpl clientDAO = new ClientDAOImpl();
+        clientDAO = new ClientDAOImpl();
         try {
             clients = clientDAO.getAll();
         } catch (FailedDAOException e) {
@@ -50,7 +55,7 @@ public class ClientRepository {
     public boolean updateClient(Client client){
         boolean success = false;
         if(client!=null){
-            ClientDAOImpl clientDAO = new ClientDAOImpl();
+            clientDAO = new ClientDAOImpl();
             try {
                success = clientDAO.update(client);
             } catch (FailedDAOException e) {
@@ -63,7 +68,7 @@ public class ClientRepository {
     public boolean saveClient(Client client){
         boolean success = false;
         if(client!=null){
-            ClientDAOImpl clientDAO = new ClientDAOImpl();
+            clientDAO = new ClientDAOImpl();
             try {
                 success = clientDAO.create(client);
             } catch (FailedDAOException e) {

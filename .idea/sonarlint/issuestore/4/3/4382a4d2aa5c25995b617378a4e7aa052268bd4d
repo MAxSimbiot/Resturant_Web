@@ -1,29 +1,29 @@
 
+h
+java:S1941-"FMove the declaration of "httpRequest" closer to the code that uses it.(—¢šÿÿÿÿÿ8¨§ÅĞ¼/
 K
 java:S2208
 ".Explicitly import the specific classes needed.(Î€ŒÙ8ŞÁ Ï¼/
-P
-java:S2208".Explicitly import the specific classes needed.(ßëÑºıÿÿÿÿ8«£îÎ¼/
-I
-java:S2325,"'Make "accessAllowed" a "static" method.(€ì¤õùÿÿÿÿ8¨§ÅĞ¼/
-h
-java:S1941-"FMove the declaration of "httpRequest" closer to the code that uses it.(—¢šÿÿÿÿÿ8¨§ÅĞ¼/
-<
-java:S1640"Convert this Map to an EnumMap.(åòäÒ8 Ï¼/
-=
-java:S2325B" Make "asList" a "static" method.(Ú»¸¿8¨§ÅĞ¼/
 X
 java:S2696"6Make the enclosing method "static" or remove this set.(º·ÛŒıÿÿÿÿ8´¯·Ï¼/
-p	java:S122E"TAt most one statement is allowed per line, but 2 statements were found on this line.(‹£ê‹8¨§ÅĞ¼/
-o
-java:S1142,"MReduce the number of returns of this method 5, down to the maximum allowed 3.(€ì¤õùÿÿÿÿ8¨§ÅĞ¼/
-g	java:S103 "KSplit this 152 characters long line (which is greater than 120 authorized).(Ø‰ºš8«£îÎ¼/
-{
-java:S2293C"YReplace the type specification in this constructor call with the diamond operator ("<>").(çâîÀıÿÿÿÿ8¨§ÅĞ¼/
 S
 java:S2696"6Make the enclosing method "static" or remove this set.(ÑºóÊ8Ğ¯‰Ï¼/
-
-java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŠÏÜ†8¨§ÅĞ¼/
+0	java:S121E"Missing curly brace.(‹£ê‹8¨§ÅĞ¼/
+=
+java:S2325B" Make "asList" a "static" method.(Ú»¸¿8¨§ÅĞ¼/
+I
+java:S2325,"'Make "accessAllowed" a "static" method.(€ì¤õùÿÿÿÿ8¨§ÅĞ¼/
+g	java:S103 "KSplit this 152 characters long line (which is greater than 120 authorized).(Ø‰ºš8«£îÎ¼/
+o
+java:S1142,"MReduce the number of returns of this method 5, down to the maximum allowed 3.(€ì¤õùÿÿÿÿ8¨§ÅĞ¼/
+<
+java:S1640"Convert this Map to an EnumMap.(åòäÒ8 Ï¼/
+{
+java:S2293C"YReplace the type specification in this constructor call with the diamond operator ("<>").(çâîÀıÿÿÿÿ8¨§ÅĞ¼/
+P
+java:S2208".Explicitly import the specific classes needed.(ßëÑºıÿÿÿÿ8«£îÎ¼/
 v
 java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(åòäÒ8…ÉéÎ¼/
-0	java:S121E"Missing curly brace.(‹£ê‹8¨§ÅĞ¼/
+p	java:S122E"TAt most one statement is allowed per line, but 2 statements were found on this line.(‹£ê‹8¨§ÅĞ¼/
+
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŠÏÜ†8¨§ÅĞ¼/

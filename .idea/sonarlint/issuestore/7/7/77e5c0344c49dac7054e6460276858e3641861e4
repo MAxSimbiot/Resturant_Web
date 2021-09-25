@@ -1,7 +1,7 @@
 
-5	java:S121H"Missing curly brace.(›î¦¿þÿÿÿÿ8÷é¾ç¹/
-5	java:S121G"Missing curly brace.(×æ©Êùÿÿÿÿ8÷é¾ç¹/
-u	java:S122H"TAt most one statement is allowed per line, but 2 statements were found on this line.(›î¦¿þÿÿÿÿ8÷é¾ç¹/
-b	java:S107"AConstructor has 9 parameters, which is greater than 7 authorized.(®ÕÄ¿ûÿÿÿÿ8ö·œç¹/
-u	java:S122G"TAt most one statement is allowed per line, but 2 statements were found on this line.(×æ©Êùÿÿÿÿ8÷é¾ç¹/
 l	java:S103"KSplit this 149 characters long line (which is greater than 120 authorized).(®ÕÄ¿ûÿÿÿÿ8ö·œç¹/
+u	java:S122H"TAt most one statement is allowed per line, but 2 statements were found on this line.(›î¦¿þÿÿÿÿ8÷é¾ç¹/
+u	java:S122G"TAt most one statement is allowed per line, but 2 statements were found on this line.(×æ©Êùÿÿÿÿ8÷é¾ç¹/
+5	java:S121G"Missing curly brace.(×æ©Êùÿÿÿÿ8÷é¾ç¹/
+b	java:S107"AConstructor has 9 parameters, which is greater than 7 authorized.(®ÕÄ¿ûÿÿÿÿ8ö·œç¹/
+5	java:S121H"Missing curly brace.(›î¦¿þÿÿÿÿ8÷é¾ç¹/

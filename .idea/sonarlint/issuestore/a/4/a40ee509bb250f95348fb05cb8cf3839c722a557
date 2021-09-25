@@ -1,11 +1,19 @@
 
-B
-java:S1166:"%Either log or rethrow this exception.(¨·‡ù8µÏ»ÎÀ/
+P
+java:S1128"3Remove this unused import 'dao.Impl.ClientDAOImpl'.( Ç­8ÑäêÀ/
+P
+java:S1128"3Remove this unused import 'org.apache.log4j.Level'.(Ùã¹¡8ÑäêÀ/
+\
+java:S1118":Add a private constructor to hide the implicit public one.(±”ú™ÿÿÿÿÿ8ÅˆÿêÀ/
+[
+java:S1128"9Remove this unused import 'exception.FailedDAOException'.(¬¨Şıüÿÿÿÿ8ÑäêÀ/
+…
+java:S1541"hThe Cyclomatic Complexity of this method "validateClientInfo" is 13 which is greater than 10 authorized.(”£¯ş8îŞÍÏÀ/
 \
 java:S1128":Remove this unused import 'command.commands.LoginCommand'.(÷éËëúÿÿÿÿ8µÏ»ÎÀ/
-`
-java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(¹ÏŸì8µÏ»ÎÀ/
-Š
-java:S1541"hThe Cyclomatic Complexity of this method "validateClientInfo" is 13 which is greater than 10 authorized.(Œ¼ì‹úÿÿÿÿ8îŞÍÏÀ/
 P
 java:S1128"3Remove this unused import 'constants.DAOConstants'.(‡ƒó„8è™ˆ¸¼/
+G
+java:S1068"*Remove this unused "logger" private field.(¹ÏŸì8ÑäêÀ/
+`
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(¹ÏŸì8µÏ»ÎÀ/

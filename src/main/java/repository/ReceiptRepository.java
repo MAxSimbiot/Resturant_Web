@@ -12,9 +12,11 @@ import java.util.List;
 public class ReceiptRepository {
     private static final Logger logger = LogManager.getLogger(ReceiptRepository.class);
 
+    private ReceiptDAOImpl receiptDAO;
+
     public Receipt getReceiptByAccountId(int accountId) {
         Receipt receipt = null;
-        ReceiptDAOImpl receiptDAO = new ReceiptDAOImpl();
+        receiptDAO = new ReceiptDAOImpl();
         try {
             receipt = receiptDAO.getReceiptByAccountId(accountId);
         } catch (FailedDAOException e) {
@@ -24,7 +26,7 @@ public class ReceiptRepository {
     }
     public List getAllReceipts(){
         List<Receipt> receipts = null;
-        ReceiptDAOImpl receiptDAO = new ReceiptDAOImpl();
+        receiptDAO = new ReceiptDAOImpl();
         try {
             receipts = receiptDAO.getAll();
         } catch (FailedDAOException e) {
@@ -34,7 +36,7 @@ public class ReceiptRepository {
     }
     public List<Receipt> getAllClientReceiptsByClientId(int clientId){
         List<Receipt> receipts = null;
-        ReceiptDAOImpl receiptDAO = new ReceiptDAOImpl();
+        receiptDAO = new ReceiptDAOImpl();
         try {
             receipts = receiptDAO.getAllClientReceiptsById(clientId);
         } catch (FailedDAOException e) {
@@ -45,7 +47,7 @@ public class ReceiptRepository {
 
     public boolean deleteReceiptById(int id){
         boolean success = false;
-        ReceiptDAOImpl receiptDAO = new ReceiptDAOImpl();
+        receiptDAO = new ReceiptDAOImpl();
         try {
             success = receiptDAO.delete(id);
         } catch (FailedDAOException e) {
@@ -57,7 +59,7 @@ public class ReceiptRepository {
     public boolean saveReceipt(Receipt receipt){
         boolean success = false;
         if(receipt!=null) {
-            ReceiptDAOImpl receiptDAO = new ReceiptDAOImpl();
+            receiptDAO = new ReceiptDAOImpl();
             try {
                 success = receiptDAO.create(receipt);
             } catch (FailedDAOException e) {

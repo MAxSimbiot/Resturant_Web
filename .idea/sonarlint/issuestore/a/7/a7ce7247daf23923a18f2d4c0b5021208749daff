@@ -1,8 +1,13 @@
 
-B
-java:S1166"%Either log or rethrow this exception.(¨·‡ù8¯á¤™À/
 K
-java:S2208".Explicitly import the specific classes needed.(Î€ŒÙ8¯á¤™À/
+java:S2208".Explicitly import the specific classes needed.(Î€ŒÙ8¯á¤™À/
+L
+java:S1068"*Remove this unused "logger" private field.(…Øèşÿÿÿÿ8Êô­ìÀ/
+P
+java:S1128"3Remove this unused import 'org.apache.log4j.Level'.(Ùã¹¡8Êô­ìÀ/
 e
-java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(…Øèşÿÿÿÿ8¯á¤™À/
-V	java:S126*";"if ... else if" constructs should end with "else" clauses.(®©€'8¯á¤™À/
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(…Øèşÿÿÿÿ8¯á¤™À/
+Q
+java:S1128"4Remove this unused import 'dao.Impl.ProductDAOImpl'.(ÚûÚÿ8¤‹­ìÀ/
+[
+java:S1128"9Remove this unused import 'exception.FailedDAOException'.(¬¨Şıüÿÿÿÿ8Êô­ìÀ/

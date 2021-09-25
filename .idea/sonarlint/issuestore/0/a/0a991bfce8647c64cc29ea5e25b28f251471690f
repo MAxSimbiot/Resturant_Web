@@ -1,19 +1,21 @@
 
-^
-java:S4551;"BUse "==" to perform this enum comparison instead of using "equals"(¸ˆ˜D8…Í‡—À/
-d
-java:S45518"BUse "==" to perform this enum comparison instead of using "equals"(ÞÎ‹ëûÿÿÿÿ8…Í‡—À/
-[
-java:S1128"9Remove this unused import 'exception.FailedDAOException'.(¬¨Þýüÿÿÿÿ8¶Ï»ÎÀ/
-d
-java:S45515"BUse "==" to perform this enum comparison instead of using "equals"(ºÇÖŽùÿÿÿÿ8…Í‡—À/
-`
-java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(°ÏˆÜ8…Í‡—À/
-o	java:S109G"SAssign this magic number 60 to a well-named constant, and use the constant instead.(áïÐì8…Í‡—À/
-o	java:S109G"SAssign this magic number 60 to a well-named constant, and use the constant instead.(áïÐì8…Í‡—À/
-G
-java:S23251"%Make "initSession" a "static" method.(í‡šŽýÿÿÿÿ8…Í‡—À/
 P
 java:S1128"3Remove this unused import 'dao.Impl.ClientDAOImpl'.( Ç­ž8¶Ï»ÎÀ/
 ^
-java:S2441I"<Make "Client" serializable or don't store it in the session.(ø´ûŒøÿÿÿÿ8…Í‡—À/
+java:S4551I"BUse "==" to perform this enum comparison instead of using "equals"(¸ˆ˜D8Ò¼ôêÀ/
+^
+java:S2441<"<Make "Client" serializable or don't store it in the session.(ø´ûŒøÿÿÿÿ8òöêÀ/
+`
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(°ÏˆÜ8…Í‡—À/
+d
+java:S4551F"BUse "==" to perform this enum comparison instead of using "equals"(ÞÎ‹ëûÿÿÿÿ8Ò¼ôêÀ/
+o	java:S109:"SAssign this magic number 60 to a well-named constant, and use the constant instead.(áïÐì8òöêÀ/
+o	java:S109:"SAssign this magic number 60 to a well-named constant, and use the constant instead.(áïÐì8òöêÀ/
+G
+java:S23253"%Make "initSession" a "static" method.(í‡šŽýÿÿÿÿ8âæ÷êÀ/
+T
+java:S1128"2Remove this unused import 'service.ClientService'.(ñÏØþÿÿÿÿ8¨ìäêÀ/
+[
+java:S1128"9Remove this unused import 'exception.FailedDAOException'.(¬¨Þýüÿÿÿÿ8¶Ï»ÎÀ/
+d
+java:S4551C"BUse "==" to perform this enum comparison instead of using "equals"(ºÇÖŽùÿÿÿÿ8Ò¼ôêÀ/
