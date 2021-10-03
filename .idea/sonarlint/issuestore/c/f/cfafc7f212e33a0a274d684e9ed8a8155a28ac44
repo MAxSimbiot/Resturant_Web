@@ -1,28 +1,31 @@
 
-P
-java:S2325±"-Make "initCreateStatement" a "static" method.(´òå¦úÿÿÿÿ8‚éÉ”À/
-t	java:S109"RAssign this magic number 2 to a well-named constant, and use the constant instead.( Å§Äıÿÿÿÿ8‚éÉ”À/
-j	java:S881³"HExtract this increment or decrement operator into a dedicated statement.(ÓêëÂûÿÿÿÿ8‚éÉ”À/
-K
-java:S2325º"-Make "initUpdateStatement" a "static" method.(®Íêõ8‚éÉ”À/
 G
-java:S2325Ã"$Make "initClient" a "static" method.(Û·ßÈùÿÿÿÿ8‚éÉ”À/
-j	java:S881´"HExtract this increment or decrement operator into a dedicated statement.(Ÿ”ºÈûÿÿÿÿ8‚éÉ”À/
-j	java:S881¼"HExtract this increment or decrement operator into a dedicated statement.(ÓêëÂûÿÿÿÿ8‚éÉ”À/
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Òğ”‘øÿÿÿÿ8‚éÉ”À/
-K
-java:S2208".Explicitly import the specific classes needed.(´İ…Å8‚éÉ”À/
-e	java:S881µ"HExtract this increment or decrement operator into a dedicated statement.(†éšÈ8‚éÉ”À/
-e	java:S881¾"HExtract this increment or decrement operator into a dedicated statement.(†éšÈ8‚éÉ”À/
-e
-java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(¾î¬—üÿÿÿÿ8‚éÉ”À/
-q
-java:S2095}"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(âÄÃúÿÿÿÿ8‚éÉ”À/
-j	java:S881½"HExtract this increment or decrement operator into a dedicated statement.(Ÿ”ºÈûÿÿÿÿ8‚éÉ”À/
-j	java:S881¿"HExtract this increment or decrement operator into a dedicated statement.(’»Ûøùÿÿÿÿ8ºôĞÀ/
-j
-java:S2095™"GUse try-with-resources or close this "Statement" in a "finally" clause.(é°Áµşÿÿÿÿ8‚éÉ”À/
-t	java:S109·"RAssign this magic number 2 to a well-named constant, and use the constant instead.(ŸŸªûÿÿÿÿ8‚éÉ”À/
-j	java:S881¶"HExtract this increment or decrement operator into a dedicated statement.(’»Ûøùÿÿÿÿ8‚éÉ”À/
+java:S2325Í"$Make "initClient" a "static" method.(Û·ßÈùÿÿÿÿ8‚éÉ”À/
+j	java:S881À"HExtract this increment or decrement operator into a dedicated statement.(’»Ûøùÿÿÿÿ8‚éÉ”À/
 r
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(‘¸‹áşÿÿÿÿ8‚éÉ”À/
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(âÄÃúÿÿÿÿ8‚éÉ”À/
+K
+java:S2325Ä"-Make "initUpdateStatement" a "static" method.(£¿8‚éÉ”À/
+e	java:S881¿"HExtract this increment or decrement operator into a dedicated statement.(†éšÈ8‚éÉ”À/
+K
+java:S2325»"-Make "initCreateStatement" a "static" method.(µ©âÆ8‚éÉ”À/
+K
+java:S2208".Explicitly import the specific classes needed.(´İ…Å8‚éÉ”À/
+r
+java:S2095‘"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(éà‰‡şÿÿÿÿ8ÔğİäÁ/
+c
+java:S1068"ARemove this unused "FIND_CLIENT_BY_LOGIN_PASSWORD" private field.(Õì‚Ñÿÿÿÿÿ8¹äÁ/
+C
+java:S1166š"%Either log or rethrow this exception.(”ı¾8˜«ĞäÁ/
+j	java:S881Æ"HExtract this increment or decrement operator into a dedicated statement.(ÓêëÂûÿÿÿÿ8‚éÉ”À/
+e	java:S881Ç"HExtract this increment or decrement operator into a dedicated statement.( ¢À±8‚éÉ”À/
+j
+java:S2095£"GUse try-with-resources or close this "Statement" in a "finally" clause.(é°Áµşÿÿÿÿ8‚éÉ”À/
+t	java:S109Á"RAssign this magic number 2 to a well-named constant, and use the constant instead.(ŸŸªûÿÿÿÿ8‚éÉ”À/
+j	java:S881½"HExtract this increment or decrement operator into a dedicated statement.(ÓêëÂûÿÿÿÿ8‚éÉ”À/
+e
+java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(¾î¬—üÿÿÿÿ8‚éÉ”À/
+e	java:S881¾"HExtract this increment or decrement operator into a dedicated statement.( ¢À±8‚éÉ”À/
+j	java:S881É"HExtract this increment or decrement operator into a dedicated statement.(’»Ûøùÿÿÿÿ8ºôĞÀ/
+e	java:S881È"HExtract this increment or decrement operator into a dedicated statement.(†éšÈ8‚éÉ”À/
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Òğ”‘øÿÿÿÿ8‚éÉ”À/

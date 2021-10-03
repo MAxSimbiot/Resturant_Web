@@ -13,23 +13,11 @@
     <title>ResturantWeb</title>
     <!-- Bootstrap core CSS -->
     <link href="../../css/editor.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-    <script type="javascript">$(document).ready(function () {
-        $('.categoryBtn').click(function () {
-            $('.categoryBtn.active').removeClass("active");
-            $(this).addClass("active");
-        })
-    });</script>
-    <style type="text/css">
-        .active {
-            background-color: #59B2E0;
-        }
-    </style>
 </head>
 <body>
 <header>
@@ -162,28 +150,11 @@
                         <button class="btn btn-outline-primary" name="search" type="submit"><fmt:message
                                 key="main.page.search"/></button>
                     </div>
+                    <input type="hidden" name="searchQuery" value="${searchQuery}"/>
+                    <input type="hidden" name="sortPrice" value="${sortPrice}"/>
                     <input type="hidden" name="command" value="mainPage"/>
                 </div>
             </form>
-            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                        --------
-                        <c:if test="${added}">
-                            <fmt:message key="main.page.added"/>
-                        </c:if>
-                        <c:if test="${!added}">
-                            Error
-                        </c:if>
-                    </div>
-                </div>
-            </div>
-            <div class="jumbotron text-center">
-                <c:if test="${added}">
-                    <h2 style="color: darkseagreen"><fmt:message key="main.page.added"/></h2>
-                </c:if>
-            </div>
             <div class="row">
                 <c:choose>
                     <c:when test="${(products!=null)&&(products.size()>0)}">
@@ -202,9 +173,7 @@
                                             <div class="btn-group">
                                                 <form action="MainServlet" method="post">
                                                     <button type="submit" name="productId" value="${product.id}"
-
-                                                            class="btn btn-sm btn-outline-secondary"
-                                                    >
+                                                            class="btn btn-sm btn-outline-secondary">
                                                         <fmt:message key="main.page.add.to.cart"/>
                                                     </button>
                                                     <input type="hidden" data-toggle="modal"
@@ -222,26 +191,29 @@
                         <fmt:message key="main.page.no.products"/>
                     </c:otherwise>
                 </c:choose>
-
             </div>
         </div>
     </div>
-    <nav aria-label="Page navigation example" style="float: right;">
-        <form action="MainServlet" method="get">
+    <nav class="d-flex justify-content-center mt-4">
+        <form action="MainServlet" method="post">
             <ul class="pagination">
                 <li class="page-item">
-                    <button type="submit" name="page" value="1" class="btn btn-outline-primary"/>
-                    1
+                    <button type="submit" name="page" value="prev" class="btn btn-outline-primary"/>
+                    <
                 </li>
                 <li class="page-item">
-                    <button type="submit" name="page" value="2" class="btn btn-outline-primary"/>
-                    2
+                    <button type="submit" name="pageNumber" value="${pageNumber}" class="btn btn-outline-primary"/>
+                    ${pageNumber}
                 </li>
                 <li class="page-item">
-                    <button type="submit" name="page" value="3" class="btn btn-outline-primary"/>
-                    3
+                    <button type="submit" name="page" value="next" class="btn btn-outline-primary"/>
+                    >
                 </li>
             </ul>
+            <input type="hidden" name="pageNumber" value="${pageNumber}"/>
+            <input type="hidden" name="searchQuery" value="${searchQuery}"/>
+            <input type="hidden" name="sortPrice" value="${sortPrice}"/>
+            <input type="hidden" name="command" value="mainPage"/>
         </form>
     </nav>
     </div>
