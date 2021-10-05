@@ -24,14 +24,14 @@ public class ErrorCommandTest {
 
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         request = mock(HttpServletRequest.class);
         response = mock(HttpServletResponse.class);
         errorCommand = new ErrorCommand();
     }
 
     @Test
-    public void goToLoginTest() throws FailedDAOException {
+    public void goToLoginTest() {
         map = errorCommand.execute(request, response);
         Assert.assertEquals(map.get("page"), (PageConstants.ERROR_PAGE));
         Assert.assertNotNull(map.get("errorMessage"));

@@ -27,7 +27,7 @@ public class CartCommand implements Command {
             logged = (Boolean) o;
         }
         if (logged) {
-            Client client = (Client) request.getSession().getAttribute("client");
+            final  Client client = (Client) request.getSession().getAttribute("client");
             int clientId = client.getId();
             ReceiptRepository repository = new ReceiptRepository();
             Receipt receipt = repository.getReceiptByAccountId(clientId);

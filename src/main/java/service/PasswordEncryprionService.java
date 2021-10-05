@@ -5,8 +5,8 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.security.SecureRandom;
 
-import dao.Impl.ClientDAOImpl;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 public class PasswordEncryprionService {
@@ -31,8 +31,9 @@ public class PasswordEncryprionService {
     public static boolean check(String password, String stored) throws Exception{
         String[] saltAndPass = stored.split("\\$");
         if (saltAndPass.length != 2) {
+            logger.log(Level.INFO,"The stored should password have the form 'salt$hash' > " + password);
             throw new IllegalStateException(
-                    "The stored password have the form 'salt$hash'");
+                    "The stored should password have the form 'salt$hash'");
         }
         String hashOfInput = hash(password, Base64.decodeBase64(saltAndPass[0]));
         return hashOfInput.equals(saltAndPass[1]);

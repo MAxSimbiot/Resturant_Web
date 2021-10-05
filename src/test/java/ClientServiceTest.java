@@ -1,65 +1,67 @@
+
 import org.junit.Assert;
 import org.junit.Test;
 import service.ClientService;
-
 import java.util.Map;
+
 
 public class ClientServiceTest {
 
+    String name;
+    String login;
+    String password;
+    String rePassword;
+    String phone;
 
     @Test
     public void testPhoneValidation() {
-        String name = "Bjorg";
-        String login = "bobro1385";
-        String password = "123lolo";
-        String rePassword= "123lolo";
-        String phone= "+380997644531";
+        name = "Bjorg";
+        login = "bobro1385";
+        password = "123lolo";
+        rePassword= "123lolo";
+        phone= "+380997644531";
 
         Map<String,Object> map;
-        ClientService cs = new ClientService();
-        map = cs.validateClientInfo(login,password,rePassword,name,phone);
+        map = ClientService.validateClientInfo(login,password,rePassword,name,phone);
         Assert.assertTrue(map.containsKey("validated"));
     }
 
     @Test
     public void testPhoneValidationBadPassword() {
-        String name = "Bjorg";
-        String login = "bobro1385";
-        String password = "123lo";
-        String rePassword= "123lo";
-        String phone= "+380997644531";
+        name = "Bjorg";
+        login = "bobro1385";
+        password = "123lo";
+        rePassword= "123lo";
+        phone= "+380997644531";
 
         Map<String,Object> map;
-        ClientService cs = new ClientService();
-        map = cs.validateClientInfo(login,password,rePassword,name,phone);
-        Assert.assertTrue(map.get("badPass").equals(true));
+        map = ClientService.validateClientInfo(login,password,rePassword,name,phone);
+        Assert.assertEquals(true, map.get("badPass"));
     }
 
     @Test
     public void testPhoneValidationPasswordsDontMatch() {
-        String name = "Bjorg";
-        String login = "bobro1385";
-        String password = "123lolo";
-        String rePassword= "123lola";
-        String phone= "+380997644531";
+        name = "Bjorg";
+        login = "bobro1385";
+        password = "123lolo";
+        rePassword= "123lola";
+        phone= "+380997644531";
 
         Map<String,Object> map;
-        ClientService cs = new ClientService();
-        map = cs.validateClientInfo(login,password,rePassword,name,phone);
-        Assert.assertTrue(map.get("diffPass").equals(true));
+        map = ClientService.validateClientInfo(login,password,rePassword,name,phone);
+        Assert.assertEquals(true, map.get("diffPass"));
     }
 
     @Test
     public void testPhoneValidationName() {
-        String name = "Bulbock";
-        String login = "bobro1385";
-        String password = "123lolo";
-        String rePassword= "123lolo";
-        String phone= "+380997644531";
+        name = "Bulbock";
+        login = "bobro1385";
+        password = "123lolo";
+        rePassword= "123lolo";
+        phone= "+380997644531";
 
         Map<String,Object> map;
-        ClientService cs = new ClientService();
-        map = cs.validateClientInfo(login,password,rePassword,name,phone);
-        Assert.assertTrue(map.get("validated").equals(true));
+        map = ClientService.validateClientInfo(login,password,rePassword,name,phone);
+        Assert.assertEquals(true, map.get("validated"));
     }
 }

@@ -3,6 +3,8 @@ package constants;
 public final class DAOConstants {
 
     public static final String CLIENT = "client";
+    public static final String ADMIN = "admin";
+    public static final String MANAGER = "manager";
     public static final String ID = "id";
     public static final String LOGIN = "login";
     public static final String PASSWORD = "password";
@@ -12,6 +14,7 @@ public final class DAOConstants {
     public static final String REG_DATE = "reg_date";
     public static final String TOTAL_SPENT = "total_spent";
     public static final String ROLE_ID = "role_id";
+    public static final String ROLE = "role";
 
     public static final String DESCRIPTION = "description";
     public static final String PRICE = "price";

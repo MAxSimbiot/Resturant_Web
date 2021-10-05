@@ -1,5 +1,6 @@
 package filter;
 
+import constants.DAOConstants;
 import constants.PageConstants;
 import entity.Role;
 
@@ -18,11 +19,12 @@ public class CommandAccessFilter implements Filter {
     private static List<String> noControl = new ArrayList<>();
 
 
+
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        accessMap.put(Role.CLIENT,asList(filterConfig.getInitParameter("client")));
-        accessMap.put(Role.ADMIN,asList(filterConfig.getInitParameter("admin")));
-        accessMap.put(Role.MANAGER,asList(filterConfig.getInitParameter("manager")));
+    public void init(FilterConfig filterConfig) {
+        accessMap.put(Role.CLIENT,asList(filterConfig.getInitParameter(DAOConstants.CLIENT)));
+        accessMap.put(Role.ADMIN,asList(filterConfig.getInitParameter(DAOConstants.ADMIN)));
+        accessMap.put(Role.MANAGER,asList(filterConfig.getInitParameter(DAOConstants.MANAGER)));
         noControl = asList(filterConfig.getInitParameter("noControl"));
         common = asList(filterConfig.getInitParameter("common"));
     }
@@ -55,7 +57,7 @@ public class CommandAccessFilter implements Filter {
         if(session == null){
             return false;
         }
-        String role = session.getAttribute("role").toString().trim();
+        String role = session.getAttribute(DAOConstants.ROLE).toString().trim();
         Role userRole = Role.valueOf(role);
         if(userRole == null){
             return false;

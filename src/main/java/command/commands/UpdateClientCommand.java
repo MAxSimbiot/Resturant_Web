@@ -17,9 +17,10 @@ import java.util.Map;
 
 public class UpdateClientCommand implements Command {
     private static final Logger logger = Logger.getLogger(UpdateClientCommand.class);
+
     @Override
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
-        Map<String,Object> map = new HashMap<>();
+        Map<String, Object> map;
         final int id = Integer.parseInt(request.getParameter("id"));
         final String login = request.getParameter("login");
         final String name = request.getParameter("name");
@@ -28,34 +29,28 @@ public class UpdateClientCommand implements Command {
         final String phone = request.getParameter("phone");
         ClientRepository clientRepository = new ClientRepository();
         boolean success = false;
-         map = ClientService.validateClientInfo(login, password, repPassword, name, phone);
+        map = ClientService.validateClientInfo(login, password, repPassword, name, phone);
 
         if (map.containsKey("validated")) {
-            ClientDAOImpl clientDAO = new ClientDAOImpl();
             map = new HashMap<>();
-            Client c = ClientService.initClient(id,login, password, name, phone);
-            try {
-                success = clientDAO.update(c);
-            } catch (FailedDAOException e) {
-                map.put("errorMsg", true);
-                logger.log(Level.ERROR,e);
-            }
+            Client c = ClientService.initClient(id, login, password, name, phone);
+            success = clientRepository.updateClient(c);
         }
-        if(success){
-            map.put("updateSuccessMsg",true);
-            Client client = clientRepository.getClientByLoginPassword(login,password);
+        if (success) {
+            map.put("updateSuccessMsg", true);
+            Client client = clientRepository.getClientByLoginPassword(login, password);
             request.getSession().setAttribute(DAOConstants.CLIENT, client);
-            System.out.println(request.getSession().getAttribute(DAOConstants.CLIENT));
-        }else{
+        } else {
             map.put("updateErrorMsg", true);
+            map.put("errorMsg", true);
         }
-        Object o = request.getSession().getAttribute("previousRequest");
-        String previous = null;
-        if(o!=null){
-            previous = o.toString();
-            map.put(PageConstants.PAGE,previous);
-        }else{
-            map.put(PageConstants.PAGE,PageConstants.COMMAND_CLIENT_PAGE);
+        Object prev = request.getSession().getAttribute("previousRequest");
+        String previous;
+        if (prev != null) {
+            previous = prev.toString();
+            map.put(PageConstants.PAGE, previous);
+        } else {
+            map.put(PageConstants.PAGE, PageConstants.COMMAND_CLIENT_PAGE);
         }
         return map;
     }

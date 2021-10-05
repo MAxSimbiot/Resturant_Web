@@ -18,7 +18,7 @@ public class MakeOrderCommand implements Command {
     @Override
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> map = new HashMap<>();
-        String id = request.getParameter("receiptId");
+        final String id = request.getParameter("receiptId");
         int receiptId;
         boolean success = false;
         if (id != null) {

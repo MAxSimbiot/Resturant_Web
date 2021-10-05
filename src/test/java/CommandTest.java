@@ -46,7 +46,7 @@ public class CommandTest {
     }
 
     @Test
-    public void loginTest() throws FailedDAOException, SQLException {
+    public void loginTest() {
         Map<String,Object> map = loginCommand.execute(request,response);
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             System.out.println(entry.getKey() + ":" + entry.getValue().toString());

@@ -1,27 +1,27 @@
 
 J
-java:S1199>"-Extract this nested code block into a method.(«´›Í8 ŸÕ¯Ä/
-L
-java:S1068"*Remove this unused "logger" private field.(…Øèşÿÿÿÿ8Êô­ìÀ/
-P
-java:S1128"3Remove this unused import 'org.apache.log4j.Level'.(Ùã¹¡8Êô­ìÀ/
-z
-java:S1541"]The Cyclomatic Complexity of this method "execute" is 14 which is greater than 10 authorized.(Å•ñ8«İĞ¯Ä/
+java:S1199>"-Extract this nested code block into a method.(Öø›œ8×ıÕ¯Ä/
 e
 java:S1312"CRename the "logger" logger to comply with the format "LOG(?:GER)?".(…Øèşÿÿÿÿ8¯á¤™À/
-o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Å•ñ8ãƒÜ°Ä/
-|
-java:S4174 "ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‘¿µÉûÿÿÿÿ8ÄéË¯Ä/
-Q
-java:S1128"4Remove this unused import 'dao.Impl.ProductDAOImpl'.(ÚûÚÿ8¤‹­ìÀ/
-|
-java:S4174!"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(“ÏÚóúÿÿÿÿ8áı¯Ä/
 [
 java:S1128"9Remove this unused import 'exception.FailedDAOException'.(¬¨Şıüÿÿÿÿ8Êô­ìÀ/
 K
 java:S2208".Explicitly import the specific classes needed.(Î€ŒÙ8¯á¤™À/
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Å•ñ8¨Û±Ä/
+z
+java:S1541"]The Cyclomatic Complexity of this method "execute" is 15 which is greater than 10 authorized.(Å•ñ8«İĞ¯Ä/
+w
+java:S4174 "ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¹ôÆ8ÄéË¯Ä/
+|
+java:S4174!"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(“ÏÚóúÿÿÿÿ8áı¯Ä/
+L
+java:S1068"*Remove this unused "logger" private field.(…Øèşÿÿÿÿ8Êô­ìÀ/
 O
-java:S1199F"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8Ïê×¯Ä/
+java:S1199B"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8Ïê×¯Ä/
+Q
+java:S1128"4Remove this unused import 'dao.Impl.ProductDAOImpl'.(ÚûÚÿ8¤‹­ìÀ/
+P
+java:S1128"3Remove this unused import 'org.apache.log4j.Level'.(Ùã¹¡8Êô­ìÀ/
 J
-java:S1199B"-Extract this nested code block into a method.(Öø›œ8×ıÕ¯Ä/
+java:S1199:"-Extract this nested code block into a method.(«´›Í8 ŸÕ¯Ä/

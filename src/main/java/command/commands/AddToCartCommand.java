@@ -1,5 +1,6 @@
 package command.commands;
 
+import constants.DAOConstants;
 import constants.PageConstants;
 import entity.Client;
 import entity.Receipt;
@@ -27,7 +28,7 @@ public class AddToCartCommand implements Command {
             logged = (Boolean) log;
         }
         if (logged) {
-            Client client = (Client) request.getSession().getAttribute("client");
+            final Client client = (Client) request.getSession().getAttribute(DAOConstants.CLIENT);
             int clientId = client.getId();
             ReceiptRepository repository = new ReceiptRepository();
             Receipt receipt = repository.getReceiptByAccountId(clientId);

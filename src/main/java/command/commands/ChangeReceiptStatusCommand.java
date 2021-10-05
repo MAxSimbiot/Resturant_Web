@@ -18,8 +18,8 @@ public class ChangeReceiptStatusCommand implements Command {
     @Override
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> map = new HashMap<>();
-        int statusId = Integer.parseInt(request.getParameter("statusId"));
-        int receiptId = Integer.parseInt(request.getParameter("receiptId"));
+        final int statusId = Integer.parseInt(request.getParameter("statusId"));
+        final int receiptId = Integer.parseInt(request.getParameter("receiptId"));
         ReceiptService receiptService = new ReceiptService();
         boolean success = receiptService.updateReceiptStatusById(statusId, receiptId);
 

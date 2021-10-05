@@ -9,13 +9,16 @@ import java.util.stream.Collectors;
 
 public class ProductService {
 
+    private static final String CHEAP = "cheap";
+    private static final String EXPENSIVE = "expensive";
+
     public static List<Product> sortPrice(List<Product> products, String sortPrice) {
         if (!products.isEmpty() && !sortPrice.isEmpty()) {
-            if (sortPrice.equals("cheap")) {
+            if (sortPrice.equals(CHEAP)) {
                 products = products.stream()
                         .sorted(Comparator.comparingInt(Product::getPrice))
                         .collect(Collectors.toList());
-            } else if (sortPrice.equals("expensive")) {
+            } else if (sortPrice.equals(EXPENSIVE)) {
                 products = products.stream()
                         .sorted(Comparator.comparingInt(Product::getPrice).reversed())
                         .collect(Collectors.toList());

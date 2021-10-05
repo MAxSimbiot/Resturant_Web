@@ -19,14 +19,14 @@ public class DeleteFromCartCommand implements Command {
     @Override
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> map = new HashMap<>();
-        String pId = request.getParameter("productId");
+        final String pId = request.getParameter("productId");
         int productId = 0;
         if (pId != null) {
             productId = Integer.parseInt(pId);
         }
 
         int receiptid = 0;
-        String rId = request.getParameter("receiptId");
+        final String rId = request.getParameter("receiptId");
         if (rId != null) {
             receiptid = Integer.parseInt(rId);
         }

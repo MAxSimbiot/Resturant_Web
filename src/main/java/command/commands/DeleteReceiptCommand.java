@@ -20,7 +20,7 @@ public class DeleteReceiptCommand implements Command {
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> map = new HashMap<>();
         map.put(PageConstants.PAGE, PageConstants.COMMAND_CART);
-        String id = request.getParameter("receiptId");
+        final String id = request.getParameter("receiptId");
         int receiptId;
         if (id != null) {
             receiptId = Integer.parseInt(id);

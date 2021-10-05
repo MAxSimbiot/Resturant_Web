@@ -17,7 +17,7 @@ public class GoToCabinetCommand implements Command {
     @Override
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> map = new HashMap();
-        Client client = (Client) request.getSession().getAttribute("client");
+        final Client client = (Client) request.getSession().getAttribute("client");
         int clientId = client.getId();
         ReceiptRepository repository = new ReceiptRepository();
         List<Receipt> clientReceipts = repository.getAllClientReceiptsByClientId(clientId);
